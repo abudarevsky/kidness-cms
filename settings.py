@@ -22,11 +22,11 @@ DATABASE_PORT = ''             # Set to empty string for default. Not used with 
 # although not all choices may be available on all operating systems.
 # If running in a Windows environment this must be set to the same as your
 # system time zone.
-TIME_ZONE = 'Europe/Berlin'
+TIME_ZONE = 'Europe/Moscow'
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
-LANGUAGE_CODE = 'en'
+LANGUAGE_CODE = 'ru'
 SITE_ID = 1
 
 # If you set this to False, Django will make some optimizations so as not
@@ -120,9 +120,9 @@ EMAIL_HOST_PASSWORD = ""
 PAGINATION_DEFAULT_PAGINATION = 5
 PAGINATION_DEFAULT_WINDOW = 1
 
-LANGUAGES = (("en", u"English"), ("de", u"German"))
+LANGUAGES = (("en", u"English"), ("ru", u"Russian"))
 LFC_MULTILANGUAGE = len(LANGUAGES) > 1
-LFC_MANAGE_WORKFLOWS = True
+LFC_MANAGE_WORKFLOWS = False
 LFC_MANAGE_PERMISSIONS = True
 LFC_MANAGE_APPLICATIONS = True
 LFC_MANAGE_USERS = True
