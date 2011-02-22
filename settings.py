@@ -92,7 +92,8 @@ INSTALLED_APPS = (
     "pagination",
     "workflows",
     "permissions",
-    "lfc_blog",
+    "lfc_news",
+    "lfc_events"
 )
 
 CACHE_BACKEND = 'dummy:///'

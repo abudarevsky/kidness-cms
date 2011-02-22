@@ -1,0 +1,56 @@
+{% load i18n %}
+{% load tagging_tags %}
+
+{% if entries %}
+    <div class="portlet blog-portlet">
+        <div class="blog-entries">
+            <div class="portlet-header">
+                {{ title }}
+            </div>
+            <ul class="portlet-body">
+                {% for page in entries %}
+                    <li class="portlet-item">
+                        <a href="{{ page.get_absolute_url }}">
+                            {{ page.title }}
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+		{% if years %}
+        <div class="blog-archive">
+            <div class="portlet-header">
+                {% trans 'Archive' %}
+            </div>        
+            {% for year in years %}
+                <ul>
+                    <li>{{ year.year }}
+                    <ul class="portlet-body">
+                        {% for month in year.months %}
+                            <li class="portlet-item">
+                                <a href="{{ page.get_absolute_url }}/archive/{{ month.number }}/{{ year.year }}">{{ month.name }} ({{ month.amount }})</a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                    </li>
+                </ul>
+            {% endfor %}
+        </div>
+		{% endif %}
+        {% if cloud %}
+            <div class="blog-tag-cloud">
+                <div class="portlet-header">
+                    {% trans 'Topics' %}
+                </div>
+                <div class="portlet-body tag-cloud">
+                    <div class="portlet-item">
+                        {% for tag in cloud %}
+                            <a href="{{ page.get_absolute_url }}/tag/{{ tag.name }}" style="font-size:1{{ tag.font_size }}px">
+                                {{ tag }}</a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+{% endif %}

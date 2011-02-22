@@ -24,7 +24,7 @@ urlpatterns = patterns('',
 
 # LFC Blog
 urlpatterns += patterns("",
-    (r'', include('lfc_blog.urls')),
+    (r'', include('lfc_news.urls')),
 )
 
 # LFC
