@@ -54,13 +54,6 @@
                 {% endifequal %}
             </div>
 
-            {% if sub_obj.image %}
-                <img class="left"
-                     src="{{ sub_obj.image.image.url_200x200 }}"
-                     alt="{{ sub_obj.image.image.title }}"
-                     title="{{ sub_obj.image.image.title }}" />
-            {% endif %}
-
             <div>
                 {{sub_obj.text|safe}}
             </div>

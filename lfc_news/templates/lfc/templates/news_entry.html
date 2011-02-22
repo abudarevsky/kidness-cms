@@ -39,16 +39,6 @@
     </div>
 
     <div class="blog-entry">
-        {% if lfc_context.get_image %}
-            <a href="{{ lfc_context.get_image.image.url_600x600 }}"
-               class="photo-image"
-               title="{{ lfc_context.get_image.title }}">
-                <img class="left"
-                     src="{{ lfc_context.get_image.image.url_200x200 }}"
-                     alt="{{ lfc_context.get_image.image.title }}"
-                     title="{{ lfc_context.get_image.image.title }}" />
-            </a>
-        {% endif %}
         <div>
             {{ lfc_context.text|safe }}
         </div>

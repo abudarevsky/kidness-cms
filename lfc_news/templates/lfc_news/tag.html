@@ -43,13 +43,6 @@
 
             </div>
 
-            {% if entry.get_image %}
-                <img class="left"
-                     src="{{ entry.get_image.image.url_200x200 }}"
-                     alt="{{ entry.get_image.image.title }}"
-                     title="{{ entry.get_image.image.title }}" />
-            {% endif %}
-
             <div>
                 {{entry.text|safe}}
             </div>

@@ -106,7 +106,7 @@ class NewsPortlet(Portlet):
             obj = obj.parent
         
         now = datetime.datetime.now()
-        entries = NewsEntry.objects.order_by('-modification_date').get_content_objects()[:self.limit]
+        entries = NewsEntry.objects.order_by('-creation_date').get_content_objects()[:self.limit]
 #        entries = obj.get_children(request)[:self.limit]
 
         years = []
