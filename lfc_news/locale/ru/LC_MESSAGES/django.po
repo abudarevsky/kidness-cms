@@ -1,0 +1,111 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-02-22 02:49+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+
+#: __init__.py:21 models.py:29
+msgid "News feed"
+msgstr "Лента новостей"
+
+#: models.py:26 models.py:51
+msgid "Text"
+msgstr "Текст"
+
+#: models.py:30
+#, fuzzy
+msgid "News feeds"
+msgstr "Лента новостей"
+
+#: models.py:54
+#, fuzzy
+msgid "News entry"
+msgstr "Лента новостей"
+
+#: models.py:55
+#, fuzzy
+msgid "News entries"
+msgstr "Лента новостей"
+
+#: models.py:78
+#, fuzzy
+msgid "Show archive"
+msgstr "Показывать устаревшие"
+
+#: models.py:78
+msgid "Say Yes if you want show archived entries in the portlet"
+msgstr "Если включено, устаревшие записи будут отображаться"
+
+#: models.py:79
+msgid "Show topics"
+msgstr "Показывать тэги"
+
+#: models.py:79
+msgid "Say Yes if you want show topics in the portlet"
+msgstr "Если включено, тэги будут отображаться"
+
+#: views.py:44
+msgid "tagged_object_list must be called with a tag."
+msgstr ""
+
+#: views.py:49
+#, python-format
+msgid "No Tag found matching \"%s\"."
+msgstr "Тэга \"%s\" не найдено."
+
+#: templates/lfc/templates/news.html:30
+#: templates/lfc/templates/news_entry.html:14
+#: templates/lfc_news/archive.html:19 templates/lfc_news/tag.html:18
+msgid "Posted on"
+msgstr "Опубликовано"
+
+#: templates/lfc/templates/news.html:32
+#: templates/lfc/templates/news_entry.html:16
+#: templates/lfc_news/archive.html:21 templates/lfc_news/tag.html:20
+msgid "by"
+msgstr " "
+
+#: templates/lfc/templates/news.html:41
+#: templates/lfc/templates/news_entry.html:25
+#: templates/lfc_news/archive.html:30 templates/lfc_news/tag.html:29
+msgid "within"
+msgstr "в"
+
+#: templates/lfc/templates/news.html:51
+#: templates/lfc/templates/news_entry.html:35
+#: templates/lfc_news/archive.html:40 templates/lfc_news/tag.html:39
+msgid "One comment"
+msgstr "Один комментарий"
+
+#: templates/lfc/templates/news.html:53
+#: templates/lfc/templates/news_entry.html:37
+#: templates/lfc_news/archive.html:42 templates/lfc_news/tag.html:41
+msgid "comments"
+msgstr "комментариев"
+
+#: templates/lfc_news/archive.html:10 templates/lfc_news/tag.html:10
+msgid "Entries for"
+msgstr "Записи для"
+
+#: templates/lfc_news/news_portlet.html:23
+msgid "Archive"
+msgstr "Устаревшие"
+
+#: templates/lfc_news/news_portlet.html:43
+msgid "Topics"
+msgstr "Тэги"
