@@ -1,0 +1,40 @@
+{% load comments i18n %}
+<div class="comment-form">
+
+    <form action="{% comment_form_target %}"
+          method="post">
+
+      {% for field in form %}
+          {% if field.is_hidden %}
+              {{ field }}
+          {% else %}
+
+              <div class="field"
+                  {% ifequal field.name "honeypot" %} style="display:none;"{% endifequal %}>
+                  <div class="label">
+                      {{ field.label_tag }}{% ifequal field.name "email" %} {% trans '(will not be published)' %}{% endifequal %}:
+                  </div>
+                  {% if field.errors %}
+                      <div class="error">
+                          {{ field.errors }}
+                          {{ field }}
+                      </div>
+                  {% else %}
+                      <div>
+                          {{ field }}
+                      </div>
+                  {% endif %}
+              </div>
+
+          {% endif %}
+      {% endfor %}
+
+        <input type="hidden"
+               name="next"
+               value="{{ lfc_context.get_absolute_url }}" />
+
+        <p class="submit">
+          <input type="submit" name="post" class="submit-post" value="{% trans "Post" %}" />
+        </p>
+    </form>
+</div>

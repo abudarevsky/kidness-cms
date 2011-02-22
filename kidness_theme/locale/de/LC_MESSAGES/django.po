@@ -1,0 +1,218 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-07-11 11:18+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: templates/404.html:7
+msgid "Sorry"
+msgstr "Entschuldigung"
+
+#: templates/404.html:8
+msgid "The page you have requested can't be found!"
+msgstr "Die Seite, die Sie angefordert haben konnte nicht gefunden werden."
+
+#: templates/comments/comments.html:9
+msgid "Comments"
+msgstr "Kommentare"
+
+#: templates/comments/comments.html:32
+msgid "Leave a comment"
+msgstr "Kommentieren"
+
+#: templates/comments/form.html:15 templates/comments/preview.html:25
+msgid "(will not be published)"
+msgstr "(wird nicht veröffentlicht)"
+
+#: templates/comments/form.html:37 templates/comments/preview.html:44
+msgid "Post"
+msgstr "Absenden"
+
+#: templates/comments/posted.html:4
+msgid "Thanks for commenting"
+msgstr "Vielen danke für Ihr Kommentar"
+
+#: templates/comments/posted.html:7
+msgid "Thank you for your comment"
+msgstr "Vielen Dank für Ihre Nachricht!"
+
+#: templates/comments/posted.html:13
+msgid "Back to page"
+msgstr "Zurück zur Seite"
+
+#: templates/comments/preview.html:5 templates/comments/preview.html.py:12
+msgid "Preview your comment"
+msgstr "Vorschau Ihres Kommentars"
+
+#: templates/comments/preview.html:10
+msgid "Please correct the error below"
+msgid_plural "Please correct the errors below"
+msgstr[0] "Bitte unten angezeigten Fehler beheben"
+msgstr[1] "Bitte unten angezeigte Fehler beheben"
+
+#: templates/comments/preview.html:15
+msgid "and"
+msgstr "und"
+
+#: templates/comments/preview.html:15
+msgid "Post your comment"
+msgstr "Kommentar absenden"
+
+#: templates/comments/preview.html:15
+msgid "or make changes"
+msgstr "oder Änderungen vornehmen"
+
+#: templates/contact_form/contact_form.html:6
+#: templates/contact_form/contact_form.html:10
+#: templates/lfc/templates/contact.html:6
+#: templates/lfc/templates/contact.html:10
+msgid "Contact"
+msgstr "Kontakt"
+
+#: templates/contact_form/contact_form.html:21
+#: templates/lfc/templates/contact.html:21
+msgid "Send"
+msgstr "Absenden"
+
+#: templates/contact_form/contact_form_sent.html:6
+msgid "Thank you"
+msgstr "Vielen Dank!"
+
+#: templates/contact_form/contact_form_sent.html:10
+msgid "Thank you!"
+msgstr "Vielen Dank!"
+
+#: templates/contact_form/contact_form_sent.html:13
+msgid "Your message has been submitted. We will get back to you soon."
+msgstr "Ihre Nachricht wurde übermittelt. Wir werden uns in kürze bei Ihnen melden."
+
+#: templates/lfc/base.html:46
+msgid "Go"
+msgstr "Los"
+
+#: templates/lfc/base.html:59
+msgid "Logout"
+msgstr "Abmelden"
+
+#: templates/lfc/base.html:61 templates/lfc/base.html.py:63
+msgid "Manage"
+msgstr "Verwalten"
+
+#: templates/lfc/base.html:79 templates/lfc/base.html.py:106
+msgid "Login"
+msgstr "Login"
+
+#: templates/lfc/base.html:126 templates/lfc/base.html.py:136
+msgid "Search"
+msgstr "Suche"
+
+#: templates/lfc/base.html:189
+msgid "Powered by"
+msgstr "Powered by"
+
+#: templates/lfc/base.html:191
+msgid "is a product of"
+msgstr "ist ein Produkt von"
+
+#: templates/lfc/base.html:192
+msgid "All rights reserved"
+msgstr "Alle Rechte vorbehalten"
+
+#: templates/lfc/base.html:194
+msgid "Distributed under the"
+msgstr "Verteilt unter der"
+
+#: templates/lfc/base.html:194
+msgid "BSD-License"
+msgstr "BSD-Lizenz"
+
+#: templates/lfc/logged_out.html:5
+msgid "You are now logged out."
+msgstr "Sie sind nun abgemeldet."
+
+#: templates/lfc/logged_out.html:6
+msgid "Log in again"
+msgstr "Wieder anmelden"
+
+#: templates/lfc/login.html:8
+msgid "LFC Login"
+msgstr "LFC Login"
+
+#: templates/lfc/login.html:10
+msgid "Please enter your username and password."
+msgstr "Bitte geben Sie Ihren Benutzername und Ihr Passwort ein."
+
+#: templates/lfc/login.html:19
+msgid "Log in"
+msgstr "Anmelden"
+
+#: templates/lfc/search_results.html:6
+msgid "Search results"
+msgstr "Suchresultate"
+
+#: templates/lfc/search_results.html:18
+msgid "You searched for"
+msgstr "Sie suchten nach"
+
+#: templates/lfc/search_results.html:19
+#, python-format
+msgid "There is one page found."
+msgid_plural "There have been %(counter)s pages found."
+msgstr[0] "Es wurde eine Seite gefunden."
+msgstr[1] "Es wurden %(counter)s Seiten gefunden"
+
+#: templates/lfc/search_results.html:34
+msgid "Read on"
+msgstr "Weiterlesen"
+
+#: templates/lfc/search_results.html:43
+msgid "There are no results."
+msgstr "Es wurde nichts gefunden."
+
+#: templates/lfc/portlets/related_pages.html:7
+msgid "Related pages"
+msgstr "Passende Seiten"
+
+#: templates/lfc/portlets/tag_cloud_portlet.html:8
+msgid "Topics"
+msgstr "Themen"
+
+#: templates/lfc/tags/breadcrumbs.html:4
+msgid "You are here"
+msgstr "Sie sind hier"
+
+#: templates/pagination/pagination.html:5
+#: templates/pagination/pagination.html:7
+msgid "Previous page"
+msgstr "Vorherige Seite"
+
+#: templates/pagination/pagination.html:21
+#: templates/pagination/pagination.html:23
+msgid "Next page"
+msgstr "Nächste Seite"
+
+#: templatetags/lfc_theme_tags.py:64
+#, python-format
+msgid "%s tag needs no argument"
+msgstr ""
+
+msgid "German"
+msgstr "Deutsch"
+
+msgid "English"
+msgstr "Englisch"
+
+msgid "Files"
+msgstr "Dateien"

@@ -1,0 +1,17 @@
+<div class="portlet random-portlet">
+    <h1 class="portlet-header">
+        {{ title }}
+    </h1>
+    <div class="portlet-body">
+        {% for item in items %}
+            <div class="portlet-item">
+                <a href="{{ item.get_absolute_url }}">
+                    {{ item.title }}
+                </a>
+            </div>
+            <div class="news-date">
+                {{ item.creation_date|date:"d.m.Y" }}
+            </div>
+        {% endfor %}
+    </div>
+</div>

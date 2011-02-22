@@ -76,6 +76,7 @@ TEMPLATE_DIRS = (
 )
 
 INSTALLED_APPS = (
+    "kidness_theme",
     "lfc_theme",
     "django.contrib.admin",
     'django.contrib.auth',

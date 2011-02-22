@@ -1,0 +1,12 @@
+{% load lfc_tags %}
+<div class="portlet navigation-portlet">
+    {% if title %}
+        <h1 class="portlet-header">
+            {{ title }}
+        </h1>        
+    {% endif %}
+    <div class="portlet-body">
+        {% navigation start_level expand_level %}
+    </div>
+</div>
+&nbsp;

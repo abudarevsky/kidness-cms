@@ -1,0 +1,47 @@
+{% extends "comments/base.html" %}
+{% load comments %}
+{% load i18n %}
+
+{% block title %}{% trans "Preview your comment" %}{% endblock %}
+
+{% block content %}
+    <form action="{% comment_form_target %}" method="post">
+        {% if form.errors %}
+            <h1>{% blocktrans count form.errors|length as counter %}Please correct the error below{% plural %}Please correct the errors below{% endblocktrans %}</h1>
+        {% else %}
+           <h1>{% trans "Preview your comment" %}</h1>
+              <blockquote>{{ comment|linebreaks }}</blockquote>
+            <p>
+               {% trans "and" %} <input type="submit" name="submit" class="submit-post" value="{% trans "Post your comment" %}" id="submit" /> {% trans "or make changes" %}:
+            </p>
+        {% endif %}
+        {% for field in form %}
+            {% if field.is_hidden %}
+              {{ field }}
+            {% else %}
+                <div class="field"
+                    {% ifequal field.name "honeypot" %} style="display:none;"{% endifequal %}>
+                    <div class="label">
+                        {{ field.label_tag }}{% ifequal field.name "email" %} {% trans '(will not be published)' %}{% endifequal %}:
+                    </div>
+
+                    {% if field.errors %}
+                        <div class="error">
+                            {{ field.errors }}
+                            {{ field }}
+                        </div>
+                    {% else %}
+                        <div>
+                            {{ field }}
+                        </div>
+                    {% endif %}
+                </div>
+            {% endif %}
+        {% endfor %}
+        <input type="hidden" name="next" value="{{ request.REQUEST.next }}" />
+
+        <p class="submit">
+            <input type="submit" name="submit" class="submit-post" value="{% trans "Post" %}" />
+        </p>
+  </form>
+{% endblock %}

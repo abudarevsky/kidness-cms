@@ -1,0 +1,14 @@
+.left {
+    float: left;
+    padding: 5px 10px 5px 0;
+}
+
+.right {
+    float: right;
+    padding: 5px 0 0 10px;
+}
+
+p {
+    line-height: 1.5em;
+    padding-bottom: 0.5em;
+}

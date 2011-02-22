@@ -1,0 +1,17 @@
+{% if previous %}
+    <a class="previous"
+       href="{{ previous.get_absolute_url }}">
+        &lt; {{ previous.title }}
+    </a>
+{% endif %}
+
+{% if previous and next %}
+    <span>-</span>
+{% endif %}
+
+{% if next %}
+    <a class="next"
+       href="{{ next.get_absolute_url }}">
+        {{ next.title }} &gt;
+    </a>
+{% endif %}

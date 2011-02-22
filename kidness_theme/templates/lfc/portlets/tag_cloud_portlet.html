@@ -1,0 +1,19 @@
+{% load i18n %}
+{% load tagging_tags %}
+
+{% tag_cloud_for_model lfc.Page as cloud with steps=6 min_count=1 distribution=log %}
+{% if cloud %}
+    <div class="portlet tag-cloud-portlet">
+        <h1 class="portlet-header">
+            {% trans 'Topics' %}
+        </h1>
+        <div class="portlet-body tag-cloud">
+            <div class="portlet-item">
+                {% for tag in cloud %}
+                    <a href="{% url page_tag_detail slug tag.name %}" style="font-size:1{{tag.font_size}}px">
+                        {{tag}}</a>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endif %}

@@ -1,0 +1,19 @@
+{% load i18n %}
+{% load tagging_tags %}
+
+{% if related_pages %}
+    <div class="portlet related-pages-portlet">
+        <h1 class="portlet-header">
+            {% trans 'Related pages' %}
+        </h1>
+        <div class="portlet-body">
+            {% for page in related_pages %}
+                <div class="portlet-item">
+                    <a href="{{ page.get_absolute_url }}">
+                        {{ page.title }}
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endif %}

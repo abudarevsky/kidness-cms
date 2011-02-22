@@ -1,0 +1,19 @@
+{% if objs %}
+    <div class="portlet objects-portlet">
+        <h1 class="portlet-header">
+            {{ title }}
+        </h1>
+        <div class="portlet-body">
+            {% for obj in objs %}
+                <div class="portlet-item">
+                    <a href="{{ obj.get_absolute_url }}">
+                        {{ obj.title }}
+                    </a>
+                </div>
+                <div class="news-date">
+                    {{ obj.creation_date|date:"d.m.Y" }}
+                </div>
+            {% endfor %}
+        </div>
+    </div>    
+{% endif %}

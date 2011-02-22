@@ -1,0 +1,42 @@
+{% load i18n %}
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="http://static.flowplayer.org/tools/css/scrollable-navig.css" />
+
+{% endblock %}
+
+{% if items %}
+    <div class="recent-sub-types">
+
+        <div class="navi"></div>
+        <div class="scrollable">
+            <div class="items">
+                {% for item in items %}
+                    <div>
+                        <ul class="item-entry">
+                            {% if title %}
+                                <li class="item-title">
+                                    <a href="{{ item.get_absolute_url }}">{{ item.title }}</a>
+                                </li>
+                            {% endif %}
+                            {% if text %}
+                                {{ item.text|safe }}
+                            {% endif %}
+                            {# <div class="news-date"> #}
+                            {#     {{news_item.creation_date|date:"d.m.Y - H:i"}} #}
+                            {# </div> #}
+                        </ul>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <script>
+        $("div.scrollable").scrollable({
+        vertical: true,
+        size: 1,
+        // interval: 10000,
+        loop: true,
+        speed: 600,
+        });
+    </script>
+{% endif %}

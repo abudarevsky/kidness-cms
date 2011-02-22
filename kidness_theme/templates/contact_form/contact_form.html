@@ -1,0 +1,23 @@
+{% extends "lfc/base.html" %}
+{% load i18n %}
+{% load portlets_tags %}
+{% load lfc_tags %}
+
+{% block title %}{{ block.super }}{% trans "Contact" %}{% endblock %}
+{% block section %}contact{% endblock %}
+
+{% block content %}
+    <h1 class="first-heading">{% trans "Contact" %}</h1>
+
+    {% contact_form %}
+
+    <form class="contact-form"
+          action="{% url contact_form %}"
+          method="post">
+
+        {% include "lfc/lfc_form.html" %}
+
+        <input type="submit"
+               value="{% trans 'Send' %}" />
+    </form>
+{% endblock %}

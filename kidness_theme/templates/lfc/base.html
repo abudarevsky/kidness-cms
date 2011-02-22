@@ -1,0 +1,193 @@
+{% load i18n %}
+{% load lfc_tags %}
+{% load lfc_theme_tags %}
+{% load portlets_tags %}
+{% load workflows_tags %}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <title>
+            {% block title %}{{ PORTAL.title }} - {{ lfc_context.title }}{% endblock %}
+        </title>
+
+        <link rel="alternate" type="application/rss+xml" title="RSS" href='/rss/blog' />
+
+        <meta name="generator" content="LFC - Lightning Fast CMS" />
+        {% if lfc_context.get_meta_keywords %}<meta name="keywords" content="{{lfc_context.get_meta_keywords}}" />{% endif %}
+        {% if lfc_context.get_meta_description %}<meta name="description" content="{{lfc_context.get_meta_description}}" />{% endif %}
+
+        <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}lfc/lightbox/css/jquery.lightbox-0.5.css">
+        <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}lfc/yui/reset-fonts.css">
+        <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}lfc/blueprint/src/grid.css">
+        <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}kidness_theme/css/lfc.css">
+        {% block css %}{% endblock %}
+
+        <script type="text/javascript" src="{{ MEDIA_URL }}lfc/jquery/jquery.min.js"></script>
+        <script type="text/javascript" src="{{ MEDIA_URL }}lfc/jquery/jquery.tools.min.js"></script>
+        <script type="text/javascript" src="{{ MEDIA_URL }}lfc/lightbox/js/jquery.lightbox-0.5.js"></script>
+        <script type="text/javascript" src="{{ MEDIA_URL }}lfc_theme/js/lfctheme.js"></script>
+
+        {% block javascript %}{% endblock %}
+    </head>
+    <body class="{{ lfc_context.slug }} {% block section %}{% endblock %}">
+        {% if user.is_authenticated %}
+
+            <div id="management">
+                <div class="container">
+                    <div class="span-6">
+                        {% templates %}
+                    </div>
+                    <div class="span-6">
+                        {% if lfc_context and lfc_context.get_workflow %}
+                            <form action="{% url lfc_do_transition lfc_context.id %}"
+                                  method="POST">
+                                {% transitions lfc_context %}
+                                <input type="submit" value="{% trans 'Go' %}" />
+                            </form>
+                        {% else %}
+                            &nbsp;
+                        {% endif %}
+                    </div>
+                    <div id="login" class="span-12 last">
+                        <span class="site-actions">
+                            {% if user.last_name %}
+                                <span>{{user.first_name}} {{user.last_name}}</span>
+                            {% else %}
+                                <span>{{ user.username }}</span>
+                            {% endif %}
+                            | <a class="site-action" href="{% url lfc_logout %}">{% trans "Logout" %}</a>
+                            {% if lfc_context %}
+                                | <a class="site-action" href="{% url lfc_manage_object lfc_context.id %}">{% trans "Manage" %}</a>
+                            {% else %}
+                                | <a class="site-action" href="{% url lfc_manage_portal %}">{% trans "Manage" %}</a>
+                            {% endif %}
+                        </span>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+        <div id="header">
+            {% if LFC_MULTILANGUAGE %}
+                <div class="container logo">
+                    <div class="span-18">
+                        <h1 class="logo"><a href="/{{ LINK_LANGUAGE }}"><img src="{{ MEDIA_URL }}kidness_theme/img/logo.png"/></a></h1>
+                    </div>
+                    <div class="span-6 last flags">
+                        &nbsp;
+                        {% if not user.is_authenticated %}
+                            <a href="{% url lfc_login %}">{% trans "Login" %}</a> |
+                        {% endif %}
+                        {% lfc_languages %}
+                        {% for language in lfc_languages %}
+                            {% if language.is_available %}
+                                {% if lfc_context %}
+                                    <a href='{% url lfc_set_language language.code lfc_context.id %}'>
+                                        {% trans language.name %}</a>
+                                {% else %}
+                                    <a href='{% url lfc_set_language language.code %}'>
+                                        {% trans language.name %}</a>
+                                {% endif %}
+                            {% else %}
+                                <span>{% trans language.name %}</a>
+                            {% endif %}
+                                {% if not forloop.last %}|{% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            {% else %}
+                <div class="container logo">
+                    <div class="span-18">
+                        <h1 class="logo"><a href="/{{ LINK_LANGUAGE }}">LFC</a></h1>
+                    </div>
+                    <div class="span-6 last flags">
+                        &nbsp;
+                        {% if not user.is_authenticated %}
+                            <a href="{% url lfc_login %}">{% trans "Login" %}</a>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+
+        <div id="tabs">
+            <div class="container">
+                <div class="span-16">
+                    {% tabs %}
+                </div>
+                <div class="span-8 last search-form">
+                    {% if IS_DEFAULT_LANGUAGE %}
+                        <form action='{% url lfc_search %}'>
+                            <input type="text"
+                                   class="search"
+                                   name="q" />
+
+                            <input type="submit"
+                                   value="{% trans 'Search' %}" />
+
+                        </form>
+                    {% else %}
+                        <form action='{% url lfc_search language=LANGUAGE_CODE %}'>
+                            <input type="text"
+                                   class="search"
+                                   name="q" />
+
+                            <input type="submit"
+                                   value="{% trans 'Search' %}" />
+                        </form>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        {% slots_information %}
+        
+        {% block wrapper %}
+            <div id="content">
+                <div class="container">
+                    {% if SlotLeft %}
+                        <div class="span-5">
+                            <div class="left-slot">
+                                {% block left-slot %}
+                                    {% portlet_slot 'Left' lfc_context %}
+                                {% endblock %}
+                            </div>
+                        </div>
+                    {% endif %}
+                    <div class="{{ content_class }}">
+                        <div class="middle-slot">
+                            {% breadcrumbs %}
+                            {% block content %}
+                            {% endblock %}
+                            {% block comments %}
+                                {% include "comments/comments.html" %}
+                            {% endblock %}
+                        </div>
+                    </div>
+
+                    {% if SlotRight %}
+                        <div class="span-5 last">
+                            <div class="rights-slot">
+                                {% block right-slot %}
+                                    {% portlet_slot 'Right' lfc_context %}
+                                {% endblock %}
+                            </div>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        {% endblock %}
+
+        <div id="footer">
+            <div class="container">
+            </div>
+        </div>
+
+        <div id="colophon">
+            <div class="container">
+                <div class="span-24">
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

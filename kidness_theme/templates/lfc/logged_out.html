@@ -1,0 +1,7 @@
+{% extends "lfc/base.html" %}
+{% load i18n %}
+
+{% block content %}
+    <p>{% trans "You are now logged out." %}</p>
+    <p><a href="{% url lfc_login %}">{% trans 'Log in again' %}</a></p>
+{% endblock %}

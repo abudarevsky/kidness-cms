@@ -1,0 +1,47 @@
+{% extends "lfc/base.html" %}
+{% load i18n %}
+{% load lfc_tags %}
+{% load pagination_tags %}
+
+{% block title %}{{ block.super }}{% trans 'Search results' %}{% endblock %}
+
+{% block content %}
+    <h1>{{ lfc_context.title }}</h1>
+
+    {% if lfc_context.text %}
+        {{ lfc_context.text|safe }}
+    {% endif %}
+
+    {% if results %}
+        <div class="search-results">
+            <p class="search-results-description">
+                {% trans 'You searched for' %}
+                "{{ request.REQUEST.q }}". {% blocktrans count results|length as counter %}There is one page found.{% plural %}There have been {{ counter }} pages found.{% endblocktrans %}
+            </p>
+            <ol class="search-results-items">
+                {% for result in results %}
+                    <li class="search-results-item {% if forloop.last %}last{% endif %}">
+                        <h3>
+                            <a href="{{ result.get_absolute_url }}">
+                                {% for ancestor in result.get_ancestors_reverse %}
+                                    {{ ancestor.title }} &gt;
+                                {% endfor %}
+                                {{ result.title }}
+                            </a>
+                        </h3>
+                        {% if result.description %}
+                            <p>
+                                {{ result.description }} <a href="{{ result.get_absolute_url }}">{% trans 'Read on' %}</a>.
+                            </p>
+                        {% endif %}
+                    </li>
+                {% endfor %}
+            </ol>
+        </div>
+    {% else %}
+        <div class="search-results-items">
+            <p>{% trans 'There are no results.' %}</p>
+        </div>
+    {% endif %}
+
+{% endblock %}

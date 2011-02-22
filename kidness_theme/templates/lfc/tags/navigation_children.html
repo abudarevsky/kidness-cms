@@ -1,0 +1,21 @@
+{% load lfc_tags %}
+
+{% if show_level %}
+    {% if objs %}
+        <ul>
+            {% for obj in objs %}
+                <li class="{% if forloop.first %}first{% endif %} {% if forloop.last %}last{% endif %} level-{{ obj.level }} {% if obj.is_current %}current{% endif %}">
+                    <a class="level-{{ obj.level }} {% if obj.is_current %}current{% endif %}"
+                       href="{{ obj.url }}">
+                        {{ obj.title }}
+                    </a>
+                    {{ obj.children }}
+                </li>                
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% else %}
+    {% for obj in objs %}
+        {{ obj.children }}
+    {% endfor %}
+{% endif %}

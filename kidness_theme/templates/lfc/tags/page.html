@@ -1,0 +1,7 @@
+{% ifequal part "title" %}
+    {{ page.title }}
+{% endifequal %}
+
+{% ifequal part "text" %}
+    {{ page.text|safe }}
+{% endifequal %}

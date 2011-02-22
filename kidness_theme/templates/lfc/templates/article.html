@@ -1,0 +1,26 @@
+{% extends "lfc/base.html" %}
+{% load portlets_tags %}
+
+{% block section %}article{% endblock %}
+
+{% block content %}
+    {% if lfc_context.display_title %}
+        <h1 class="first-heading">{{ lfc_context.title }}</h1>
+    {% endif %}
+    
+    <div class="article">
+        {% if image %}
+            <a href="{{ image.image.url_800x800 }}"
+               class="photo-image"
+               title="{{ image.title }}">
+                <img class="left"
+                     src="{{ image.image.url_200x200 }}"
+                     alt="{{ image.image.title }}"
+                     title="{{ image.title }}" />
+            </a>
+        {% endif %}
+        <div>
+            {{ lfc_context.text|safe }}
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% load i18n %}
+<ul class="rss">
+    {% for entry in entries %}
+        <li class="news-entry">
+            {{ entry.title }}
+            <div class="rss-date">
+                {{ entry.date|date:"d.m.Y - H:i" }}
+            </div>            
+        </li>
+    {% endfor %}
+</ul>

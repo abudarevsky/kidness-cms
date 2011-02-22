@@ -1,0 +1,14 @@
+{% load i18n %}
+{% if obj %}
+    <ul class="breadcrumbs">
+        <li class="label">{% trans 'You are here' %}:</li>
+        {% for obj in objs %}
+            {% if not forloop.last %}
+                <li><a href="{{ obj.get_absolute_url }}">{{ obj.title }}</a></li>
+                <li class="separator">&gt;</li>
+            {% else %}
+                <li class="last">{{ obj.title }}</li>
+            {% endif %}
+        {% endfor %}
+    </ul>    
+{% endif %}

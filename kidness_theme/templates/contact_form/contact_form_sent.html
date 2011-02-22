@@ -1,0 +1,16 @@
+{% extends "lfc/base.html" %}
+{% load i18n %}
+{% load portlets_tags %}
+{% load lfc_tags %}
+
+{% block title %}{{ block.super }}{% trans "Thank you" %}{% endblock %}
+{% block section %}contact{% endblock %}
+
+{% block content %}
+    <h1 class="first-heading">{% trans "Thank you!" %}</h1>
+
+    <p>
+        {% trans "Your message has been submitted. We will get back to you soon." %}
+    </p>
+
+{% endblock %}

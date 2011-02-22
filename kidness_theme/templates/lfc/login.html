@@ -1,0 +1,26 @@
+{% extends "lfc/base.html" %}
+{% load i18n %}
+
+{% block section %}login{% endblock %}
+
+{% block content %}
+    <div>
+        <h1>{% trans "LFC Login" %} </h1>
+        <p class="discreet">
+            {% trans "Please enter your username and password." %}
+        </p>
+        
+        <form class="login-form" 
+              action="{{ app_path }}" method="post" id="login-form">
+                    
+            {% include "lfc/lfc_form.html" %}
+
+            <div class="buttons">
+                <input type="submit" value="{% trans 'Log in' %}" />
+            </div>
+        </form>
+        <script type="text/javascript">
+            document.getElementById('id_username').focus()
+        </script>
+    </div>
+{% endblock %}

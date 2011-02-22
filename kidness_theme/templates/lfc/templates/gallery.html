@@ -1,0 +1,35 @@
+{% extends "lfc/base.html" %}
+{% load portlets_tags %}
+
+{% block content %}
+    {% if lfc_context.display_title %}
+        <h1 class="first-heading">{{ lfc_context.title }}</h1>
+    {% endif %}
+    <div>{{ lfc_context.text|safe }}</div>
+
+    <table width="100%" cellpadding="0" cellspacing="0">
+        {% for row in images %}
+            <tr>
+                {% for photo in row %}
+                    <td width="33%">
+                        <div class="photo">
+                            <h2 class="photo-name">
+                                {{ photo.title }}
+                            </h2>
+                            <div class="photo-description">
+                                {{ photo.caption }}
+                            </div>
+                            <a href="{{ photo.image.url_600x600 }}"
+                               class="photo-image"
+                               title="{{ photo.title }}">
+                                <img src="{{ photo.image.url_200x200 }}"
+                                     alt="{{ photo.name }}"
+                                     title="{{ photo.title }}" />
+                            </a>
+                        </div>
+                    </td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

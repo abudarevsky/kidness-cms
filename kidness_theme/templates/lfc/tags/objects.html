@@ -1,0 +1,13 @@
+{% load i18n %}
+<ul>
+    {% for obj in objs %}
+        <li class="{% if forloop.first %}first{% endif %} {% if forloop.last %}last{% endif %}"> 
+            {% if title %}
+                <a href="{{ obj.get_absolute_url }}">{{ obj.title }}</a>
+            {% endif %}
+            {% if text %}
+                {{ obj.text|safe }}
+            {% endif %}
+        </li>
+    {% endfor %}
+</ul>

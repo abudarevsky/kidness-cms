@@ -1,0 +1,17 @@
+{% extends "comments/base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Thanks for commenting" %}.{% endblock %}
+
+{% block content %}
+    <h1>{% trans "Thank you for your comment" %}.</h1>
+
+    {{ request.REQUEST.commented_page }}
+
+    {% if request.REQUEST.commented_page %}
+    <div>
+        <a href="{{ request.REQUEST.commented_page}}">{% trans 'Back to page' %}</a>
+    </div>
+    {% endif %}
+
+{% endblock %}
