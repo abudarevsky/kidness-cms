@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-02-22 02:49+0300\n"
+"POT-Creation-Date: 2011-02-25 14:29+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,43 +19,43 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 
-#: __init__.py:21 models.py:29
+#: __init__.py:21 models.py:30
 msgid "News feed"
 msgstr "Лента новостей"
 
-#: models.py:26 models.py:51
+#: models.py:27 models.py:53
 msgid "Text"
 msgstr "Текст"
 
-#: models.py:30
+#: models.py:31
 #, fuzzy
 msgid "News feeds"
 msgstr "Лента новостей"
 
-#: models.py:54
+#: models.py:56
 #, fuzzy
 msgid "News entry"
 msgstr "Лента новостей"
 
-#: models.py:55
+#: models.py:57
 #, fuzzy
 msgid "News entries"
 msgstr "Лента новостей"
 
-#: models.py:78
+#: models.py:81
 #, fuzzy
 msgid "Show archive"
 msgstr "Показывать устаревшие"
 
-#: models.py:78
+#: models.py:81
 msgid "Say Yes if you want show archived entries in the portlet"
 msgstr "Если включено, устаревшие записи будут отображаться"
 
-#: models.py:79
+#: models.py:82
 msgid "Show topics"
 msgstr "Показывать тэги"
 
-#: models.py:79
+#: models.py:82
 msgid "Say Yes if you want show topics in the portlet"
 msgstr "Если включено, тэги будут отображаться"
 

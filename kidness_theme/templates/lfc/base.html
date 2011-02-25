@@ -24,7 +24,8 @@
         {% block css %}{% endblock %}
 
         <script type="text/javascript" src="{{ MEDIA_URL }}lfc/jquery/jquery.min.js"></script>
-        <script type="text/javascript" src="{{ MEDIA_URL }}lfc/jquery/jquery.tools.min.js"></script>
+        <!-- script type="text/javascript" src="{{ MEDIA_URL }}lfc/jquery/jquery.tools.min.js"></script-->
+        <script src="http://cdn.jquerytools.org/1.2.5/full/jquery.tools.min.js?foo"></script>
         <script type="text/javascript" src="{{ MEDIA_URL }}lfc/lightbox/js/jquery.lightbox-0.5.js"></script>
         <script type="text/javascript" src="{{ MEDIA_URL }}lfc_theme/js/lfctheme.js"></script>
 
@@ -98,7 +99,7 @@
             {% else %}
                 <div class="container logo">
                     <div class="span-18">
-                        <h1 class="logo"><a href="/{{ LINK_LANGUAGE }}">LFC</a></h1>
+                        <h1 class="logo"><a href="/{{ LINK_LANGUAGE }}"><img src="{{ MEDIA_URL }}kidness_theme/img/logo.png"/></a></h1>
                     </div>
                     <div class="span-6 last flags">
                         &nbsp;

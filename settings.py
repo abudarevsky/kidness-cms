@@ -94,7 +94,7 @@ INSTALLED_APPS = (
     "workflows",
     "permissions",
     "lfc_news",
-    "lfc_events"
+    "scrollable_parts"
 )
 
 CACHE_BACKEND = 'dummy:///'
@@ -122,7 +122,8 @@ EMAIL_HOST_PASSWORD = ""
 PAGINATION_DEFAULT_PAGINATION = 5
 PAGINATION_DEFAULT_WINDOW = 1
 
-LANGUAGES = (("en", u"English"), ("ru", u"Russian"))
+#LANGUAGES = (("en", u"English"), ("ru", u"Russian"))
+LANGUAGES = (("ru", u"Russian"),)
 LFC_MULTILANGUAGE = len(LANGUAGES) > 1
 LFC_MANAGE_WORKFLOWS = False
 LFC_MANAGE_PERMISSIONS = True

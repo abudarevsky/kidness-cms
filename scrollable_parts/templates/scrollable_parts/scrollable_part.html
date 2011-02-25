@@ -1,0 +1,20 @@
+
+<div class="item">
+          <!-- image -->
+    {% if child.get_image %}
+       <img class="left"
+            src="{{ child.get_image.image.url_200x200 }}"
+            alt="{{ child.get_image.image.title }}"
+            title="{{ child.get_image.image.title }}" />
+	{% endif %}
+
+   <!-- title -->
+    {% if child.display_title %}
+         	<h3>{{ child.title }}</h3>
+	{% endif %}
+         <!-- content -->
+   <p>
+      {{ child.text|safe }}
+   </p>
+
+</div>

@@ -98,8 +98,8 @@ class NewsPortlet(Portlet):
             return result
 
 #        from lfc_news.models import NewsEntry, News
-        if not (isinstance(obj, NewsEntry) or isinstance(obj, NewsEntry)):
-            obj = News.objects.all()[0]
+#        if not isinstance(obj, NewsEntry):
+#            obj = News.objects.all()[0]
             
         # Urgh! Ugly hack.
         if isinstance(obj, NewsEntry):

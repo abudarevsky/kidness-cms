@@ -1,0 +1,29 @@
+<div id="actions">
+   <a class="prev">&laquo; Назад</a>
+   <a class="next">Еще &raquo;</a>
+</div>
+
+<!-- root element for scrollable -->
+<div class="scrollable vertical">
+
+   <!-- root element for the scrollable elements -->
+   <div class="items">
+   		{% ifequal lfc_context.content_type "scrollablecontainer" %}
+	   		{% for child_pages in lfc_context.get_children_pages %}
+	   			<div>
+	   			{% for child in child_pages %}  
+	   				{% include "scrollable_parts/scrollable_part.html" %}
+	   			{% endfor %}
+	   			</div>
+	   		{% endfor %}
+	   	{% else %}	
+	   		{% for child_pages in sub_object.get_children_pages %}
+	   			<div>
+	   			{% for child in child_pages %}  
+	   				{% include "scrollable_parts/scrollable_part.html" %}
+	   			{% endfor %}
+	   			</div>
+	   		{% endfor %}
+   		{% endifequal %}
+   </div>
+</div>   
