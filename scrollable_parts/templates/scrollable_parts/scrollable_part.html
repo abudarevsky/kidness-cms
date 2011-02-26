@@ -1,8 +1,8 @@
 
-<div class="item">
+<div class="itemScroll" name="{{child.slug}}">
           <!-- image -->
     {% if child.get_image %}
-       <img class="left"
+       <img
             src="{{ child.get_image.image.url_200x200 }}"
             alt="{{ child.get_image.image.title }}"
             title="{{ child.get_image.image.title }}" />

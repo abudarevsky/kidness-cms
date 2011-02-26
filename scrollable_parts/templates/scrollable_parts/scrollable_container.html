@@ -4,10 +4,10 @@
 </div>
 
 <!-- root element for scrollable -->
-<div class="scrollable vertical">
+<div class="scrollableContainer vertical">
 
    <!-- root element for the scrollable elements -->
-   <div class="items">
+   <div class="itemsScroll">
    		{% ifequal lfc_context.content_type "scrollablecontainer" %}
 	   		{% for child_pages in lfc_context.get_children_pages %}
 	   			<div>

@@ -1,8 +1,5 @@
 /* root element for scrollable */
-/* root element for scrollable */
-
-/* root element for scrollable */
-.scrollable {
+.scrollableContainer {
 
 	/* required settings */
 	position:relative;
@@ -14,7 +11,7 @@
 }
 
 /* root element for scrollable items */
-.scrollable .items {
+.scrollableContainer .itemsScroll {
 	position:absolute;
 
 	/* this time we have very large space for the height */
@@ -23,44 +20,46 @@
 
 
 .vertical {  
-	
 	/* required settings */
-	position:relative;
-	overflow:hidden;	
-
-	/* vertical scrollers have typically larger height than width */	
-	height: 800px;	 
-	width: auto;
-	border-top:1px solid #ddd;	
+    overflow: hidden;
+    position: relative;
+ 	/* vertical scrollers have typically larger height than width */   
+	border-top: 1px solid #DDDDDD;
+    height: 665px;
+    width: 700px;
 }
 
 /* root element for scrollable items */
-.items {	
+.itemsScroll {	
 	position:absolute;
 	
 	/* this time we have very large space for height */	
 	height:20000em;	
 	margin: 0px;
+	
+	width:100%;
+	
 }
 
 /* single scrollable item */
-.item {
-	border-bottom:1px solid #ddd;
-	margin:10px 0;
-	padding:15px;
-	font-size:12px;
-	height:180px;
+.itemScroll {
+    border-bottom: 1px solid #DDDDDD;
+    font-size: 12px;
+    height: 180px;
+    margin: 10px 0;
+    padding: 15px;
+    width:100%;
 }
 
 /* elements inside single item */
-.item img {
+.itemScroll img {
 	float:left;
 	margin-right:20px;
 	height:180px;
 	width:240px;
 }
 
-.item h3 {
+.itemScroll h3 {
 	margin:0 0 5px 0;
 	font-size:16px;
 	color:#456;
@@ -91,4 +90,3 @@
 .next {
 	float:right;
 }
-
