@@ -1,0 +1,24 @@
+<div id="actions">
+   <a id="prev">&laquo; Назад</a>
+   <a id="next">Еще &raquo;</a>
+</div>
+
+<!-- root element for scrollable -->
+
+ <div id="mycarousel" class="jcarousel-skin-tango">
+    <ul>
+		{% ifequal lfc_context.content_type "scrollablecontainer" %}
+	   		{% for child in lfc_context.get_children %}
+	   			<li>
+	   				{% include "scrollable_parts/scrollable_part.html" %}
+	   			</li>
+	   		{% endfor %}
+	   	{% else %}	
+	   		{% for child in sub_object.get_children %}
+	   			<li>
+	   				{% include "scrollable_parts/scrollable_part.html" %}
+	   			</li>
+	   		{% endfor %}
+	   	{% endifequal %}	
+	</ul>
+</div>	   		

@@ -12,11 +12,11 @@
 {% endblock %}
 {% block javascript %}
 	<script type="text/javascript">
-		// execute your scripts when DOM is ready. this is a good habit
+		
 		$(function() {		
 				
 			// initialize scrollable with mousewheel support
-			$(".scrollableContainer").scrollable({ vertical: true, mousewheel: true });	
+			$(".scrollableContainer").scrollable({ vertical: true, mousewheel: true }).navigator();	
 			// $(".scrollableContainer").scrollable({ vertical: true});
 		});
 	</script>

@@ -3,14 +3,14 @@
 
 {% if entries %}
     <div class="portlet blog-portlet">
-        <div class="scrollable-entries">
+        <div class="scrollable-entries jcarousel-control">
             <div class="portlet-header">
                 {{ title }}
             </div>
-            <ul class="portlet-body">
+            <ul class="portlet-body navi ">
                 {% for scrollable in entries %}
                     <li class="portlet-item">
-                        <a href="{{ scrollable.get_absolute_url }}">
+                        <a href="#{{scrollable.slug}}">
                             {{ scrollable.title }}
                         </a>
                     </li>

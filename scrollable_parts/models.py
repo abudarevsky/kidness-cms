@@ -4,6 +4,7 @@ from django.core.cache import cache
 from django.db import models
 from django.template.loader import render_to_string
 from django.utils.translation import ugettext_lazy as _
+from lfc.models import Page
 
 # tagging imports
 import tagging.models
@@ -97,7 +98,12 @@ class ScrollableNavigatorPortlet(Portlet):
         
         obj = context.get("lfc_context")
         request = context.get("request")
-        
+        if not isinstance(obj, ScrollableContainer):
+            for child in obj.get_children():
+                if isinstance(child, ScrollableContainer):
+                    obj=child
+                    break 
+            
         # CACHE
         cache_key = "%s-portlet-scrollable-%s" % (settings.CACHE_MIDDLEWARE_KEY_PREFIX, request.user.id)
         result = cache.get(cache_key)

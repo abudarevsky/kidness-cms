@@ -1,0 +1,100 @@
+{% extends "lfc/base.html" %}
+{% load i18n %}
+{% load lfc_tags %}
+{% load portlets_tags %}
+{% load tagging_tags %}
+{% load pagination_tags %}
+{% load comments %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}kidness_theme/css/tango/skin.css">
+<link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}kidness_theme/css/scrollable_part.css">
+{% endblock %}
+{% block javascript %}
+	<script type="text/javascript" src="{{ MEDIA_URL }}kidness_theme/js/jquery.jcarousel.min.js"></script>
+	<script type="text/javascript">
+		// execute your scripts when DOM is ready. this is a good habit
+		
+		// JCarousel
+		/**
+		 * We use the initCallback callback
+		 * to assign functionality to the controls
+		 */
+		
+		
+		// Ride the carousel...
+		jQuery(document).ready(function() {
+			function mycarousel_initCallback(carousel) {
+			    jQuery('.jcarousel-control a').bind('click', function() {
+			    	
+			    	carousel.scroll(jQuery.jcarousel.intval($(this).attr('href').split('-')[1]));
+			        //carousel.scroll(jQuery.jcarousel.intval(jQuery(this).text()));
+			        return false;
+			    });
+			
+			    jQuery('.jcarousel-scroll select').bind('change', function() {
+			        carousel.options.scroll = jQuery.jcarousel.intval(this.options[this.selectedIndex].value);
+			        return false;
+			    });
+			
+			    jQuery('#next').bind('click', function() {
+			        carousel.next();
+			        return false;
+			    });
+			
+			    jQuery('#prev').bind('click', function() {
+			        carousel.prev();
+			        return false;
+			    });
+			};
+		    jQuery("#mycarousel").jcarousel({
+		        scroll: 3,
+		        vertical: true,
+		        initCallback: mycarousel_initCallback,
+		        // This tells jCarousel NOT to autobuild prev/next buttons
+		        buttonNextHTML: null,
+		        buttonPrevHTML: null
+		    });
+		});
+	</script>
+{% endblock %}
+
+{% block section %}carousel overview{% endblock %}
+{% block content %}
+    {% if lfc_context.display_title %}
+        <h1 class="first-heading">{{ lfc_context.title }}</h1>
+    {% endif %}
+    {% ifequal lfc_context.content_type "scrollablecontainer" %}
+   		<div>
+           	{% include "scrollable_parts/scrollable_container.html" %}
+           </div>
+   	{% endifequal %}
+    {% for sub_object in sub_objects %}
+	    {% ifnotequal sub_object.content_type "scrollablepart" %}
+	    	{% ifequal sub_object.content_type "scrollablecontainer" %}
+		   		<div>
+		           	{% include "scrollable_parts/jcarousel_container.html" %}
+		           </div>
+		    {% else %}       
+		        <div class="entry {% if forloop.last %}last{% endif %}">
+		            <h2>
+		                <a href="{{ sub_object.get_absolute_url }}">
+		                    {{ sub_object.title }}
+		                </a>    
+		            </h2>
+		            {% if sub_object.get_image %}
+		                <img class="left"
+		                     src="{{ sub_object.get_image.image.url_100x100 }}"
+		                     alt="{{ sub_object.get_image.image.title }}"
+		                     title="{{ sub_object.get_image.image.title }}" />
+		            {% endif %}
+		            <div>
+		                {{ sub_object.description|safe }}
+		            </div>
+		        </div>
+	        {% endifequal %}
+	        <br clear="all" />
+		{% endifnotequal %}
+    {% endfor %}
+    
+{% endblock %}

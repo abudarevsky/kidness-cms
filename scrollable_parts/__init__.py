@@ -30,14 +30,15 @@ def install():
 
     # Register Templates
     register_template(name = "Scrollable Overview", path="lfc/templates/scrollable_overview.html")
+    register_template(name = "Carousel Overview", path="lfc/templates/jcarousel_overview.html")
 #    register_template(name = "Scrollable Container", path="lfc/templates/scrollable_container.html")
 #    register_template(name = "Scrollable Part", path="lfc/templates/scrollable_part.html")
 
     # Register objects
     register_content_type(ScrollableContainer, 
                           name = "Scrollable Container", 
-                          templates=["Scrollable Overview"], 
-                          default_template="Scrollable Overview", 
+                          templates=["Scrollable Overview","Carousel Overview"], 
+                          default_template="Carousel Overview", 
                           global_addable=False)
     
     register_content_type(ScrollablePart, 
@@ -47,7 +48,7 @@ def install():
     register_content_type(Page,
         name="Page",
         sub_types=["Page"],
-        templates=["Article", "Plain", "Gallery", "Overview", "Scrollable Overview"],
+        templates=["Article", "Plain", "Gallery", "Overview", "Scrollable Overview","Carousel Overview"],
         default_template="Article")
 
     # Register Blog as a sub type of Page
@@ -63,6 +64,8 @@ def uninstall():
 
     # Unregister template
     unregister_template("Scrollable Overview")
+    unregister_template("Carousel Overview")
+    
 #    unregister_template("Scrollable Part")
 
     register_content_type(Page,
