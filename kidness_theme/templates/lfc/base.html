@@ -72,7 +72,7 @@
             {% if LFC_MULTILANGUAGE %}
                 <div class="container logo">
                     <div class="span-18">
-                        <h1 class="logo"><a href="/{{ LINK_LANGUAGE }}"><img src="{{ MEDIA_URL }}kidness_theme/img/logo.png"/></a></h1>
+                        <h1 class="logo"><a href="/{{ LINK_LANGUAGE }}"><img width="350" height="84" src="{{ MEDIA_URL }}kidness_theme/img/logo.gif"/></a></h1>
                     </div>
                     <div class="span-6 last flags">
                         &nbsp;
@@ -95,11 +95,15 @@
                                 {% if not forloop.last %}|{% endif %}
                         {% endfor %}
                     </div>
+                    <span class="headerContact">
+                    <span class="tel">(812) 645 01 66</span><br />
+                    ул. Звенигородская 12
+                    </span>
                 </div>
             {% else %}
                 <div class="container logo">
                     <div class="span-18">
-                        <h1 class="logo"><a href="/{{ LINK_LANGUAGE }}"><img src="{{ MEDIA_URL }}kidness_theme/img/logo.png"/></a></h1>
+                        <h1 class="logo"><a href="/{{ LINK_LANGUAGE }}"><img width="350" height="84" src="{{ MEDIA_URL }}kidness_theme/img/logo.gif"/></a></h1>
                     </div>
                     <div class="span-6 last flags">
                         &nbsp;
@@ -107,6 +111,10 @@
                             <a href="{% url lfc_login %}">{% trans "Login" %}</a>
                         {% endif %}
                     </div>
+                    <span class="headerContact">
+                    <span class="tel">(812) 645 01 66</span><br />
+                    ул. Звенигородская 12
+                    </span>
                 </div>
             {% endif %}
         </div>
@@ -116,7 +124,8 @@
                 <div class="span-16">
                     {% tabs %}
                 </div>
-                <div class="span-8 last search-form">
+                
+                <!-- div class="span-8 last search-form">
                     {% if IS_DEFAULT_LANGUAGE %}
                         <form action='{% url lfc_search %}'>
                             <input type="text"
@@ -138,7 +147,7 @@
                         </form>
                     {% endif %}
                 </div>
-            </div>
+            </div-->
         </div>
 
         {% slots_information %}
@@ -157,7 +166,7 @@
                     {% endif %}
                     <div class="{{ content_class }}">
                         <div class="middle-slot">
-                            {% breadcrumbs %}
+                            <!-- {% breadcrumbs %} -->
                             {% block content %}
                             {% endblock %}
                             {% block comments %}

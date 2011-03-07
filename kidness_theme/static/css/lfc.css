@@ -1,9 +1,51 @@
 @import "tiny.css";
 
-body {
-    color: #24241c;
-    font-family: Verdana, sans-serif;
+/*global reset---------------------------------------------------------------------------------*/
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {margin: 0;padding: 0;border: 0;outline: 0; font-size: 100%; vertical-align: baseline; background: transparent;} body {line-height: 1;} ol, ul {list-style: none;} blockquote, q {	quotes: none;} blockquote:before, blockquote:after,q:before, q:after {	content: '';	content: none;}
+
+/* remember to define focus styles! */
+:focus {
+	outline: 0;
 }
+
+/* remember to highlight inserts somehow! */
+ins {
+	text-decoration: none;
+}
+del {
+	text-decoration: line-through;
+}
+
+/* tables still need 'cellspacing="0"' in the markup */
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/*end of global reset-----------------------------------------------------------------------*/
+/*layout---------------------------------------------------------------------------------------*/
+html, body {
+height: 100%;
+}
+html {
+	background: #f1f1f1 url("/media/kidness_theme/img/bghands.gif") no-repeat center top;
+	text-align:center;
+}
+body {
+	text-align:left;
+	font: normal normal 68.75%/136% verdana,sans-serif;
+	color: #424242;
+	width:979px;
+	margin:0 auto;
+}
+a {color:#2b8841;}
+.clear {
+	width:100%;
+	height:1px;
+	display:block;
+	overflow:hidden;
+	clear:both;
+}
+.hide{ display: block; text-indent: -9999px;}
 
 a:visited,
 a {
@@ -46,7 +88,19 @@ h1.logo {
 h1.logo a {
     text-decoration: none;
 }
-
+h1.logo img {
+    margin-left:100px;
+}
+.headerContact {
+	color:#7c7c7c;
+}
+.headerContact {
+	font-size:1.2em;
+	line-height: 1.6em;
+}
+.headerContact .tel {
+	font-size:1.42em;
+}
 h2 {
     font-size: 123.1%;
     font-family: Georgia;
@@ -93,10 +147,8 @@ h2.blog-entry {
 }
 
 #header {
-    /* background-color: #b85018; */
-    background-color: #f1f1f1;
     color: black;
-    padding: 10px 0;
+    padding: 40px 0;
 }
 
 #header a {
@@ -109,8 +161,8 @@ h2.blog-entry {
 
 /* tabs */
 #tabs {
-    /* background-color: #e5ab52; */
-    background-color: #ccc;
+    background: transparent url("/media/kidness_theme/img/page_top.png") no-repeat 0 0;
+    height:51px;
 }
 
 #tabs li {
@@ -137,8 +189,7 @@ h2.blog-entry {
 }
 
 #content {
-    /* background-color: #e1e2d4;*/
-    background-color: #eee;
+    background: transparent url("/media/kidness_theme/img/page_bg.png") repeat-y 0 0;
     padding: 20px 0;
 }
 
@@ -274,9 +325,9 @@ ul.breadcrumbs li {
 }
 
 #footer {
-    background-color: #eee; 
-    padding-bottom: 20px;
-    color: #555;
+    background: transparent url("/media/kidness_theme/img/page_top.png") no-repeat left -51px; 
+    height:72px;
+    display:block;
 }
 
 #footer a {
@@ -285,8 +336,6 @@ ul.breadcrumbs li {
 
 #colophon {
     text-align: center;
-    border-top: 1px solid #24241c;
-    /* background-color: #24241c; */
     padding: 20px 0;
     color: #aaa;
 }
