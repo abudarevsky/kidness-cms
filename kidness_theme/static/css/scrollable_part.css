@@ -59,3 +59,7 @@
     margin-top: 1em;
 }
 
+.selectedItem {
+	background-color: #ccc;
+}
+
