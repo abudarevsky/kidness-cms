@@ -163,6 +163,8 @@ h2.blog-entry {
 #tabs {
     background: transparent url("/media/kidness_theme/img/page_top.png") no-repeat 0 0;
     height:51px;
+    display:block;
+    overflow:hidden;
 }
 
 #tabs li {
@@ -172,16 +174,38 @@ h2.blog-entry {
 
 #tabs li a {
     display: block;
-    padding: 10px 10px;
+    padding: 23px 38px 0 38px;
     text-decoration: none;
     text-transform: uppercase;
+    height:28px;
+    color:#5b5b5b;
+    position:relative;
+
 }
 
-#tabs li a.selected,
-#tabs li a:hover {
-    /* background-color: #24241c; */
-    background-color: #999;
+#tabs li a.selected {
+    background-color: #afafaf;
      color: white;
+}
+#tabs li a.selected .tabtl {
+	background: transparent url("/media/kidness_theme/img/corners.gif") no-repeat 0 0;
+	width:8px;
+	height:8px;
+	display:block;
+	overflow:hidden;
+	position:absolute;
+	top:0;
+	left:0;
+}
+#tabs li a.selected .tabtr {
+	background: transparent url("/media/kidness_theme/img/corners.gif") no-repeat -8px top;
+	width:8px;
+	height:8px;
+	display:block;
+	overflow:hidden;
+	position:absolute;
+	top:0;
+	right:0;
 }
 
 .flags {
@@ -190,7 +214,7 @@ h2.blog-entry {
 
 #content {
     background: transparent url("/media/kidness_theme/img/page_bg.png") repeat-y 0 0;
-    padding: 20px 0;
+    padding: 0px 16px;
 }
 
 #content,
@@ -478,4 +502,106 @@ div.scrollable div.items {
 div.scrollable div.items div {
     width: 400px;
     height:100px;
+}
+.photosHat {
+	width:100%;
+	height:266px;
+	display:block;
+	clear:both;
+	background:#afafaf;
+	margin-bottom:40px;	
+	position:relative;
+}
+.tl {
+	background: transparent url("/media/kidness_theme/img/corners.gif") no-repeat 0 -8px;
+	width:8px;
+	height:8px;
+	display:block;
+	overflow:hidden;
+	position:absolute;
+	top:0;
+	left:0;
+}
+.tr {
+	background: transparent url("/media/kidness_theme/img/corners.gif") no-repeat -8px -8px;
+	width:8px;
+	height:8px;
+	display:block;
+	overflow:hidden;
+	position:absolute;
+	top:0;
+	right:0;
+}
+.bl {
+	background: transparent url("/media/kidness_theme/img/corners.gif") no-repeat 0 -16px;
+	width:8px;
+	height:8px;
+	display:block;
+	overflow:hidden;
+	position:absolute;
+	bottom:0;
+	left:0;
+}
+.br {
+	background: transparent url("/media/kidness_theme/img/corners.gif") no-repeat -8px -16px;
+	width:8px;
+	height:8px;
+	display:block;
+	overflow:hidden;
+	position:absolute;
+	bottom:0;
+	right:0;
+}
+#content .photosHat ul {
+	padding:0;
+	padding:11px 0 0 11px;
+	width:658px;
+	display:block;
+	float:left;
+}
+
+#content .photosHat ul li {
+	float:left;
+	padding:0;
+	margin:0;
+	list-style-type: none;
+	list-style: none;
+}
+#content .photosHat ul li a {
+	width:160px;
+	height: 119px;
+	margin:2px;
+	display:block;
+}
+#content .photosHat ul li a.left1PhotoHat {
+	background: transparent url("/media/kidness_theme/img/photohat/1.jpg") no-repeat 0 0;
+}
+#content .photosHat ul li a.left2PhotoHat {
+	background: transparent url("/media/kidness_theme/img/photohat/2.jpg") no-repeat 0 0;
+}
+#content .photosHat ul li a.left3PhotoHat {
+	background: transparent url("/media/kidness_theme/img/photohat/3.jpg") no-repeat 0 0;
+}
+#content .photosHat ul li a.left4PhotoHat {
+	background: transparent url("/media/kidness_theme/img/photohat/4.jpg") no-repeat 0 0;
+}
+#content .photosHat ul li a.left5PhotoHat {
+	background: transparent url("/media/kidness_theme/img/photohat/5.jpg") no-repeat 0 0;
+}
+#content .photosHat ul li a.left6PhotoHat {
+	background: transparent url("/media/kidness_theme/img/photohat/6.jpg") no-repeat 0 0;
+}
+#content .photosHat ul li a.left7PhotoHat {
+	background: transparent url("/media/kidness_theme/img/photohat/7.jpg") no-repeat 0 0;
+}
+#content .photosHat ul li a.left8PhotoHat {
+	background: transparent url("/media/kidness_theme/img/photohat/8.jpg") no-repeat 0 0;
+}
+.rightPhotoHat {
+	width:266px;
+	height:243px;
+	display:block;
+	float:left;
+	background: transparent url("/media/kidness_theme/img/photohat/9.jpg") no-repeat 0 0;
+	margin-top:12px;
 }

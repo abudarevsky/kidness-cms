@@ -3,7 +3,7 @@
     {% for tab in tabs %}
         <li id="tab{{ forloop.counter }}">
             <a class="{{ language }} {% if tab.current %}selected{% endif %}"
-                href="{{ tab.get_absolute_url }}">{{ tab.title }}</a>
+                href="{{ tab.get_absolute_url }}"><span class="tabtl"></span>{{ tab.title }}<span class="tabtr"></span></a>
         </li>
     {% endfor %}
 </ul>
