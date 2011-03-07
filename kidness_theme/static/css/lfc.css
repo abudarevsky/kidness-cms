@@ -167,6 +167,9 @@ h2.blog-entry {
     overflow:hidden;
 }
 
+#tabs ul {
+	margin-left:14px;
+}
 #tabs li {
     list-style: none;
     float: left;
@@ -174,7 +177,7 @@ h2.blog-entry {
 
 #tabs li a {
     display: block;
-    padding: 23px 38px 0 38px;
+    padding: 23px 36px 0 38px;
     text-decoration: none;
     text-transform: uppercase;
     height:28px;
