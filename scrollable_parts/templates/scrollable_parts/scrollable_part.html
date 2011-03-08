@@ -10,8 +10,7 @@
    <div style="float:left;display:block;width:70%;">
    	 <!-- image -->
     {% if child.get_image %}
-       <img
-            src="{{ child.get_image.image.url_200x200 }}"
+       <img src="{{ child.get_image.image.url_200x200 }}"
             alt="{{ child.get_image.image.title }}"
             title="{{ child.get_image.image.title }}" />
 	{% endif %}		
