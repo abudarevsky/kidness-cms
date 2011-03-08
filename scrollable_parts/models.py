@@ -6,6 +6,8 @@ from django.template.loader import render_to_string
 from django.utils.translation import ugettext_lazy as _
 from lfc.models import Page
 
+import tagging.models
+
 # tagging imports
 import tagging.models
 from tagging.forms import TagField
@@ -70,6 +72,11 @@ class ScrollablePart(BaseContent):
     def get_searchable_text(self):
         searchable_text = super(ScrollablePart, self).get_searchable_text()
         return searchable_text + " " + self.text
+    def get_tag_list(self):
+        return tagging.models.Tag.objects.usage_for_model(
+                ScrollablePart, filters = {
+                    "parent" : self,
+                })
 
     def form(self, **kwargs):
         """Returns the add/edit form of the NewsEntry

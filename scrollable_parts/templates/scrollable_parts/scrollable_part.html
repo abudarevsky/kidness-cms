@@ -19,6 +19,8 @@
    </div>
 	
    <div style="float:left;display:block;width:30%;">
-   		{{child.tags}}
+   		{% for tag in child.get_tag_list %}
+   			{{tag.name}}|
+   		{% endfor %}
    </div>	
 </div>
