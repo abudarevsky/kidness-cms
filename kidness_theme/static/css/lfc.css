@@ -49,7 +49,7 @@ a {color:#2b8841;}
 
 a:visited,
 a {
-    color: #24241c;
+    color: #2d87bf;
 }
 
 a:hover {
@@ -73,9 +73,8 @@ code a:visited {
 }
 
 h1 {
-    font-weight: bold;
+    font-weight: normal;
     font-size: 153.9%;
-    font-family: Georgia;
     text-transform: uppercase;
     margin-bottom: 10px;
 }
@@ -103,7 +102,6 @@ h1.logo img {
 }
 h2 {
     font-size: 123.1%;
-    font-family: Georgia;
     text-transform: uppercase;
     padding-top: 20px;
     padding-bottom: 5px;
@@ -239,9 +237,12 @@ h2.blog-entry {
 #content h1 a,
 #content h2,
 #content h2 a {
-    color: #24241c !important;
+    color: #24241C;
 }
+#content .middle-slot h1, #content .middle-slot h2 {
+	color:#21a84a;
 
+}
 #content ol li {
     list-style: decimal outside;
     margin-left: 1.3em;
@@ -393,7 +394,6 @@ ul.breadcrumbs li {
     margin: 0 0 2px 0;
     padding: 0 5px;
     text-transform: uppercase;
-    font-family: Georgia;
 }
 
 .portlet-body {
@@ -607,4 +607,9 @@ div.scrollable div.items div {
 	float:left;
 	background: transparent url("/media/kidness_theme/img/photohat/9.jpg") no-repeat 0 0;
 	margin-top:12px;
+}
+.itemScroll ul {
+	background: transparent url("/media/kidness_theme/img/brackets.gif") no-repeat left top;
+	padding-left: 58px;
+	min-height:253px;
 }

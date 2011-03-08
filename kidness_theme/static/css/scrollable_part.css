@@ -1,41 +1,3 @@
-/**
- * Additional styles for the controls.
- */
-.jcarousel-control {
-    margin-bottom: 10px;
-    text-align: center;
-}
-
-.jcarousel-control a {
-    font-size: 75%;
-    text-decoration: none;
-    padding: 0 5px;
-    margin: 0 0 5px 0;
-    border: 1px solid #fff;
-    color: #eee;
-    background-color: #4088b8;
-    font-weight: bold;
-}
-
-.jcarousel-control a:focus,
-.jcarousel-control a:active {
-    outline: none;
-}
-
-.jcarousel-scroll {
-    margin-top: 10px;
-    text-align: center;
-}
-
-.jcarousel-scroll form {
-    margin: 0;
-    padding: 0;
-}
-
-.jcarousel-scroll select {
-    font-size: 75%;
-}
-
 #next, #prev {
     cursor: pointer;
     margin-bottom: -10px;
@@ -43,21 +5,7 @@
     font-size: 11px;
 }
 
-.jcarousel-skin-tango .jcarousel-clip-vertical {
-    width: 100%;
-    height: 540px;
-}
- 
-.jcarousel-skin-tango .jcarousel-container-vertical {
-	width: 100%;
-	height: 540px;
-}
 
-.jcarousel-skin-tango .jcarousel-item-vertical {
-    height: 180px;
-    width: 100%;
-    margin-top: 1em;
-}
 
 .selectedItem {
 	background-color: #ccc;
