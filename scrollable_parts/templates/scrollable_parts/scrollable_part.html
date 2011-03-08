@@ -10,8 +10,7 @@
    <div style="float:left;display:block;width:70%;">
    	 <!-- image -->
     {% if child.get_image %}
-       <img
-            src="{{ child.get_image.image.url_200x200 }}"
+       <img src="{{ child.get_image.image.url_200x200 }}"
             alt="{{ child.get_image.image.title }}"
             title="{{ child.get_image.image.title }}" />
 	{% endif %}		
@@ -19,8 +18,16 @@
    </div>
 	
    <div style="float:left;display:block;width:30%;">
+	{% comment %}
    		{% for tag in child.get_tag_list %}
    			{{tag.name}}|
-   		{% endfor %}
-   </div>	
+   		{% endfor %}	
+	{% endcomment %}
+   		<ul>
+   			<li>Тэг 1</li>
+			<li>Тэг 2 средний</li>
+			<li>Тэг 3 бла длинный</li>
+			<li>Тэг 3 бла очень очень длинный тэг</li>
+   		</ul>
+   </div>
 </div>
