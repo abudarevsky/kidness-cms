@@ -1,5 +1,6 @@
 
 <div id="{{child.slug}}" class="itemScroll" name="{{child.slug}}">
+	<div style="float:left;display:block;width:70%;min-height: 258px;">
 	<!-- title -->
     {% if child.display_title %}
          	<h2>{{ child.title }}</h2>
@@ -7,14 +8,37 @@
    
          <!-- content -->
       
-   <div style="float:left;display:block;width:70%;">
+   
    	 <!-- image -->
     {% if child.get_image %}
        <img src="{{ child.get_image.image.url_200x200 }}"
             alt="{{ child.get_image.image.title }}"
             title="{{ child.get_image.image.title }}" />
 	{% endif %}		
-      {{ child.text|safe }}
+	
+      {{ child.description|safe }}
+      
+      <a id="{{child.slug}}__action" class="text_toggle_action" href="#{{child.slug}}__text">Читать все...</a>
+      <div class="child_text">
+	      <div id="{{child.slug}}__text">
+	      	 {% if child.display_title %}
+         	<h2>{{ child.title }}</h2>
+			{% endif %}
+		   
+		         <!-- content -->
+		      
+		   
+		   	 <!-- image -->
+		    {% if child.get_image %}
+		       <img src="{{ child.get_image.image.url_200x200 }}"
+		            alt="{{ child.get_image.image.title }}"
+		            title="{{ child.get_image.image.title }}" />
+			{% endif %}		
+			
+		      {{ child.description|safe }}
+	      	{{child.text|safe}}
+	      </div>
+      </div>
    </div>
 	
    <div style="float:left;display:block;width:30%;">

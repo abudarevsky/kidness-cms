@@ -608,8 +608,3 @@ div.scrollable div.items div {
 	background: transparent url("/media/kidness_theme/img/photohat/9.jpg") no-repeat 0 0;
 	margin-top:12px;
 }
-.itemScroll ul {
-	background: transparent url("/media/kidness_theme/img/brackets.gif") no-repeat left top;
-	padding-left: 58px;
-	min-height:253px;
-}
