@@ -5,13 +5,13 @@
     font-size: 11px;
 }
 
-.itemScroll ul {
-	background: transparent url("/media/kidness_theme/img/brackets.gif") no-repeat left top;
+.jcarousel-skin-tango .itemScroll ul {
+	background: transparent url("/media/kidness_theme/img/brackets_norm.gif") no-repeat left top;
 	padding-left: 58px;
 	min-height:258px;
 }
 
-.selectedItem {
-	background-color: #ccc;
+ .jcarousel-skin-tango .itemScroll .selectedItem ul {
+	background: transparent url("/media/kidness_theme/img/brackets.gif") no-repeat left top;
 }
 
