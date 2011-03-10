@@ -29,10 +29,11 @@ height: 100%;
 html {
 	background: #f1f1f1 url("/media/kidness_theme/img/bghands.gif") no-repeat center top;
 	text-align:center;
+	font: normal normal 68.75%/136% verdana,sans-serif;
 }
 body {
 	text-align:left;
-	font: normal normal 68.75%/136% verdana,sans-serif;
+	font-size:1.2em;
 	color: #424242;
 	width:979px;
 	margin:0 auto;
@@ -576,28 +577,36 @@ div.scrollable div.items div {
 	margin:2px;
 	display:block;
 }
-#content .photosHat ul li a.left1PhotoHat {
+
+#content .photosHat ul li span {
+	width:160px;
+	height: 119px;
+	margin:2px;
+	display:block;
+}
+
+#content .photosHat ul li .left1PhotoHat {
 	background: transparent url("/media/kidness_theme/img/photohat/1.jpg") no-repeat 0 0;
 }
-#content .photosHat ul li a.left2PhotoHat {
+#content .photosHat ul li .left2PhotoHat {
 	background: transparent url("/media/kidness_theme/img/photohat/2.jpg") no-repeat 0 0;
 }
-#content .photosHat ul li a.left3PhotoHat {
+#content .photosHat ul li .left3PhotoHat {
 	background: transparent url("/media/kidness_theme/img/photohat/3.jpg") no-repeat 0 0;
 }
-#content .photosHat ul li a.left4PhotoHat {
+#content .photosHat ul li .left4PhotoHat {
 	background: transparent url("/media/kidness_theme/img/photohat/4.jpg") no-repeat 0 0;
 }
-#content .photosHat ul li a.left5PhotoHat {
+#content .photosHat ul li .left5PhotoHat {
 	background: transparent url("/media/kidness_theme/img/photohat/5.jpg") no-repeat 0 0;
 }
-#content .photosHat ul li a.left6PhotoHat {
+#content .photosHat ul li .left6PhotoHat {
 	background: transparent url("/media/kidness_theme/img/photohat/6.jpg") no-repeat 0 0;
 }
-#content .photosHat ul li a.left7PhotoHat {
+#content .photosHat ul li .left7PhotoHat {
 	background: transparent url("/media/kidness_theme/img/photohat/7.jpg") no-repeat 0 0;
 }
-#content .photosHat ul li a.left8PhotoHat {
+#content .photosHat ul li .left8PhotoHat {
 	background: transparent url("/media/kidness_theme/img/photohat/8.jpg") no-repeat 0 0;
 }
 .rightPhotoHat {
@@ -605,6 +614,6 @@ div.scrollable div.items div {
 	height:243px;
 	display:block;
 	float:left;
-	background: transparent url("/media/kidness_theme/img/photohat/9.jpg") no-repeat 0 0;
+	background: transparent url("/media/kidness_theme/img/photohat/promo.jpg") no-repeat 0 0;
 	margin-top:12px;
 }

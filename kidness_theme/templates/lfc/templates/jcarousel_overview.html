@@ -69,17 +69,19 @@
 		        buttonNextHTML: null,
 		        buttonPrevHTML: null
 		    });
-		    /*
-		    $(".text_toggle_action").bind("click", function(){
-				var text_id =$(this).attr('id').split('__')[0]+'__text';
-				
-				// $(this).next('div').toggle();
-		    	$("#"+text_id).toggle();
-				return false;
-			});*/
 		    
 			$(".child_text").hide();
 			$(".text_toggle_action").fancybox();
+			$(".itemScroll").bind("mouseover", function(){
+				$(".itemScroll").removeClass("selectedItem");
+		    	$(".itemScroll").children('div').removeClass("selectedItem");
+		    	$(this).addClass("selectedItem");
+		    	$(this).children('div').addClass("selectedItem");
+			});
+			$(".itemScroll").bind("mouseout", function(){
+				$(".itemScroll").removeClass("selectedItem");
+		    	$(".itemScroll").children('div').removeClass("selectedItem");
+			});
 		});
 	</script>
 {% endblock %}

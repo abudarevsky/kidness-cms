@@ -28,7 +28,25 @@
         <script src="http://cdn.jquerytools.org/1.2.5/full/jquery.tools.min.js?foo"></script>
         <script type="text/javascript" src="{{ MEDIA_URL }}lfc/lightbox/js/jquery.lightbox-0.5.js"></script>
         <script type="text/javascript" src="{{ MEDIA_URL }}lfc_theme/js/lfctheme.js"></script>
-
+		<script type="text/javascript">
+			$(function(){
+				function selectMenuTileItem(){
+					var span = $(this).parent().parent().find('span');
+					if(span.length>0){
+						span.parent().html("<a href='"+span.attr('href')+"' class='menuTile "+span.attr('class')+"'></a>");
+						$(".menuTile").live('click', selectMenuTileItem);
+					}
+					var classAttr = $(this).attr('class');
+					var href = $(this).attr('href');
+					var imageClass = classAttr.split(/\s+/)[1];
+					$(this).parent().html('<span href='+href+' class="'+imageClass+'"></span>');
+					 
+				    window.location=href;  
+				    return false;    
+				};
+				$(".menuTile").live('click', selectMenuTileItem);
+			});
+		</script>
         {% block javascript %}{% endblock %}
     </head>
     <body class="{{ lfc_context.slug }} {% block section %}{% endblock %}">
@@ -157,16 +175,16 @@
             <div id="content">
             <div class="photosHat">
             <ul>
-            	<li><a class="left1PhotoHat" href="#"></a></li>
-            	<li><a class="left2PhotoHat" href="#"></a></li>
-            	<li><a class="left3PhotoHat" href="#"></a></li>
-            	<li><a class="left4PhotoHat" href="#"></a></li>
-            	<li><a class="left5PhotoHat" href="#"></a></li>
-            	<li><a class="left6PhotoHat" href="#"></a></li>
-            	<li><a class="left7PhotoHat" href="#"></a></li>
-            	<li><a class="left8PhotoHat" href="#"></a></li>
+            	<li><a class="menuTile left1PhotoHat" href="/tiles/row1col1"></a></li>
+            	<li><a class="menuTile left2PhotoHat" href="/tiles/row1col2"></a></li>
+            	<li><a class="menuTile left3PhotoHat" href="/tiles/row1col3"></a></li>
+            	<li><a class="menuTile left4PhotoHat" href="/tiles/row1col4"></a></li>
+            	<li><a class="menuTile left5PhotoHat" href="/tiles/row2col1"></a></li>
+            	<li><a class="menuTile left6PhotoHat" href="/tiles/row2col2"></a></li>
+            	<li><a class="menuTile left7PhotoHat" href="/tiles/row2col3"></a></li>
+            	<li><a class="menuTile left8PhotoHat" href="/tiles/row2col4"></a></li>
             </ul>
-            <a class="rightPhotoHat" href="#"></a>
+            <a class="rightPhotoHat" href="/tiles/promo"></a>
             <span class="tl"></span>
             <span class="tr"></span>
             <span class="bl"></span>

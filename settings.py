@@ -94,7 +94,8 @@ INSTALLED_APPS = (
     "workflows",
     "permissions",
     "lfc_news",
-    "scrollable_parts"
+    "scrollable_parts",
+    "kidness_portlets"
 )
 
 CACHE_BACKEND = 'dummy:///'
