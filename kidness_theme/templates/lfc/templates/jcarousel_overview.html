@@ -82,6 +82,23 @@
 				$(".itemScroll").removeClass("selectedItem");
 		    	$(".itemScroll").children('div').removeClass("selectedItem");
 			});
+			
+			$(".scrollable_action").bind("click", function(){
+				$("#toggled_text").hide(600);
+				$("#toggle_action").text("Дальше");
+				return false;
+			});
+			
+			$("#toggle_action").bind("click", function(){
+				$("#toggled_text").toggle(600);
+				
+				if( $("#toggled_text").is(":visible") ){
+					$(this).text("Скрыть");
+				}else{
+					$(this).text("Читать все");
+				}
+				return false;
+			});
 		});
 	</script>
 {% endblock %}
@@ -91,11 +108,23 @@
     {% if lfc_context.display_title %}
         <h1 class="first-heading">{{ lfc_context.title }}</h1>
     {% endif %}
+    
+    {% if lfc_context.text %}
+   		<div id="overview_teaser">
+   			{{lfc_context.description|safe}}
+		   	<div id="toggled_text">
+		   		{{lfc_context.text|safe}}
+		   	</div>
+		   	<a id="toggle_action" class="showOverviewText" href="#">Скрыть</a>
+	   	</div>
+   	{% endif %}
+    
     {% ifequal lfc_context.content_type "scrollablecontainer" %}
    		<div>
            	{% include "scrollable_parts/scrollable_container.html" %}
            </div>
    	{% endifequal %}
+   	
     {% for sub_object in sub_objects %}
 	    {% ifnotequal sub_object.content_type "scrollablepart" %}
 	    	{% ifequal sub_object.content_type "scrollablecontainer" %}
