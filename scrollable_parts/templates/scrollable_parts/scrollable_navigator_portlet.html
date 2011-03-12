@@ -2,10 +2,15 @@
 {% load tagging_tags %}
 
 {% if entries %}
-    <div class="portlet blog-portlet">
+    <div class="portlet blog-portlet scrollablenavHeader">
         <div class="scrollable-entries jcarousel-control">
             <div class="portlet-header">
                 {{ title }}
+                <a href="#" class="timetable"></a>
+                <span class="tlSH"></span>
+                <span class="trSH"></span>
+                <span class="blSH"></span>
+                <span class="brSH"></span>
             </div>
             <ul class="portlet-body navi ">
                 {% for scrollable in entries %}

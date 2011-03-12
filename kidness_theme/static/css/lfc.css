@@ -33,12 +33,11 @@ html {
 }
 body {
 	text-align:left;
-	font-size:1.2em;
+	font-size:1.4em;
 	color: #424242;
 	width:979px;
 	margin:0 auto;
 }
-a {color:#2b8841;}
 .clear {
 	width:100%;
 	height:1px;
@@ -47,15 +46,6 @@ a {color:#2b8841;}
 	clear:both;
 }
 .hide{ display: block; text-indent: -9999px;}
-
-a:visited,
-a {
-    color: #2d87bf;
-}
-
-a:hover {
-    color: black;
-}
 
 pre,
 code {
@@ -99,7 +89,7 @@ h1.logo img {
 	line-height: 1.6em;
 }
 .headerContact .tel {
-	font-size:1.42em;
+	font-size:1.54em;
 }
 h2 {
     font-size: 123.1%;
@@ -176,7 +166,7 @@ h2.blog-entry {
 
 #tabs li a {
     display: block;
-    padding: 23px 36px 0 38px;
+    padding:1.8em 1.8em 0;
     text-decoration: none;
     text-transform: uppercase;
     height:28px;
@@ -396,11 +386,83 @@ ul.breadcrumbs li {
     padding: 0 5px;
     text-transform: uppercase;
 }
-
-.portlet-body {
-    padding-left: 5px;
+.scrollablenavHeader {
+	background: #e5e5e5;
+	text-transform: none;
+	position: relative;
+	padding:8px;
+	margin-top: 30px;
+	text-align: center;
 }
-
+.scrollablenavHeader .portlet-header  {
+	text-transform: none;
+}
+#content a.timetable {
+	background: transparent url("/media/kidness_theme/img/button.gif") no-repeat center 0;	
+	margin: 6px 0;
+	display:block;
+	width:100%;
+	cursor: pointer;
+	height:38px;
+}
+.tlSH {
+	background: transparent url("/media/kidness_theme/img/corners.gif") no-repeat 0 -24px;
+	width:6px;
+	height:6px;
+	display:block;
+	overflow:hidden;
+	position:absolute;
+	top:0;
+	left:0;
+}
+.trSH {
+	background: transparent url("/media/kidness_theme/img/corners.gif") no-repeat -6px -24px;
+	width:6px;
+	height:6px;
+	display:block;
+	overflow:hidden;
+	position:absolute;
+	top:0;
+	right:0;
+}
+.blSH {
+	background: transparent url("/media/kidness_theme/img/corners.gif") no-repeat 0 -30px;
+	width:6px;
+	height:6px;
+	display:block;
+	overflow:hidden;
+	position:absolute;
+	bottom:0;
+	left:0;
+}
+.brSH {
+	background: transparent url("/media/kidness_theme/img/corners.gif") no-repeat -6px -30px;
+	width:6px;
+	height:6px;
+	display:block;
+	overflow:hidden;
+	position:absolute;
+	bottom:0;
+	right:0;
+}
+.portlet-body {
+    padding-left: 12px;
+    margin-top:10px;
+    font-style: italic;
+}
+.scrollablenavHeader .portlet-body {
+    text-align: left;
+}
+#content ul.portlet-body li {
+    list-style-type: none;
+    padding: 0 0 10px 0;
+    margin: 0;
+}
+#content ul.portlet-body li a{
+	color: #2b7db9;	
+	text-transform: uppercase;
+	font-style: normal;
+}
 .portlet .blog-tag-cloud,
 .portlet .blog-archive {
     margin-top: 15px;
@@ -585,35 +647,68 @@ div.scrollable div.items div {
 	display:block;
 }
 
-#content .photosHat ul li .left1PhotoHat {
+#content .photosHat ul li a.left1PhotoHat {
 	background: transparent url("/media/kidness_theme/img/photohat/1.jpg") no-repeat 0 0;
 }
-#content .photosHat ul li .left2PhotoHat {
+#content .photosHat ul li a.left2PhotoHat {
 	background: transparent url("/media/kidness_theme/img/photohat/2.jpg") no-repeat 0 0;
 }
-#content .photosHat ul li .left3PhotoHat {
+#content .photosHat ul li a.left3PhotoHat {
 	background: transparent url("/media/kidness_theme/img/photohat/3.jpg") no-repeat 0 0;
 }
-#content .photosHat ul li .left4PhotoHat {
+#content .photosHat ul li a.left4PhotoHat {
 	background: transparent url("/media/kidness_theme/img/photohat/4.jpg") no-repeat 0 0;
 }
-#content .photosHat ul li .left5PhotoHat {
+#content .photosHat ul li a.left5PhotoHat {
 	background: transparent url("/media/kidness_theme/img/photohat/5.jpg") no-repeat 0 0;
 }
-#content .photosHat ul li .left6PhotoHat {
+#content .photosHat ul li a.left6PhotoHat {
 	background: transparent url("/media/kidness_theme/img/photohat/6.jpg") no-repeat 0 0;
 }
-#content .photosHat ul li .left7PhotoHat {
+#content .photosHat ul li a.left7PhotoHat {
 	background: transparent url("/media/kidness_theme/img/photohat/7.jpg") no-repeat 0 0;
 }
-#content .photosHat ul li .left8PhotoHat {
+#content .photosHat ul li a.left8PhotoHat {
 	background: transparent url("/media/kidness_theme/img/photohat/8.jpg") no-repeat 0 0;
 }
-.rightPhotoHat {
+a.rightPhotoHat {
 	width:266px;
 	height:243px;
 	display:block;
 	float:left;
 	background: transparent url("/media/kidness_theme/img/photohat/promo.jpg") no-repeat 0 0;
+	margin-top:12px;
+}
+
+#content .photosHat ul li span.left1PhotoHat {
+	background: transparent url("/media/kidness_theme/img/photohat/1_hl.jpg") no-repeat 0 0;
+}
+#content .photosHat ul li span.left2PhotoHat {
+	background: transparent url("/media/kidness_theme/img/photohat/2_hl.jpg") no-repeat 0 0;
+}
+#content .photosHat ul li span.left3PhotoHat {
+	background: transparent url("/media/kidness_theme/img/photohat/3_hl.jpg") no-repeat 0 0;
+}
+#content .photosHat ul li span.left4PhotoHat {
+	background: transparent url("/media/kidness_theme/img/photohat/4_hl.jpg") no-repeat 0 0;
+}
+#content .photosHat ul li span.left5PhotoHat {
+	background: transparent url("/media/kidness_theme/img/photohat/5_hl.jpg") no-repeat 0 0;
+}
+#content .photosHat ul li span.left6PhotoHat {
+	background: transparent url("/media/kidness_theme/img/photohat/6_hl.jpg") no-repeat 0 0;
+}
+#content .photosHat ul li span.left7PhotoHat {
+	background: transparent url("/media/kidness_theme/img/photohat/7_hl.jpg") no-repeat 0 0;
+}
+#content .photosHat ul li span.left8PhotoHat {
+	background: transparent url("/media/kidness_theme/img/photohat/8_hl.jpg") no-repeat 0 0;
+}
+span.rightPhotoHat {
+	width:266px;
+	height:243px;
+	display:block;
+	float:left;
+	background: transparent url("/media/kidness_theme/img/photohat/promo_hl.jpg") no-repeat 0 0;
 	margin-top:12px;
 }

@@ -85,7 +85,7 @@
 			
 			$(".scrollable_action").bind("click", function(){
 				$("#toggled_text").hide(600);
-				$("#toggle_action").text("Дальше");
+				$("#toggle_action").text("...");
 				return false;
 			});
 			
@@ -95,7 +95,7 @@
 				if( $("#toggled_text").is(":visible") ){
 					$(this).text("Скрыть");
 				}else{
-					$(this).text("Читать все");
+					$(this).text("...");
 				}
 				return false;
 			});
@@ -115,7 +115,12 @@
 		   	<div id="toggled_text">
 		   		{{lfc_context.text|safe}}
 		   	</div>
-		   	<a id="toggle_action" class="showOverviewText" href="#">Скрыть</a>
+		   	<a id="toggle_action" class="showOverviewText" href="#">Свернуть</a>
+	   	        <span class="tlSH"></span>
+                <span class="trSH"></span>
+                <span class="blSH"></span>
+                <span class="brSH"></span>
+	   	<div class="clear"></div>
 	   	</div>
    	{% endif %}
     

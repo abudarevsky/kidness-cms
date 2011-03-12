@@ -4,14 +4,98 @@
     text-decoration: underline;
     font-size: 11px;
 }
-
-.jcarousel-skin-tango .itemScroll ul {
+.jcarousel-skin-tango .itemScroll .brackets td {
 	background: transparent url("/media/kidness_theme/img/brackets_norm.gif") no-repeat left top;
-	padding-left: 58px;
-	min-height:258px;
+	padding-left: 72px;
+	height:258px;
+	vertical-align: middle;
 }
 
- .jcarousel-skin-tango .itemScroll .selectedItem ul {
+ .jcarousel-skin-tango .itemScroll .selectedItem .brackets td {
 	background: transparent url("/media/kidness_theme/img/brackets.gif") no-repeat left top;
 }
 
+#actions {
+	width:100%;
+	border-bottom: 1px solid #e5e5e5;
+	margin-bottom:30px;
+	display:block;
+	clear:both;
+	text-align: right;
+}
+
+#actions a {
+    padding-bottom: 5px;
+    padding-top: 20px;
+    color: #21A84A;	
+}
+#actions a#next {
+	background: transparent url("/media/kidness_theme/img/next.gif") no-repeat right 1px;
+	text-decoration: none;
+	padding-right: 8px;
+	line-height: 21px;
+	padding-bottom:25px;
+	padding-top: 0px;
+}
+
+#actions a#prev {
+	background: transparent url("/media/kidness_theme/img/prev.gif") no-repeat left 1px;
+    line-height: 21px;
+    margin-right: 40px;
+    padding-bottom: 25px;
+    padding-left: 8px;
+    padding-top: 0px;
+    text-decoration: none;
+}
+#overview_teaser {
+	background: #f7f7f7;
+	text-transform: none;
+	position: relative;
+	padding:11px 12px;
+	margin-bottom: 30px;
+}
+#overview_teaser .tlSH {
+	background: transparent url("/media/kidness_theme/img/corners.gif") no-repeat 0 -36px;
+	width:6px;
+	height:6px;
+	display:block;
+	overflow:hidden;
+	position:absolute;
+	top:0;
+	left:0;
+}
+#overview_teaser .trSH {
+	background: transparent url("/media/kidness_theme/img/corners.gif") no-repeat -6px -36px;
+	width:6px;
+	height:6px;
+	display:block;
+	overflow:hidden;
+	position:absolute;
+	top:0;
+	right:0;
+}
+#overview_teaser .blSH {
+	background: transparent url("/media/kidness_theme/img/corners.gif") no-repeat 0 -42px;
+	width:6px;
+	height:6px;
+	display:block;
+	overflow:hidden;
+	position:absolute;
+	bottom:0;
+	left:0;
+}
+#overview_teaser .brSH {
+	background: transparent url("/media/kidness_theme/img/corners.gif") no-repeat -6px -42px;
+	width:6px;
+	height:6px;
+	display:block;
+	overflow:hidden;
+	position:absolute;
+	bottom:0;
+	right:0;
+}
+#content #toggle_action {
+	color: #21A84A;
+	float:right;
+	font-size: 11px;
+}

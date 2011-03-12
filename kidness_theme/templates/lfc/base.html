@@ -34,17 +34,18 @@
 					var span = $(this).parent().parent().find('span');
 					if(span.length>0){
 						span.parent().html("<a href='"+span.attr('href')+"' class='menuTile "+span.attr('class')+"'></a>");
-						$(".menuTile").live('click', selectMenuTileItem);
+						$(".menuTile").bind('click', selectMenuTileItem);
 					}
 					var classAttr = $(this).attr('class');
 					var href = $(this).attr('href');
 					var imageClass = classAttr.split(/\s+/)[1];
-					$(this).parent().html('<span href='+href+' class="'+imageClass+'"></span>');
-					 
-				    window.location=href;  
+					var span = '<span href="'+href+'" class="'+imageClass+'"></span>';
+					$(this).parent().html(span);
+					// alert($(this).parent().html()); 
+				    //window.location=href;  
 				    return false;    
 				};
-				$(".menuTile").live('click', selectMenuTileItem);
+				$(".menuTile").bind('click', selectMenuTileItem);
 			});
 		</script>
         {% block javascript %}{% endblock %}
@@ -114,7 +115,7 @@
                         {% endfor %}
                     </div>
                     <span class="headerContact">
-                    <span class="tel">(812) 645 01 66</span><br />
+                    <span class="tel">(812) 645 01 55</span><br />
                     ул. Звенигородская 12
                     </span>
                 </div>
@@ -130,7 +131,7 @@
                         {% endif %}
                     </div>
                     <span class="headerContact">
-                    <span class="tel">(812) 645 01 66</span><br />
+                    <span class="tel">(812) 645 01 55</span><br />
                     ул. Звенигородская 12
                     </span>
                 </div>
