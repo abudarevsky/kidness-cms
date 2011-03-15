@@ -24,7 +24,12 @@
 		 * to assign functionality to the controls
 		 */
 		
-		
+		function hideDescriptionText(){
+			$("#toggled_text").hide(900);
+			$("#toggled_teaser").show(900);
+			$("#toggle_action").text("...");
+		} 
+		 
 		// Ride the carousel...
 		jQuery(document).ready(function() {
 			function mycarousel_initCallback(carousel) {
@@ -67,11 +72,36 @@
 		        initCallback: mycarousel_initCallback,
 		        // This tells jCarousel NOT to autobuild prev/next buttons
 		        buttonNextHTML: null,
-		        buttonPrevHTML: null
+		        buttonPrevHTML: null,
+		        itemLastInCallback : function(object,li,idx,state){
+		        	var carousel = jQuery('#mycarousel').data('jcarousel');
+		        	if (state!="init"){
+		        		hideDescriptionText();
+		        		if (idx==carousel.size())
+		        			$("#next").hide();
+		        		else
+		        			$("#next").show();
+		        	}
+		        },
+		    	itemFirstInCallback : function(object,li,idx,state){
+	        		if (state!="init"){
+	        			hideDescriptionText();
+	        			if (idx==1)
+	        				$("#prev").hide();
+	        			else
+	        				$("#prev").show();
+	        		}
+	        	}
 		    });
 		    
+		    $("#prev").hide();
+		    
 			$(".child_text").hide();
+			$(".fancybox_inline").hide();
+			
 			$(".text_toggle_action").fancybox();
+			$(".fancybox_action").fancybox();
+			
 			$(".itemScroll").bind("mouseover", function(){
 				$(".itemScroll").removeClass("selectedItem");
 		    	$(".itemScroll").children('div').removeClass("selectedItem");
@@ -84,18 +114,23 @@
 			});
 			
 			$(".scrollable_action").bind("click", function(){
-				$("#toggled_text").hide(600);
+				/*
+				$("#toggled_text").hide(900);
+				$("#toggled_teaser").show(900);
 				$("#toggle_action").text("...");
+				*/
+				hideDescriptionText();
 				return false;
 			});
 			
 			$("#toggle_action").bind("click", function(){
-				$("#toggled_text").toggle(600);
+				$("#toggled_teaser").toggle(900);
+				$("#toggled_text").toggle(900);
 				
-				if( $("#toggled_text").is(":visible") ){
-					$(this).text("Скрыть");
-				}else{
+				if( $(this).text()=="Свернуть"){
 					$(this).text("...");
+				}else{
+					$(this).text("Свернуть");					
 				}
 				return false;
 			});
@@ -111,7 +146,7 @@
     
     {% if lfc_context.text %}
    		<div id="overview_teaser">
-   			{{lfc_context.description|safe}}
+   			<div style="display:none" id="toggled_teaser">{{lfc_context.text|safe|truncatewords_html:10}}</div>
 		   	<div id="toggled_text">
 		   		{{lfc_context.text|safe}}
 		   	</div>

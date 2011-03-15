@@ -45,7 +45,42 @@
 				    //window.location=href;  
 				    return false;    
 				};
-				$(".menuTile").bind('click', selectMenuTileItem);
+				
+				function updateMenuTileItem(){
+					var href = location.href;
+					if (href.indexOf("tiles")<0) return false;
+					
+					var a = new String(window.location);
+					a = a.replace('http://','');
+					a = a.substring(a.indexOf('/'));
+
+					// alert(a);
+					var $menuItem = null;
+					$.each($("#imageMenuItems").children(), function(idx, val){
+						itemHref = $(val).find("a").attr('href');
+						if(a.indexOf(itemHref)>=0){
+							$menuItem = $(val).find("a");
+							return false;
+						}
+					});
+					/*
+					var span = $(this).parent().parent().find('span');
+					if(span.length>0){
+						span.parent().html("<a href='"+span.attr('href')+"' class='menuTile "+span.attr('class')+"'></a>");
+						$(".menuTile").bind('click', selectMenuTileItem);
+					}
+					*/
+					var classAttr = $menuItem.attr('class');
+					var mihref = $menuItem.attr('href');
+					var imageClass = classAttr.split(/\s+/)[1];
+					var span = '<span href="'+mihref+'" class="'+imageClass+'"></span>';
+					$menuItem.parent().html(span);
+					// alert($(this).parent().html()); 
+				    //window.location=href;  
+				    // return false;    
+				};
+				// $(".menuTile").bind('click', selectMenuTileItem);
+				updateMenuTileItem();
 			});
 		</script>
         {% block javascript %}{% endblock %}
@@ -175,7 +210,7 @@
         
             <div id="content">
             <div class="photosHat">
-            <ul>
+            <ul id="imageMenuItems">
             	<li><a class="menuTile left1PhotoHat" href="/tiles/row1col1"></a></li>
             	<li><a class="menuTile left2PhotoHat" href="/tiles/row1col2"></a></li>
             	<li><a class="menuTile left3PhotoHat" href="/tiles/row1col3"></a></li>

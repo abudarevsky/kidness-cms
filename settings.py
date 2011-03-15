@@ -76,8 +76,11 @@ TEMPLATE_DIRS = (
 )
 
 INSTALLED_APPS = (
+                  
+                  
     "kidness_theme",
     "lfc_theme",
+    
     "django.contrib.admin",
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -86,6 +89,7 @@ INSTALLED_APPS = (
     "django.contrib.flatpages",
     "django.contrib.sitemaps",
     "django.contrib.comments",
+    
     "lfc",
     "portlets",
     "tagging",
@@ -93,9 +97,12 @@ INSTALLED_APPS = (
     "pagination",
     "workflows",
     "permissions",
-    "lfc_news",
+    
     "scrollable_parts",
-    "kidness_portlets"
+    "kidness_portlets",
+    "kidness",
+    
+    "lfc_news",
 )
 
 CACHE_BACKEND = 'dummy:///'

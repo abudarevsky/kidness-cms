@@ -17,6 +17,8 @@ from portlets.models import Portlet
 from lfc.fields.autocomplete import AutoCompleteTagInput
 from lfc.models import BaseContent
 import lfc.utils
+from tagging.models import Tag
+from kidness.forms import KidnessContactForm
 
 class ScrollableContainer(BaseContent):
     """A simple ScrollableContainer for LFC.
@@ -28,22 +30,25 @@ class ScrollableContainer(BaseContent):
         verbose_name_plural=_(u'Scrollable Containers')
 
     def get_children_pages(self):
-        print 'get_children_pages', self.get_children()
         arr = []
         subarr = None
         for child in self.get_children():
             print child, len(arr), self.items_per_page
             if not subarr or len(subarr)>= self.items_per_page:
-                print 'New subarr'
                 subarr = []
                 arr.append(subarr)
-                print 'subarr added', arr
-            print 'Adding child', child    
             subarr.append(child)
             print subarr
-        print 'Arr', arr    
-        return arr         
-
+        return arr
+             
+    @property
+    def has_more(self):
+        return self.items_per_page < len(self.get_children())
+    
+    @property
+    def get_number_of_items(self):
+        len(self.get_children())
+        
     def form(self, **kwargs):
         """Returns the add/edit form of the News
         """
@@ -59,9 +64,11 @@ class ScrollableContainerForm(CoreDataForm):
         fields = ("title", "display_title", "description", "items_per_page")
 
 class ScrollablePart(BaseContent):
-    """An entry of an News
+    """An entry of an ScrollablePart
     """
+    short_text = models.TextField(_(u"Short Text"), blank=True)
     text = models.TextField(_(u"Text"), blank=True)
+    
     
     class Meta:
         verbose_name=_(u'Scrollable Part')
@@ -70,6 +77,9 @@ class ScrollablePart(BaseContent):
     def get_searchable_text(self):
         searchable_text = super(ScrollablePart, self).get_searchable_text()
         return searchable_text + " " + self.text
+
+    def get_tags_as_list(self):
+        return Tag.objects.get_for_object(self).all()
 
     def form(self, **kwargs):
         """Returns the add/edit form of the NewsEntry
@@ -82,7 +92,7 @@ class ScrollablePartForm(forms.ModelForm):
     tags = TagField(widget=AutoCompleteTagInput(), required=False)
     class Meta:
         model = ScrollablePart
-        fields = ("title", "display_title", "slug", "description", "text", "tags")
+        fields = ("title", "display_title", "slug", "short_text", "text", "tags")
 
 class ScrollableNavigatorPortlet(Portlet):
     """A portlet, which displays recent entries, archive and tag cloud.
@@ -113,7 +123,8 @@ class ScrollableNavigatorPortlet(Portlet):
         result = render_to_string("scrollable_parts/scrollable_navigator_portlet.html", {
             "page" : obj,
             "title" : self.title,
-            "entries" : obj.get_children()
+            "entries" : obj.get_children(),
+            "form": KidnessContactForm(request=request)
         })
 
         cache.set(cache_key, result)

@@ -1,3 +1,5 @@
 {{name}}, {{email}}
+{{phone_number}}
+{{contact_time}}
 
 {{body}}

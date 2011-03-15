@@ -1,4 +1,5 @@
-
+{% load i18n %}
+{% load scrollable_parts_tags %}
 <div id="{{child.slug}}" class="itemScroll" name="{{child.slug}}">
 	<div style="float:left;display:block;width:70%;min-height: 258px;">
 	<!-- title -->
@@ -15,12 +16,15 @@
             alt="{{ child.get_image.image.title }}"
             title="{{ child.get_image.image.title }}" />
 	{% endif %}		
-	
-      {{ child.description|safe }}
-      
+	{% if child.short_text %}		
+      {{ child.short_text|safe|truncatewords_html:70 }}
+    {% else %}
+    	{{ child.text|safe|truncatewords_html:70 }}	
+    {% endif %}  
       <a id="{{child.slug}}__action" class="text_toggle_action" href="#{{child.slug}}__text">Читать все...</a>
       <div class="child_text">
-	      <div id="{{child.slug}}__text">
+	      <div style="width:900px;" id="{{child.slug}}__text">
+	      	<div style="display:block;float:left;width:70%">
 	      	 {% if child.display_title %}
          	<h2>{{ child.title }}</h2>
 			{% endif %}
@@ -35,8 +39,14 @@
 		            title="{{ child.get_image.image.title }}" />
 			{% endif %}		
 			
-		      {{ child.description|safe }}
+		      {# child.description|safe #}
 	      	{{child.text|safe}}
+	      	</div>
+	      	
+	      	<div style="float:left;width:30%;">
+	      		{% kidness_contactform %}	
+	      	</div>
+	      	
 	      </div>
       </div>
    </div>
@@ -45,13 +55,14 @@
 	{% comment %}
    		{% for tag in child.get_tag_list %}
    			{{tag.name}}|
-   		{% endfor %}	
+   		{% endfor %}
 	{% endcomment %}
-   		<table class="brackets"><tr><td>
-   			Тэг 1<br />
-			Тэг 2 средний<br />
-			Тэг 3 бла длинный<br />
-			Тэг 3 бла очень очень длинный тэг
-   		</td></tr></table>
+   		<table class="brackets">
+	   		<tr><td>
+	   			{% for tag in child.get_tags_as_list %}
+		   			{{tag.name}}<br />
+		   		{% endfor %}	
+	   		</td></tr>	
+   		</table>
    </div>
 </div>

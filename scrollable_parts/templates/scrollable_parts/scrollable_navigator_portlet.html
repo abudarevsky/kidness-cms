@@ -6,7 +6,23 @@
         <div class="scrollable-entries jcarousel-control">
             <div class="portlet-header">
                 {{ title }}
-                <a href="#" class="timetable"></a>
+                <a href="#feedback" class="fancybox_action timetable"></a>
+                <div class="fancybox_inline">
+	      			<div style="width:340px;" id="feedback">
+	      				 <h2>Узнать о наличии мест</h2>
+	      				 	
+						    <form style="padding-left: 4em;" class="contact-form"
+						          action="/contact"
+						          method="post">
+						
+						        {% include "lfc/lfc_form.html" %}
+						
+						        <input style="float:right" type="submit"
+						               value="{% trans 'Send' %}" />
+						    </form>	
+						    
+	      			</div>
+	      		</div>	
                 <span class="tlSH"></span>
                 <span class="trSH"></span>
                 <span class="blSH"></span>

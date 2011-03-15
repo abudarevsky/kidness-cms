@@ -1,6 +1,15 @@
 <div id="actions">
+{% ifequal lfc_context.content_type "scrollablecontainer" %}
+	{% if lfc_context.has_more %}	
    <a id="prev">Назад</a>
    <a id="next">Еще</a>
+   {% endif%}
+{% else %}   
+	{% if sub_object.has_more %}
+		<a id="prev">Назад</a>
+	   <a id="next">Еще</a>
+	{% endif%}   
+{% endifequal %}	
 </div>
 
 <!-- root element for scrollable -->
