@@ -12,6 +12,7 @@ class KidnessContactForm(lfc_forms.ContactForm):
     def __init__ (self, *args, **kwargs):
         super(KidnessContactForm, self).__init__(*args, **kwargs)
         self.fields['name'].label=_(u'Ваше имя')
+        self.fields['email'].label=_(u'Адрес электронной почты')
         self.fields['body'] = forms.CharField(max_length=15,
                      widget=forms.TextInput(attrs=lfc_forms.attrs_dict),
                      label=_(u'Предпочитаемое время звонка'))
