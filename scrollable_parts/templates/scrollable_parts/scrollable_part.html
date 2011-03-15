@@ -22,7 +22,7 @@
     	{{ child.text|safe|truncatewords_html:70 }}	
     {% endif %}  
       <a id="{{child.slug}}__action" class="text_toggle_action" href="#{{child.slug}}__text">Читать все...</a>
-      <div class="child_text">
+      <div style="display:none" class="child_text">
 	      <div style="width:900px;" id="{{child.slug}}__text">
 	      	<div style="display:block;float:left;width:70%">
 	      	 {% if child.display_title %}
