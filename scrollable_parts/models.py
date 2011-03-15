@@ -66,7 +66,7 @@ class ScrollableContainerForm(CoreDataForm):
 class ScrollablePart(BaseContent):
     """An entry of an ScrollablePart
     """
-    short_text = models.TextField(_(u"Short Text"), blank=True)
+    short_text = models.TextField(_(u"Short Text"), null=True, blank=True)
     text = models.TextField(_(u"Text"), blank=True)
     
     
