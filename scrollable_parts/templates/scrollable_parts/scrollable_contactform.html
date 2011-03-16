@@ -1,13 +1,18 @@
  {% load i18n %}
  
- <h2>Узнать о наличии мест</h2>
+
 	      				 	
-  <form style="padding-left: 4em;" class="contact-form"
+  <form class="contact-form"
         action="/contact"
         method="post">
 
       {% include "lfc/lfc_form.html" %}
 
-      <input style="float:right" type="submit"
-             value="{% trans 'Send' %}" />
+      <input type="submit"
+             value="Узнать о наличии мест" />
+             
+             	<span class="tlSH"></span>
+                <span class="trSH"></span>
+                <span class="blSH"></span>
+                <span class="brSH"></span>
   </form>	

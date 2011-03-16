@@ -8,17 +8,21 @@
                 {{ title }}
                 <a href="#feedback" class="fancybox_action timetable"></a>
                 <div style="display:none" class="fancybox_inline">
-	      			<div style="width:340px;" id="feedback">
-	      				 <h2>Узнать о наличии мест</h2>
+	      			<div id="feedback">
+	      				 <h1>Узнать о наличии мест</h1>
 	      				 	
 						    <form style="padding-left: 4em;" class="contact-form"
 						          action="/contact"
 						          method="post">
 						
 						        {% include "lfc/lfc_form.html" %}
-						
-						        <input style="float:right" type="submit"
+							<dl>
+								<dt></dt>
+								<dd>
+						        <input type="submit"
 						               value="{% trans 'Send' %}" />
+						        </dd>
+							</dl>
 						    </form>	
 						    
 	      			</div>

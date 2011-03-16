@@ -1,21 +1,21 @@
 {{ form.non_field_errors }}
 
 {% for field in form %}
-    <div class="field">     
-        <div class="label">
+    <dl class="field">     
+        <dt class="label">
             {{ field.label_tag }}:
-        </div>
+        </dt>
 
         {% if field.errors %}
-            <div class="error">
+            <dd class="error">
                 {{ field.errors }}
                 {{ field }}
-            </div>
+            </dd>
         {% else %}
-            <div>
+            <dd>
                 {{ field }}
-            </div>
+            </dd>
         {% endif %}
-    </div>
+    </dl>
 {% endfor %}
 

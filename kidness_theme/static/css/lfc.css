@@ -712,3 +712,48 @@ span.rightPhotoHat {
 	background: transparent url("/media/kidness_theme/img/photohat/promo_hl.jpg") no-repeat 0 0;
 	margin-top:12px;
 }
+/*feedback form----------------------*/
+#feedback {
+	width:600px;
+	height:300px;
+	display:block;
+	overflow: hidden;	
+}
+#feedback h1 {
+	color: #21A84A;
+	padding-left:2em;
+	padding-bottom:0.6em;
+	border-bottom: 1px solid #E5E5E5;
+	margin-bottom:40px;
+}
+#feedback dl {
+	width:100%;
+	display:block;
+	clear: both;	
+}
+#feedback dd, #feedback dt {
+	width:47.9%;
+	display:block;
+	float:left;
+	padding: 1%;	
+}
+#feedback .label {text-align:right;}
+#feedback input {width:150px;}
+/* scrollable programs description---------------------------*/
+#fancybox-content h2 {color: #21A84A;}
+.scrollableDescr {
+	width:800px; overflow-x:hidden;
+	padding:20px;	
+}
+.contact-form {
+	background: #F7F7F7;
+    padding: 20px;
+    position: relative;
+    width: 220px;
+    float:left;
+    display: block;
+
+}
+.contact-form input {
+    width: 200px;
+}

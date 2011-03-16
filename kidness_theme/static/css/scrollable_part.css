@@ -54,7 +54,7 @@
 	padding:11px 12px;
 	margin-bottom: 30px;
 }
-#overview_teaser .tlSH {
+#overview_teaser .tlSH, .contact-form .tlSH {
 	background: transparent url("/media/kidness_theme/img/corners.gif") no-repeat 0 -36px;
 	width:6px;
 	height:6px;
@@ -64,7 +64,7 @@
 	top:0;
 	left:0;
 }
-#overview_teaser .trSH {
+#overview_teaser .trSH, .contact-form .trSH {
 	background: transparent url("/media/kidness_theme/img/corners.gif") no-repeat -6px -36px;
 	width:6px;
 	height:6px;
@@ -74,7 +74,7 @@
 	top:0;
 	right:0;
 }
-#overview_teaser .blSH {
+#overview_teaser .blSH, .contact-form .blSH {
 	background: transparent url("/media/kidness_theme/img/corners.gif") no-repeat 0 -42px;
 	width:6px;
 	height:6px;
@@ -84,7 +84,7 @@
 	bottom:0;
 	left:0;
 }
-#overview_teaser .brSH {
+#overview_teaser .brSH, .contact-form .brSH {
 	background: transparent url("/media/kidness_theme/img/corners.gif") no-repeat -6px -42px;
 	width:6px;
 	height:6px;

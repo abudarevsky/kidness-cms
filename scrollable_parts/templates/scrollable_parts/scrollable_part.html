@@ -15,16 +15,17 @@
        <img src="{{ child.get_image.image.url_200x200 }}"
             alt="{{ child.get_image.image.title }}"
             title="{{ child.get_image.image.title }}" />
-	{% endif %}		
+	{% endif %}
+	<a id="{{child.slug}}__action" class="text_toggle_action" href="#{{child.slug}}__text">		
 	{% if child.short_text %}		
       {{ child.short_text|safe|truncatewords_html:70 }}
     {% else %}
     	{{ child.text|safe|truncatewords_html:70 }}	
     {% endif %}  
-      <a id="{{child.slug}}__action" class="text_toggle_action" href="#{{child.slug}}__text">Читать все...</a>
+     </a>
       <div style="display:none" class="child_text">
-	      <div style="width:900px;" id="{{child.slug}}__text">
-	      	<div style="display:block;float:left;width:70%">
+	      <div class="scrollableDescr" id="{{child.slug}}__text">
+	      	<div style="display:block;float:left;width:500px; margin-right:40px;">
 	      	 {% if child.display_title %}
          	<h2>{{ child.title }}</h2>
 			{% endif %}
@@ -43,15 +44,15 @@
 	      	{{child.text|safe}}
 	      	</div>
 	      	
-	      	<div style="float:left;width:30%;">
+	      	
 	      		{% kidness_contactform %}	
-	      	</div>
+	      	
 	      	
 	      </div>
       </div>
    </div>
 	
-   <div style="float:left;display:block;width:30%;">
+   <div style="float:left;display:block;">
 	{% comment %}
    		{% for tag in child.get_tag_list %}
    			{{tag.name}}|
@@ -66,3 +67,4 @@
    		</table>
    </div>
 </div>
+
