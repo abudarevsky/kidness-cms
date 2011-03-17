@@ -114,11 +114,6 @@
 			});
 			
 			$(".scrollable_action").bind("click", function(){
-				/*
-				$("#toggled_text").hide(900);
-				$("#toggled_teaser").show(900);
-				$("#toggle_action").text("...");
-				*/
 				hideDescriptionText();
 				return false;
 			});
@@ -148,6 +143,13 @@
    		<div id="overview_teaser">
    			<div style="display:none" id="toggled_teaser">{{lfc_context.text|safe|truncatewords_html:10}}</div>
 		   	<div id="toggled_text">
+		   		{% if image %}
+	                <img class="left"
+	                     src="{{ image.image.url_60x60 }}"
+	                     alt="{{ image.image.title }}"
+	                     title="{{ image.title }}" />
+		            
+        		{% endif %}
 		   		{{lfc_context.text|safe}}
 		   	</div>
 		   	<a id="toggle_action" class="showOverviewText" href="#">Свернуть</a>

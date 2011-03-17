@@ -31,6 +31,7 @@ def install():
     # Register Templates
     register_template(name = "Scrollable Overview", path="lfc/templates/scrollable_overview.html")
     register_template(name = "Carousel Overview", path="lfc/templates/jcarousel_overview.html")
+    register_template(name = "Kidness Gallery", path="lfc/templates/jcarousel_gallery.html")
 #    register_template(name = "Scrollable Container", path="lfc/templates/scrollable_container.html")
 #    register_template(name = "Scrollable Part", path="lfc/templates/scrollable_part.html")
 
@@ -48,7 +49,7 @@ def install():
     register_content_type(Page,
         name="Page",
         sub_types=["Page"],
-        templates=["Article", "Plain", "Gallery", "Overview", "Scrollable Overview","Carousel Overview"],
+        templates=["Article", "Plain", "Gallery", "Overview", "Scrollable Overview","Carousel Overview", "Kidness Gallery"],
         default_template="Article")
 
     # Register Blog as a sub type of Page

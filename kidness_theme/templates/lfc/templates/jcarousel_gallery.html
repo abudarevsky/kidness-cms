@@ -1,0 +1,109 @@
+{% extends "lfc/base.html" %}
+{% load portlets_tags %}
+
+{% block css %}
+<link rel="stylesheet" href="{{ MEDIA_URL }}kidness_theme/fancybox/jquery.fancybox-1.3.4.css" type="text/css" media="screen" />
+<link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}kidness_theme/css/ie7/skin.css">
+<style>
+.jcarousel-skin-ie7 .jcarousel-item {
+    border: 1px solid #FFFFFF;
+    height: 60px;
+    width: 60px;
+}
+</style>
+{% endblock %}
+
+
+
+{% block javascript %}
+	<script type="text/javascript" src="{{ MEDIA_URL }}kidness_theme/js/jquery.jcarousel.min.js"></script>
+	<script type="text/javascript" src="{{ MEDIA_URL }}kidness_theme/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+	
+	<script type="text/javascript">
+		// execute your scripts when DOM is ready. this is a good habit
+		
+		// JCarousel
+		/**
+		 * We use the initCallback callback
+		 * to assign functionality to the controls
+		 */
+		
+		// Ride the carousel...
+		jQuery(document).ready(function() {
+			function mycarousel_initCallback(carousel) {
+			    jQuery('.jcarousel-control a').bind('click', function() {
+			    	
+			    	carousel.scroll(jQuery.jcarousel.intval($(this).attr('href').split('-')[1]));
+			    	/*
+			    	var partid = $(this).attr('href');
+			    	$(".itemScroll").removeClass("selectedItem");
+			    	$(".itemScroll").children('div').removeClass("selectedItem");
+			    	$(partid).addClass("selectedItem");
+			    	$(partid).children('div').addClass("selectedItem");
+			    	*/
+			        //carousel.scroll(jQuery.jcarousel.intval(jQuery(this).text()));
+			        return false;
+			    });
+			
+			    jQuery('.jcarousel-scroll select').bind('change', function() {
+			        carousel.options.scroll = jQuery.jcarousel.intval(this.options[this.selectedIndex].value);
+			        return false;
+			    });
+			
+			    jQuery('#next').bind('click', function() {
+			        carousel.next();
+			        // $(".itemScroll").removeClass("selectedItem");
+			    	// $(".itemScroll").children('div').removeClass("selectedItem");
+			        return false;
+			    });
+			
+			    jQuery('#prev').bind('click', function() {
+			        carousel.prev();
+			        // $(".itemScroll").removeClass("selectedItem");
+			    	// $(".itemScroll").children('div').removeClass("selectedItem");
+			        return false;
+			    });
+			};
+		    jQuery("#mycarousel").jcarousel({
+		        scroll: 4,
+		        initCallback: mycarousel_initCallback,
+		        itemFirstInCallback : function(object,li,idx,state){
+    		    	$("#preview").html('<img src="'+$(li).children("a").attr("href")+'" width="300px" height="300px"/>');
+	        	}
+		    });
+		    
+		    $(".photo-image").bind("mouseover", function(){
+		    	// var $img = $(this).children("img");
+		    	$("#preview").html('<img src="'+$(this).attr("href")+'" width="300px" height="300px"/>');
+		    	return false;
+		    });
+		});
+		    
+	</script>
+{% endblock %}
+
+{% block content %}
+    {% if lfc_context.display_title %}
+        <h1 class="first-heading">{{ lfc_context.title }}</h1>
+    {% endif %}
+    <div>{{ lfc_context.text|safe }}</div>
+    <div style="width:300px;height:300px;" id="preview">
+    </div>
+	<div id="mycarousel" class="jcarousel-skin-ie7">
+	    <ul>
+	    	{% for photo in images %}
+                {# for photo in row #}
+                	<li>
+                		<a href="{{ photo.image.url_600x600 }}"
+                               class="photo-image"
+                               title="{{ photo.title }}">
+                                <img src="{{ photo.image.url_60x60 }}"
+                                     alt="{{ photo.name }}"
+                                     title="{{ photo.title }}" />
+                            </a>
+                	</li>
+                {# endfor #}
+            {% endfor %}    
+	    </ul>
+    </div>
+{% endblock %}
