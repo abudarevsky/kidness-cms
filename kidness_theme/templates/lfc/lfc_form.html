@@ -2,7 +2,7 @@
 
 {% for field in form %}
     <dl class="field">     
-        <dt class="label">
+        <dt class="label {% if field.field.required %} required {% endif %}">
             {{ field.label_tag }}:
         </dt>
 
@@ -18,4 +18,5 @@
         {% endif %}
     </dl>
 {% endfor %}
+
 

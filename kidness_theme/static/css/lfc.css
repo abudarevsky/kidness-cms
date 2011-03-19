@@ -713,9 +713,9 @@ span.rightPhotoHat {
 	margin-top:12px;
 }
 /*feedback form----------------------*/
+/*
 #feedback {
 	width:600px;
-	/* height:300px; */
 	display:block;
 	overflow: hidden;	
 }
@@ -739,8 +739,13 @@ span.rightPhotoHat {
 }
 #feedback .label {text-align:right;}
 #feedback input {width:150px;}
+*/
 /* scrollable programs description---------------------------*/
 #fancybox-content h2 {color: #21A84A;}
+
+.required {
+	font-weight: bold;
+}
 .scrollableDescr {
 	width:800px; overflow-x:hidden;
 	padding:20px;	

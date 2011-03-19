@@ -2,9 +2,20 @@
 {% load tagging_tags %}
 <a href="#feedback" class="fancybox_action timetable"></a>
 <div style="display:none" class="fancybox_inline">
-	<div id="feedback">
+	<div style="width:700px" id="feedback">
 		<h1>Узнать о наличии мест</h1>
-			 	
+		<div >
+			
+			Мы позвоним вам, чтобы:
+			<ul>
+				<li>ответить на ваши вопросы</li>
+				<li>рассказать больше об интересных программах для вас и вашего ребенка</li>
+				<li>назначить удобное для вас время для личного знакомства с KidnessClub</li>
+				<li>записать на индивидуальную консультацию к нашим специалистам</li>
+			</ul>
+		
+		</div>
+		<div >	 	
 		<form id="feedback_form" style="padding-left: 4em;" class="contact-form" action="" method="post">
 		<div id="feedback_form_data">
 		{% include "lfc/lfc_form.html" %}
@@ -16,7 +27,9 @@
 		              value="{% trans 'Send' %}" />
 		       </dd>
 		</dl>
-		</form>	
-	
+		</form>
+		</div>	
+				
 	</div>
+	
 </div>	

@@ -7,15 +7,25 @@ import lfc.utils
 class KidnessContactForm(lfc_forms.ContactForm):
     phone_number = forms.CharField(max_length=12,
                      widget=forms.TextInput(attrs=lfc_forms.attrs_dict),
-                     label=_(u'Номер телефона'))
+                     label=_(u'Номер телефона'), required =True)
                            
     def __init__ (self, *args, **kwargs):
         super(KidnessContactForm, self).__init__(*args, **kwargs)
         self.fields['name'].label=_(u'Ваше имя')
         self.fields['email'].label=_(u'Адрес электронной почты')
-        self.fields['body'] = forms.CharField(max_length=15,
-                     widget=forms.TextInput(attrs=lfc_forms.attrs_dict),
-                     label=_(u'Предпочитаемое время звонка'))
+        self.fields['time'] = forms.CharField(max_length=15,
+                     widget=forms.TextInput(),
+                     label=_(u'Предпочитаемое время звонка'), required=False)
+        self.fields['body']=forms.CharField(widget=forms.Textarea(attrs={'cols':20,'rows':5}),
+                              label=_(u'Ваше сообщение'), required=False)
+        self.fields.keyOrder = [
+            'name',
+            'phone_number',
+            'email',
+            'time',
+            'body'
+        ]
+
         self.portal = lfc.utils.get_portal()
         
     def from_email(self):
