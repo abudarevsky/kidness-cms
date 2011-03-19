@@ -1,0 +1,22 @@
+{% load i18n %}
+{% load tagging_tags %}
+<a href="#feedback" class="fancybox_action timetable"></a>
+<div style="display:none" class="fancybox_inline">
+	<div id="feedback">
+		<h1>Узнать о наличии мест</h1>
+			 	
+		<form id="feedback_form" style="padding-left: 4em;" class="contact-form" action="" method="post">
+		<div id="feedback_form_data">
+		{% include "lfc/lfc_form.html" %}
+		</div>
+		<dl>
+			<dt></dt>
+			<dd>
+		       <input class="send_feedback" type="button"
+		              value="{% trans 'Send' %}" />
+		       </dd>
+		</dl>
+		</form>	
+	
+	</div>
+</div>	

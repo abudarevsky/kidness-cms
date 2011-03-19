@@ -61,7 +61,7 @@ class ScrollableContainerForm(CoreDataForm):
     """
     class Meta:
         model = ScrollableContainer
-        fields = ("title", "display_title", "description", "items_per_page")
+        fields = ("title", "display_title", "items_per_page")
 
 class ScrollablePart(BaseContent):
     """An entry of an ScrollablePart
@@ -140,3 +140,40 @@ class ScrollableNavigatorPortletForm(forms.ModelForm):
     """
     class Meta:
         model = ScrollableNavigatorPortlet
+        
+class FeedbackActionPortlet(Portlet):
+    """A portlet, which displays feedback action.
+    """
+    def __unicode__(self):
+        return "%s" % self.id
+
+    def render(self, context):
+        """Renders the portlet as html.
+        """
+        
+        obj = context.get("lfc_context")
+        request = context.get("request")
+            
+        # CACHE
+        cache_key = "%s-portlet-feedbackaction-%s" % (settings.CACHE_MIDDLEWARE_KEY_PREFIX, request.user.id)
+        result = cache.get(cache_key)
+        if result:
+            return result
+
+        result = render_to_string("scrollable_parts/feedback_action_form_portlet.html", {
+            "form": KidnessContactForm(request=request)
+        })
+
+        cache.set(cache_key, result)
+        return result
+
+    def form(self, **kwargs):
+        """
+        """
+        return FeedbackActionPortletForm(instance=self, **kwargs)
+
+class FeedbackActionPortletForm(forms.ModelForm):
+    """Form for the NewsPortlet.
+    """
+    class Meta:
+        model = FeedbackActionPortlet        

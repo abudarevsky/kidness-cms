@@ -24,9 +24,10 @@ urlpatterns = patterns('',
 )
 
 # Contact Form
-urlpatterns += patterns('contact_form.views',
-    url(r'^contact$', "contact_form", { 'success_url':
+urlpatterns += patterns('',
+    url(r'^contact$', "contact_form.views.contact_form", { 'success_url':
 'contact-thank-you', "form_class" : KidnessContactForm }, name='contact_form'),
+    url(r'kidness_feedback','kidness.views.post_feedback'),
     url(r'^contact-thank-you$', direct_to_template, { 'template':
 'contact_form/contact_form_sent.html' }, name='contact_form_sent'),
 ) 

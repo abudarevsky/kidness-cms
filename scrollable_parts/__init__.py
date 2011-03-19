@@ -1,3 +1,4 @@
+# coding: utf-8
 # django imports
 from django.utils.translation import ugettext_lazy as _
 
@@ -18,6 +19,7 @@ from lfc.models import Page
 from scrollable_parts.models import ScrollableContainer
 from scrollable_parts.models import ScrollablePart
 from scrollable_parts.models import ScrollableNavigatorPortlet
+from scrollable_parts.models import FeedbackActionPortlet
 
 name = "Scrollables"
 description = _(u"Scrollable Parts")
@@ -27,6 +29,7 @@ def install():
     """
     # Register Portlets
     register_portlet(ScrollableNavigatorPortlet, "ScrollableNavigator")
+    register_portlet(FeedbackActionPortlet, u"Копка формы обратной связи")
 
     # Register Templates
     register_template(name = "Scrollable Overview", path="lfc/templates/scrollable_overview.html")
@@ -77,3 +80,4 @@ def uninstall():
 
     # Unregister portlet
     unregister_portlet(ScrollableNavigatorPortlet)
+    unregister_portlet(FeedbackActionPortlet)

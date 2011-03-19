@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-03-16 01:47+0300\n"
+"POT-Creation-Date: 2011-03-18 18:32+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,16 +21,16 @@ msgstr ""
 
 #: __init__.py:23 models.py:75
 msgid "Scrollable Parts"
-msgstr "Элементы прокрутки"
+msgstr "Программы"
 
 #: models.py:29
 msgid "Scrollable Container"
-msgstr "Панель прокрутки"
+msgstr "Список программ"
 
 #: models.py:30
 #, fuzzy
 msgid "Scrollable Containers"
-msgstr "Панели прокрутки"
+msgstr "Список программ"
 
 #: models.py:69
 msgid "Short Text"
@@ -42,18 +42,8 @@ msgstr "Текст"
 
 #: models.py:74
 msgid "Scrollable Part"
-msgstr "Элемент прокрутки"
+msgstr "Программа"
 
-#: templates/scrollable_parts/scrollable_contactform.html:12
-#: templates/scrollable_parts/scrollable_navigator_portlet.html:21
+#: templates/scrollable_parts/scrollable_navigator_portlet.html:23
 msgid "Send"
 msgstr "Отправить"
-
-#~ msgid "Scrollable parts"
-#~ msgstr "Элементы прокрутки"
-
-#~ msgid "Scrollables"
-#~ msgstr "Панели прокрутки"
-
-#~ msgid "Scrollable Overview"
-#~ msgstr "Обзор с прокруткой"

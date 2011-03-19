@@ -1,6 +1,7 @@
 {% load i18n %}
 {% load scrollable_parts_tags %}
 <div id="jc_{{child.slug}}" class="itemScroll" name="{{child.slug}}">
+	
 	<div style="float:left;display:block;width:70%;min-height: 258px;">
 	<!-- title -->
     {% if child.display_title %}
@@ -16,17 +17,18 @@
             alt="{{ child.get_image.image.title }}"
             title="{{ child.get_image.image.title }}" />
 	{% endif %}
-	<a id="{{child.slug}}__action" class="text_toggle_action" href="#{{child.slug}}__text">		
-	{% if child.short_text %}		
-      {{ child.short_text|safe|truncatewords_html:60 }}
-    {% else %}
-    	{{ child.text|safe|truncatewords_html:60 }}	
-    {% endif %}
-    </a>  
+	
+			
+		{% if child.short_text %}		
+	      {{ child.short_text|safe|truncatewords_html:45 }}
+	    {% else %}
+	    	{{ child.text|safe|truncatewords_html:45 }}	
+	    {% endif %}
+	    <a id="{{child.slug}}__action" class="text_toggle_action" href="#{{child.slug}}__text">...</a>  
       
       <!-- iframe src="http://www.facebook.com/plugins/like.php?href=http://cms.kidness.ru{{child.get_absolute_url}}&amp;layout=button_count&amp;show_faces=false&amp;width=450&amp;action=like&amp;font=verdana&amp;colorscheme=light&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:75px; height:21px;" allowTransparency="true"></iframe-->
       <script type="text/javascript" src="//yandex.st/share/share.js" charset="utf-8"></script>
-	  <div class="yashare-auto-init" data-yashareLink="http://cms.kidness.ru{{child.get_absolute_url}}" data-yashareType="button" data-yashareQuickServices="yaru,vkontakte,facebook,twitter,odnoklassniki,moimir,lj,moikrug"></div> 
+	  <div class="yashare-auto-init" data-yashareLink="http://cms.kidness.ru{{child.get_absolute_url}}" data-yashareType="none" data-yashareQuickServices="yaru,vkontakte,facebook,twitter,odnoklassniki,moimir,lj,moikrug"></div> 
 
       <div style="display:none" class="child_text">
 	      <div class="scrollableDescr" id="{{child.slug}}__text">
@@ -52,8 +54,11 @@
 	      	
 	      	
 	      		{% kidness_contactform %}	
+	      	<script type="text/javascript" src="//yandex.st/share/share.js" charset="utf-8"></script>
+	  		<div class="yashare-auto-init" data-yashareLink="http://cms.kidness.ru{{child.get_absolute_url}}" data-yashareType="none" data-yashareQuickServices="yaru,vkontakte,facebook,twitter,odnoklassniki,moimir,lj,moikrug"></div>
+            
+            <!--  /div-->
 	      	
-	      	<div class="yashare-auto-init" data-yashareLink="http://cms.kidness.ru{{child.get_absolute_url}}" data-yashareType="button" data-yashareQuickServices="yaru,vkontakte,facebook,twitter,odnoklassniki,moimir,lj,moikrug"></div>
 	      </div>
       </div>
    </div>
@@ -72,5 +77,6 @@
 	   		</td></tr>	
    		</table>
    </div>
+   
 </div>
 

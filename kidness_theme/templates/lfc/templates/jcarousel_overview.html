@@ -127,6 +127,27 @@
 				}
 				return false;
 			});
+			
+			$(".send_feedback").bind('click', function(){
+				$.fancybox.showActivity();
+				$form =  $(this).closest("form");
+		    	 $.ajax({
+		    		 type        : "POST",
+		             cache   : false,
+		             data 	 : $form.serialize(),
+		             url     : "/kidness_feedback",
+		             success : function(){
+		            	window.location='/contact-thank-you'; 
+		             },
+		             error: function(xhr, ajaxOptions, thrownError) {
+		            	$form.find("div").html(xhr.responseText);
+	            	    $.fancybox.hideActivity();
+	                    $.fancybox.resize();
+		                    // return false;
+		             }	    
+		    	 });
+				return false;
+			});
 		});
 	</script>
 {% endblock %}
