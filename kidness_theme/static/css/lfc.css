@@ -171,7 +171,7 @@ h2.blog-entry {
 
 #tabs li a {
     display: block;
-    padding:1.9em 1.4em 0;
+    padding:1.9em 2em 0;
     text-decoration: none;
     text-transform: uppercase;
     height:28px;
@@ -469,7 +469,8 @@ ul.breadcrumbs li {
     padding-left: 18px;
     margin-top:10px;
     font-style: italic;
-    line-height: 1em;
+    font-size: smaller;
+    line-height: 1,3em;
 }
 .scrollablenavHeader .portlet-body {
     text-align: left;
