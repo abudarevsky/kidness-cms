@@ -13,9 +13,9 @@
 		<a style="text-decoration: none" id="{{child.slug}}__action" class="text_toggle_action" href="#{{child.slug}}__text">
 				
 			{% if child.short_text %}		
-		      {{ child.short_text|safe|truncatewords_html:45 }}
+		      {{ child.short_text|safe|truncatewords_html:65 }}
 		    {% else %}
-		    	{{ child.text|safe|truncatewords_html:45 }}	
+		    	{{ child.text|safe|truncatewords_html:65 }}	
 		    {% endif %}
 		    
 	    </a>  

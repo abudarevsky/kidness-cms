@@ -13,16 +13,17 @@ class KidnessContactForm(lfc_forms.ContactForm):
         super(KidnessContactForm, self).__init__(*args, **kwargs)
         self.fields['name'].label=_(u'*Ваше имя')
         self.fields['email'].label=_(u'Адрес электронной почты')
+        self.fields['email'].required=False
         self.fields['time'] = forms.CharField(max_length=15,
                      widget=forms.TextInput(),
                      label=_(u'Предпочитаемое время звонка'), required=False)
         self.fields['body']=forms.CharField(widget=forms.Textarea(attrs={'cols':20,'rows':5}),
-                              label=_(u'Ваше сообщение'), required=False)
+                              label=_(u'Комментарии'), required=False)
         self.fields.keyOrder = [
             'name',
             'phone_number',
-            'email',
             'time',
+            'email',
             'body'
         ]
 

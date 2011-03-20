@@ -114,6 +114,9 @@
 #content #toggle_action {
 	color: #21A84A;
 	float:right;
-	font-size: 11px;
+	font-size: 10px;
+	
 }
-
+#content .text_toggle_action p{
+	line-height: 1em;
+}

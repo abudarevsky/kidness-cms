@@ -29,7 +29,7 @@ height: 100%;
 html {
 	background: #f1f1f1 url("/media/kidness_theme/img/bghands.gif") no-repeat center top;
 	text-align:center;
-	font: normal normal 68.75%/136% verdana,sans-serif;
+	font: normal normal 68.75%/136% verdana,sans-serif; 
 }
 body {
 	text-align:left;
@@ -61,6 +61,10 @@ code {
 code a,
 code a:visited {
     color: black !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
 }
 
 h1 {
@@ -286,6 +290,11 @@ ul.breadcrumbs li {
 
 .field .label {
     padding-bottom: 3px;
+    font-weight: normal;
+}
+
+.field dd {
+    margin-left: 0em;
 }
 
 #content .contact-form input[type="text"] {
@@ -459,6 +468,7 @@ ul.breadcrumbs li {
     padding-left: 18px;
     margin-top:10px;
     font-style: italic;
+    line-height: 1em;
 }
 .scrollablenavHeader .portlet-body {
     text-align: left;
@@ -629,6 +639,7 @@ div.scrollable div.items div {
 	bottom:0;
 	right:0;
 }
+
 #content .photosHat ul {
 	padding:0;
 	padding:11px 0 0 11px;
@@ -724,33 +735,7 @@ span.rightPhotoHat {
 	margin-top:12px;
 }
 /*feedback form----------------------*/
-/*
-#feedback {
-	width:600px;
-	display:block;
-	overflow: hidden;	
-}
-#feedback h1 {
-	color: #21A84A;
-	padding-left:2em;
-	padding-bottom:0.6em;
-	border-bottom: 1px solid #E5E5E5;
-	margin-bottom:40px;
-}
-#feedback dl {
-	width:100%;
-	display:block;
-	clear: both;	
-}
-#feedback dd, #feedback dt {
-	width:47.9%;
-	display:block;
-	float:left;
-	padding: 1%;	
-}
-#feedback .label {text-align:right;}
-#feedback input {width:150px;}
-*/
+
 .errorlist li {color:red;}
 #feedback_form {float:left; margin-top:10px;}
 #fancybox-content #feedback h2 {margin-left:20px;}
