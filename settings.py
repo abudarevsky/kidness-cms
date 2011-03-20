@@ -103,6 +103,7 @@ INSTALLED_APPS = (
     "kidness",
     
     "lfc_news",
+    "lfc_blog",
 )
 
 CACHE_BACKEND = 'dummy:///'

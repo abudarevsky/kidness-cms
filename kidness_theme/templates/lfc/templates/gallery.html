@@ -7,29 +7,22 @@
     {% endif %}
     <div>{{ lfc_context.text|safe }}</div>
 
-    <table width="100%" cellpadding="0" cellspacing="0">
-        {% for row in images %}
-            <tr>
-                {% for photo in row %}
-                    <td width="33%">
-                        <div class="photo">
-                            <h2 class="photo-name">
-                                {{ photo.title }}
-                            </h2>
-                            <div class="photo-description">
-                                {{ photo.caption }}
-                            </div>
-                            <a href="{{ photo.image.url_600x600 }}"
-                               class="photo-image"
-                               title="{{ photo.title }}">
-                                <img src="{{ photo.image.url_200x200 }}"
-                                     alt="{{ photo.name }}"
-                                     title="{{ photo.title }}" />
-                            </a>
-                        </div>
-                    </td>
-                {% endfor %}
-            </tr>
-        {% endfor %}
-    </table>
+	<div style="width:250px;">
+
+	 {% for sub_object in sub_objects %}
+	 		<div style="width:110px;float:left;margin:5px;display:block;">
+            <a href="{{ sub_object.get_absolute_url }}">
+            	{% if sub_object.get_image %}
+                <img class="left"
+                     src="{{ sub_object.get_image.image.url_100x100 }}"
+                     alt="{{ sub_object.get_image.image.title }}"
+                     title="{{ sub_object.get_image.image.title }}" />
+                </br>
+            	{% endif %}
+            	{{ sub_object.title }}	
+            </a>
+            </div>   
+    {% endfor %}
+    </div>
+    
 {% endblock %}
