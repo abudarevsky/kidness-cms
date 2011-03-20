@@ -472,6 +472,11 @@ ul.breadcrumbs li {
     font-size: smaller;
     line-height: 1.3em;
 }
+
+.portlet-body h1{
+	line-height: 1.8em;
+}
+
 .scrollablenavHeader .portlet-body {
     text-align: left;
 }
