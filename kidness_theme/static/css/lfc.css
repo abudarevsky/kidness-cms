@@ -96,7 +96,8 @@ h1.logo img {
 	font-size:1.54em;
 }
 h2 {
-    font-size: 123.1%;
+    /* font-size: 123.1%; */
+    font-size: 100%;
     text-transform: uppercase;
     padding-top: 20px;
     padding-bottom: 5px;
@@ -170,7 +171,7 @@ h2.blog-entry {
 
 #tabs li a {
     display: block;
-    padding:1.9em 2.4em 0;
+    padding:1.9em 1.4em 0;
     text-decoration: none;
     text-transform: uppercase;
     height:28px;
