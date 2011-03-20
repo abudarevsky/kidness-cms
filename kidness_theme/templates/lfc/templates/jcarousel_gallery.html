@@ -3,14 +3,9 @@
 
 {% block css %}
 <link rel="stylesheet" href="{{ MEDIA_URL }}kidness_theme/fancybox/jquery.fancybox-1.3.4.css" type="text/css" media="screen" />
-<link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}kidness_theme/css/ie7/skin.css">
-<style>
-.jcarousel-skin-ie7 .jcarousel-item {
-    border: 1px solid #FFFFFF;
-    height: 60px;
-    width: 60px;
-}
-</style>
+<link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}kidness_theme/css/jcarousel_kidness/skin.css">
+<link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}kidness_theme/css/jcarousel_kidness/gallery_scroller.css">
+
 {% endblock %}
 
 
@@ -30,6 +25,15 @@
 		
 		// Ride the carousel...
 		jQuery(document).ready(function() {
+			function setImagePreview(link){
+				var img = '<span class="roundedimage roundedimage_LB roundedimage_500">'
+	                img+='<img class="roundedimage_avatar" src="'+link+'" width="641px" height="400px"/>'
+		            img+='<span class="roundedimage_corners"><img class="roundedimage_cornersitem" alt="" src="/media/kidness_theme/img/gallery_imgborder2.png"/></span></span>'
+			    	
+			    	$("#preview").html(img);
+		            $(".yashare-auto-init").attr("data-yashareLink","http://cms.kidness.ru/"+link);
+			}
+			
 			function mycarousel_initCallback(carousel) {
 			    jQuery('.jcarousel-control a').bind('click', function() {
 			    	
@@ -68,18 +72,23 @@
 		        scroll: 4,
 		        initCallback: mycarousel_initCallback,
 		        itemFirstInCallback : function(object,li,idx,state){
-    		    	$("#preview").html('<img src="'+$(li).children("a").attr("href")+'" width="300px" height="300px"/>');
+		        	setImagePreview($(li).children("a").attr("href"));
+    		    	// $("#preview").html('<img src="'+$(li).children("a").attr("href")+'" width="300px" height="300px"/>');
 	        	}
 		    });
 		    
 		    $(".photo-image").bind("mouseover", function(){
 		    	// var $img = $(this).children("img");
-		    	$("#preview").html('<img src="'+$(this).attr("href")+'" width="300px" height="300px"/>');
+		    	setImagePreview($(this).attr('href'));
+		    	$(".photo-image").removeClass("selected");
+		    	$(this).addClass("selected");
+		    	// $("#preview").html('<img src="'+$(this).attr("href")+'" width="641px" height="400px"/>');
 		    	return false;
 		    });
 		});
 		    
 	</script>
+	
 {% endblock %}
 
 {% block content %}
@@ -87,18 +96,20 @@
         <h1 class="first-heading">{{ lfc_context.title }}</h1>
     {% endif %}
     <div>{{ lfc_context.text|safe }}</div>
-    <div style="width:300px;height:300px;" id="preview">
+    <div style="width:641px;height:400px;" id="preview">
     </div>
-	<div id="mycarousel" class="jcarousel-skin-ie7">
+	<div id="mycarousel" class="jcarousel-skin-tango">
 	    <ul>
 	    	{% for photo in images %}
                 {# for photo in row #}
                 	<li>
-                		<a href="{{ photo.image.url_600x600 }}"
+                		<a href="{{ photo.image.url_800x800 }}"
                                class="photo-image"
                                title="{{ photo.title }}">
-                                <img src="{{ photo.image.url_60x60 }}"
+                                <img src="{{ photo.image.url_100x100 }}"
                                      alt="{{ photo.name }}"
+                                     width="95"
+                                     height="68"
                                      title="{{ photo.title }}" />
                             </a>
                 	</li>
@@ -106,4 +117,6 @@
             {% endfor %}    
 	    </ul>
     </div>
+    <script type="text/javascript" src="//yandex.st/share/share.js" charset="utf-8"></script>
+	  		<div style="margin-top:20px;" align="center" class="yashare-auto-init" data-yashareLink="http://cms.kidness.ru/" data-yashareType="none" data-yashareQuickServices="yaru,vkontakte,facebook,twitter,odnoklassniki,moimir,lj,moikrug"></div>
 {% endblock %}

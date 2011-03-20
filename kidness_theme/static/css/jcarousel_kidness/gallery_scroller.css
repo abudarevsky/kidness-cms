@@ -1,0 +1,18 @@
+.jcarousel-skin-tango .jcarousel-clip-horizonal {
+    width: 440px;
+}
+ 
+.jcarousel-skin-tango .jcarousel-container-horizontal {
+	padding-left: 100px;
+    width: 450px;
+}
+
+.jcarousel-skin-tango .jcarousel-item-horizontal {
+    width: 105px;
+    height:80px;
+}
+
+.jcarousel-skin-tango {margin-top: 20px;}
+
+.jcarousel-item a img {border:5px solid  #a9a9a9;}
+.jcarousel-item a.selected img {border:5px solid  #f7c625;}

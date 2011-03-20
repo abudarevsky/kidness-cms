@@ -391,8 +391,8 @@ ul.breadcrumbs li {
 .portlet {
 	text-transform: none;
 	position: relative;
-	padding:8px;
-	margin-top: 30px;
+	padding: 0 8px 0 8px;
+	margin-bottom: 30px;
 	text-align: left;
 }
 .scrollablenavHeader {
@@ -781,3 +781,52 @@ span.rightPhotoHat {
 .contact-form input {
     width: 200px;
 }
+/*-------------------rounded avatar---------------*/
+.roundedimage_50 {
+height:202px;
+width:293px;
+}
+.roundedimage_LB .roundedimage_cornersitem{top:0px;}
+*html .roundedimage_LB .roundedimage_cornersitem{
+ behavior: expression((this.runtimeStyle.behavior="none")&&(this.pngSet?this.pngSet=true:(this.nodeName == "IMG" && this.src.toLowerCase().indexOf('.png')>-1?(this.runtimeStyle.backgroundImage = "none",
+this.runtimeStyle.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" + this.src + "', sizingMethod='image')",
+this.src = "images/skins/212u_green/transparent.gif"):(this.origBg = this.origBg? this.origBg :this.currentStyle.backgroundImage.toString().replace('url("','').replace('")',''),
+this.runtimeStyle.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" + this.origBg + "', sizingMethod='crop')",
+this.runtimeStyle.backgroundImage = "none")),this.pngSet=true)
+);
+}
+.roundedimage {
+background-color:#edf4f5;
+display:block;
+overflow:hidden;
+position:relative;
+}
+.roundedimage_corners {
+background:transparent none repeat scroll 0 0;
+display:block;
+height:100%;
+left:0;
+overflow:hidden;
+position:absolute;
+top:0;
+width:100%;
+}
+.roundedimage_avatar{
+    display:block;
+    position:absolute;
+    background:transparent !important;
+    top:0px;
+    left:0px;
+    vertical-align:middle;
+    overflow:hidden;
+    background: transparent url(../../images/skins/212u_green/avatar.gif) no-repeat;
+}
+.roundedimage_50 .roundedimage_avatar{width:293px;height:auto;}
+.galleryCover p {text-decoration: none; text-align: center; color: #21A84A; width:100%; margin-bottom: 35px; margin-top:4px;}
+/*-------------------rounded avatar2---------------*/
+.roundedimage_500 {
+height:400px;
+width:641px;
+}
+.roundedimage_500 .roundedimage_avatar{width:641px;height:auto;}
+/*-----------------end of rounded avatar--------------*/
