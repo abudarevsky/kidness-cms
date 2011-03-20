@@ -20,7 +20,6 @@
 		    
 	    </a>  
       
-      <!-- iframe src="http://www.facebook.com/plugins/like.php?href=http://cms.kidness.ru{{child.get_absolute_url}}&amp;layout=button_count&amp;show_faces=false&amp;width=450&amp;action=like&amp;font=verdana&amp;colorscheme=light&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:75px; height:21px;" allowTransparency="true"></iframe-->
       <script type="text/javascript" src="//yandex.st/share/share.js" charset="utf-8"></script>
 	  <div class="yashare-auto-init" data-yashareLink="http://cms.kidness.ru{{child.get_absolute_url}}" data-yashareType="none" data-yashareQuickServices="yaru,vkontakte,facebook,twitter,odnoklassniki,moimir,lj,moikrug"></div> 
 
@@ -48,13 +47,15 @@
 	      </div>
       </div>
    </div>
-	
+
+
    <div style="float:left;display:block;">
 	{% comment %}
    		{% for tag in child.get_tag_list %}
    			{{tag.name}}|
    		{% endfor %}
 	{% endcomment %}
+	<a style="text-decoration: none;" id="{{child.slug}}__action" class="text_toggle_action" href="#{{child.slug}}__text">	
    		<table class="brackets">
 	   		<tr><td>
 	   			{% for tag in child.get_tags_as_list %}
@@ -62,7 +63,8 @@
 		   		{% endfor %}	
 	   		</td></tr>	
    		</table>
+   		</a>
    </div>
-   
+  
 </div>
 

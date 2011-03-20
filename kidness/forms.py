@@ -7,11 +7,11 @@ import lfc.utils
 class KidnessContactForm(lfc_forms.ContactForm):
     phone_number = forms.CharField(max_length=12,
                      widget=forms.TextInput(attrs=lfc_forms.attrs_dict),
-                     label=_(u'Номер телефона'), required =True)
+                     label=_(u'*Номер телефона'), required =True)
                            
     def __init__ (self, *args, **kwargs):
         super(KidnessContactForm, self).__init__(*args, **kwargs)
-        self.fields['name'].label=_(u'Ваше имя')
+        self.fields['name'].label=_(u'*Ваше имя')
         self.fields['email'].label=_(u'Адрес электронной почты')
         self.fields['time'] = forms.CharField(max_length=15,
                      widget=forms.TextInput(),
