@@ -467,7 +467,7 @@ ul.breadcrumbs li {
 }
 .portlet-body {
     padding-left: 18px;
-    margin-top:10px;
+    margin-top:0px;
     font-style: italic;
     font-size: smaller;
     line-height: 1.3em;
