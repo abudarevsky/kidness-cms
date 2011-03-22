@@ -75,7 +75,41 @@
 					$menuItem.parent().html(span);
 				};
 				updateMenuTileItem();
+				/*
+				var href = location.href;
+				href= href.replace('http://','');
+				// alert(href);
+				if (!((/^cms/).test(href) || (/^localhost/).test(href))){
+				
+					if(href.indexOf('/')<0 || href.lastIndexOf('/')==href.length-1){
+					 	setTimeout(function() { 
+						   $("#header").show();
+					       $("#tabs").show(); 
+					       $("#content").show();
+					       $("#footer").show();
+					       $("#colophon").show();
+					    }, 2000); 
+					}else{
+						$("#header").show();
+				       $("#tabs").show(); 
+				       $("#content").show();
+				       $("#footer").show();
+				       $("#colophon").show();
+					}
+					
+					
+				}else{
+					$("#header").show();
+				       $("#tabs").show(); 
+				       $("#content").show();
+				       $("#footer").show();
+				       $("#colophon").show();
+					$('#login').hide();
+				}
+				*/
 			});
+			
+			
 		</script>
         {% block javascript %}{% endblock %}
     </head>
@@ -156,7 +190,7 @@
                     <div class="span-6 last flags">
                         &nbsp;
                         {% if not user.is_authenticated %}
-                            <a href="{% url lfc_login %}">{% trans "Login" %}</a>
+                            <a id="login" href="{% url lfc_login %}">{% trans "Login" %}</a>
                         {% endif %}
                     </div>
                     <span class="headerContact">

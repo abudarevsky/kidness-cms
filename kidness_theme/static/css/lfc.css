@@ -89,11 +89,11 @@ h1.logo img {
 	color:#7c7c7c;
 }
 .headerContact {
-	font-size:1.2em;
+	font-size:1.1em;
 	line-height: 1.6em;
 }
 .headerContact .tel {
-	font-size:1.54em;
+	font-size:1.3em;
 }
 h2 {
     /* font-size: 123.1%; */
@@ -142,7 +142,7 @@ h2.blog-entry {
 
 #header {
     color: black;
-    padding: 40px 0;
+    padding: 20px 0;
 }
 
 #header a {
@@ -171,7 +171,7 @@ h2.blog-entry {
 
 #tabs li a {
     display: block;
-    padding:1.9em 2em 0;
+    padding:1.9em 2.3em 0;
     text-decoration: none;
     text-transform: uppercase;
     height:28px;
@@ -235,6 +235,10 @@ h2.blog-entry {
 #content h2,
 #content h2 a {
     color: #24241C;
+}
+
+#content .middle-slot{
+	padding-right: 18px;
 }
 #content .middle-slot h1, #content .middle-slot h2 {
 	color:#21a84a;
@@ -603,7 +607,7 @@ div.scrollable div.items div {
 	display:block;
 	clear:both;
 	background:#afafaf;
-	margin-bottom:40px;	
+	margin-bottom:20px;	
 	position:relative;
 }
 .tl {

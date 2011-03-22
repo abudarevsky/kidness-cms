@@ -2,7 +2,7 @@
 {% load scrollable_parts_tags %}
 <div id="jc_{{child.slug}}" class="itemScroll" name="{{child.slug}}">
 	
-	<div style="float:left;display:block;width:70%;min-height: 258px;">
+	<div style="float:left;display:block;width:478px;min-height: 258px;">
 	<!-- title -->
     {% if child.display_title %}
          	<h2>{{ child.title }}</h2>
@@ -13,9 +13,9 @@
 		<a style="text-decoration: none" id="{{child.slug}}__action" class="text_toggle_action" href="#{{child.slug}}__text">
 				
 			{% if child.short_text %}		
-		      {{ child.short_text|safe|truncatewords_html:65 }}
+		      {{ child.short_text|safe|truncatewords_html:60 }}
 		    {% else %}
-		    	{{ child.text|safe|truncatewords_html:65 }}	
+		    	{{ child.text|safe|truncatewords_html:60 }}	
 		    {% endif %}
 		    
 	    </a>  
@@ -49,15 +49,11 @@
    </div>
 
 
-   <div style="float:left;display:block;">
-	{% comment %}
-   		{% for tag in child.get_tag_list %}
-   			{{tag.name}}|
-   		{% endfor %}
-	{% endcomment %}
-	<a style="text-decoration: none;" id="{{child.slug}}__action" class="text_toggle_action" href="#{{child.slug}}__text">	
+   <div style="float:left;display:block;width:213px">
+
+	<a style="text-decoration: none;width:213px" id="{{child.slug}}__action" class="text_toggle_action" href="#{{child.slug}}__text">	
    		<table class="brackets">
-	   		<tr><td>
+	   		<tr><td style="width:213px">
 	   			{% for tag in child.get_tags_as_list %}
 		   			{{tag.name}}<br />
 		   		{% endfor %}	
