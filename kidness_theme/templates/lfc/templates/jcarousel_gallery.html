@@ -25,27 +25,25 @@
 		
 		// Ride the carousel...
 		jQuery(document).ready(function() {
-			function setImagePreview(link){
-				var img = '<span class="roundedimage roundedimage_LB roundedimage_500">'
-	                img+='<img class="roundedimage_avatar" src="'+link+'" width="641px" height="400px"/>'
-		            img+='<span class="roundedimage_corners"><img class="roundedimage_cornersitem" alt="" src="/media/kidness_theme/img/gallery_imgborder2.png"/></span></span>'
+			function setImagePreview(alink){
+				var link = alink.attr("href");
+				
+				var img = '<a id="preview-image" index="'+alink.attr("index")+'" href="'+link+'"><span class="roundedimage roundedimage_LB roundedimage_500">'
+	                img+='<img class="roundedimage_avatar photo-image" src="'+link+'" width="641px" height="400px"/>'
+		            img+='<span class="roundedimage_corners"><img class="roundedimage_cornersitem" alt="" src="/media/kidness_theme/img/gallery_imgborder2.png"/></span></span></a>'
 			    	
 			    	$("#preview").html(img);
+		            $("#preview-image").fancybox();
+		            // $("#preview-image").fancybox();
 		            $(".yashare-auto-init").attr("data-yashareLink","http://cms.kidness.ru/"+link);
+		            
+		            
 			}
 			
 			function mycarousel_initCallback(carousel) {
 			    jQuery('.jcarousel-control a').bind('click', function() {
 			    	
 			    	carousel.scroll(jQuery.jcarousel.intval($(this).attr('href').split('-')[1]));
-			    	/*
-			    	var partid = $(this).attr('href');
-			    	$(".itemScroll").removeClass("selectedItem");
-			    	$(".itemScroll").children('div').removeClass("selectedItem");
-			    	$(partid).addClass("selectedItem");
-			    	$(partid).children('div').addClass("selectedItem");
-			    	*/
-			        //carousel.scroll(jQuery.jcarousel.intval(jQuery(this).text()));
 			        return false;
 			    });
 			
@@ -56,15 +54,11 @@
 			
 			    jQuery('#next').bind('click', function() {
 			        carousel.next();
-			        // $(".itemScroll").removeClass("selectedItem");
-			    	// $(".itemScroll").children('div').removeClass("selectedItem");
 			        return false;
 			    });
 			
 			    jQuery('#prev').bind('click', function() {
 			        carousel.prev();
-			        // $(".itemScroll").removeClass("selectedItem");
-			    	// $(".itemScroll").children('div').removeClass("selectedItem");
 			        return false;
 			    });
 			};
@@ -72,19 +66,19 @@
 		        scroll: 4,
 		        initCallback: mycarousel_initCallback,
 		        itemFirstInCallback : function(object,li,idx,state){
-		        	setImagePreview($(li).children("a").attr("href"));
-    		    	// $("#preview").html('<img src="'+$(li).children("a").attr("href")+'" width="300px" height="300px"/>');
+		        	setImagePreview($(li).children("a"));
 	        	}
 		    });
 		    
-		    $(".photo-image").bind("mouseover", function(){
-		    	// var $img = $(this).children("img");
-		    	setImagePreview($(this).attr('href'));
-		    	$(".photo-image").removeClass("selected");
+		    $(".slideshow").bind("mouseover", function(){
+		    	setImagePreview($(this));
+		    	$(".slideshow").removeClass("selected");
 		    	$(this).addClass("selected");
-		    	// $("#preview").html('<img src="'+$(this).attr("href")+'" width="641px" height="400px"/>');
 		    	return false;
 		    });
+		    
+		    $(".slideshow").fancybox();
+		    
 		});
 		    
 	</script>
@@ -103,8 +97,7 @@
 	    	{% for photo in images %}
                 {# for photo in row #}
                 	<li>
-                		<a href="{{ photo.image.url_800x800 }}"
-                               class="photo-image"
+                		<a rel="show" index="{{forloop.counter}}" class="slideshow" href="{{ photo.image.url_800x800 }}"
                                title="{{ photo.title }}">
                                 <img src="{{ photo.image.url_100x100 }}"
                                      alt="{{ photo.name }}"

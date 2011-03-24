@@ -32,8 +32,9 @@
 		jQuery(document).ready(function() {
 			function mycarousel_initCallback(carousel) {
 			    jQuery('.jcarousel-control a').bind('click', function() {
-			    	
-			    	carousel.scroll(jQuery.jcarousel.intval($(this).attr('href').split('-')[1]));
+			    	var eid = $(this).attr('href').split('-')[1];
+			    	var num = jQuery.jcarousel.intval(eid);
+			    	carousel.scroll(num);
 			    	
 			    	var partid = $(this).attr('href');
 			    	$(".itemScroll").removeClass("selectedItem");
@@ -41,7 +42,11 @@
 			    	$(partid).addClass("selectedItem");
 			    	$(partid).children('div').addClass("selectedItem");
 			    	
-			        //carousel.scroll(jQuery.jcarousel.intval(jQuery(this).text()));
+			    	var top= 453+(num-1)/3*258-258;
+		    	 	$('html, body').animate({
+                    		scrollTop: top
+	                 },
+	                 1500);
 			        return false;
 			    });
 			

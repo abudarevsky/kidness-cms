@@ -1,5 +1,6 @@
 {% load i18n %}
 {% load scrollable_parts_tags %}
+
 <div id="jc_{{child.slug}}" class="itemScroll" name="{{child.slug}}">
 	
 	<div style="float:left;display:block;width:478px;min-height: 258px;">
@@ -9,17 +10,21 @@
 	{% endif %}
    
          <!-- content -->
-   
+   		{% if  child.text %}
 		<a style="text-decoration: none" id="{{child.slug}}__action" class="text_toggle_action" href="#{{child.slug}}__text">
-				
+		{% endif %}		
+		
 			{% if child.short_text %}		
 		      {{ child.short_text|safe|truncatewords_html:60 }}
 		    {% else %}
 		    	{{ child.text|safe|truncatewords_html:60 }}	
 		    {% endif %}
-		    
+		
+		{% if  child.text %}    
 	    </a>  
-      
+	    {% endif %}
+	    
+      {% if  child.text %}
       <script type="text/javascript" src="//yandex.st/share/share.js" charset="utf-8"></script>
 	  <div class="yashare-auto-init" data-yashareLink="http://cms.kidness.ru{{child.get_absolute_url}}" data-yashareType="none" data-yashareQuickServices="yaru,vkontakte,facebook,twitter,odnoklassniki,moimir,lj,moikrug"></div> 
 
@@ -46,12 +51,14 @@
 	      	
 	      </div>
       </div>
+      {% endif %}
    </div>
 
 
    <div style="float:left;display:block;width:213px">
-
-	<a style="text-decoration: none;width:213px" id="{{child.slug}}__action" class="text_toggle_action" href="#{{child.slug}}__text">	
+	{% if child.text %}
+	<a style="text-decoration: none;width:213px" id="{{child.slug}}__action" class="text_toggle_action" href="#{{child.slug}}__text">
+	{% endif %}	
    		<table class="brackets">
 	   		<tr><td style="width:213px">
 	   			{% for tag in child.get_tags_as_list %}
@@ -59,7 +66,9 @@
 		   		{% endfor %}	
 	   		</td></tr>	
    		</table>
+   		{% if child.text %}
    		</a>
+   		{% endif %}
    </div>
   
 </div>
