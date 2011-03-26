@@ -34,7 +34,6 @@
 			    	
 			    	$("#preview").html(img);
 		            $("#preview-image").fancybox();
-		            // $("#preview-image").fancybox();
 		            $(".yashare-auto-init").attr("data-yashareLink","http://cms.kidness.ru/"+link);
 		            
 		            
@@ -90,7 +89,7 @@
         <h1 class="first-heading">{{ lfc_context.title }}</h1>
     {% endif %}
     <div>{{ lfc_context.text|safe }}</div>
-    <div style="width:641px;height:400px;" id="preview">
+    <div style="margin-top:40px; width:641px;height:400px;" id="preview">
     </div>
 	<div id="mycarousel" class="jcarousel-skin-tango">
 	    <ul>
@@ -111,5 +110,5 @@
 	    </ul>
     </div>
     <script type="text/javascript" src="//yandex.st/share/share.js" charset="utf-8"></script>
-	  		<div style="margin-top:20px;" align="center" class="yashare-auto-init" data-yashareLink="http://cms.kidness.ru/" data-yashareType="none" data-yashareQuickServices="yaru,vkontakte,facebook,twitter,odnoklassniki,moimir,lj,moikrug"></div>
+	  		<div style="margin-top:20px;" align="center" class="yashare-auto-init" data-yashareLink="http://cms.kidness.ru/" data-yashareType="none" data-yashareQuickServices="vkontakte,facebook,twitter,odnoklassniki,lj"></div>
 {% endblock %}

@@ -1,13 +1,29 @@
 <div id="actions">
 {% ifequal lfc_context.content_type "scrollablecontainer" %}
 	{% if lfc_context.has_more %}	
-   <a id="prev">Назад</a>
-   <a id="next">Еще</a>
+   <!-- a id="prev">Назад</a>
+   <a id="next">Еще</a-->
+   <div class="jcarousel-control">
+   Программы&nbsp;
+   {% for n, child in lfc_context.get_items_enum %}
+   		<a id="pi_{{pn}}" style="text-decoration: none;" class="scroll-pager scrollable_action" href="#jc_{{child.slug}}">{{n}}</a>
+   {% endfor %}
+   </div>
    {% endif%}
 {% else %}   
 	{% if sub_object.has_more %}
-		<a id="prev">Назад</a>
-	   <a id="next">Еще</a>
+		<!-- a id="prev">Назад</a>
+	   <a id="next">Еще</a-->
+	   <div class="jcarousel-control">
+	   Программы&nbsp;
+	   
+	   {% for pn, child in sub_object.get_items_enum %}
+	   
+   		<a id="pi_{{pn}}" title="{{child.title}}" class="scroll-pager scrollable_action" href="#jc_{{child.slug}}">{{pn}}</a>
+   		
+   		{% endfor %}
+   		
+   		</div>
 	{% endif%}   
 {% endifequal %}	
 </div>
@@ -30,4 +46,34 @@
 	   		{% endfor %}
 	   	{% endifequal %}	
 	</ul>
-</div>	   		
+</div>	   	
+
+<div id="bactions">
+{% ifequal lfc_context.content_type "scrollablecontainer" %}
+	{% if lfc_context.has_more %}	
+   <!-- a id="prev">Назад</a>
+   <a id="next">Еще</a-->
+   <div class="jcarousel-control">
+   Программы&nbsp;
+   {% for pn, child in lfc_context.get_items_enum %}
+   		<a id="bpi_{{pn}}" style="text-decoration: none;" class="scroll-pager scrollable_action" href="#jc_{{child.slug}}">{{pn}}</a>
+   {% endfor %}
+   </div>
+   {% endif%}
+{% else %}   
+	{% if sub_object.has_more %}
+		<!-- a id="prev">Назад</a>
+	   <a id="next">Еще</a-->
+	   <div class="jcarousel-control">
+	   Программы&nbsp;
+	   
+	   {% for pn, child in sub_object.get_items_enum %}
+	   
+   		<a id="bpi_{{pn}}" title="{{child.title}}" class="scroll-pager scrollable_action" href="#jc_{{child.slug}}">{{pn}}</a>
+   		
+   		{% endfor %}
+   		
+   		</div>
+	{% endif%}   
+{% endifequal %}	
+</div>	

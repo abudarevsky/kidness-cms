@@ -28,6 +28,7 @@ height: 100%;
 }
 html {
 	background: #f1f1f1 url("/media/kidness_theme/img/bghands.gif") no-repeat center top;
+	background-attachment:fixed;
 	text-align:center;
 	font: normal normal 68.75%/136% verdana,sans-serif; 
 }
@@ -240,7 +241,7 @@ h2.blog-entry {
 #content .middle-slot{
 	padding-right: 18px;
 }
-#content .middle-slot h1, #content .middle-slot h2 {
+#content .middle-slot h1, #content .middle-slot h2, #content .middle-slot h2 a {
 	color:#21a84a;
 
 }
@@ -476,7 +477,6 @@ ul.breadcrumbs li {
     font-size: smaller;
     line-height: 1.3em;
 }
-
 .portlet-body h1{
 	line-height: 1.4em;
 }
@@ -504,8 +504,12 @@ ul.breadcrumbs li {
 .navigation-portlet li {
     list-style-type: none !important;
     margin: 0  !important;
+    padding-bottom: 2px;
+    padding-top:2px;
 }
-
+#content .navigation-portlet li a.current {
+    color: #21A84A;
+}
 .navigation-portlet ul {
     margin:0;
     padding:0;
@@ -815,10 +819,10 @@ width:100%;
     left:0px;
     vertical-align:middle;
     overflow:hidden;
-    background: transparent url(../../images/skins/212u_green/avatar.gif) no-repeat;
 }
 .roundedimage_50 .roundedimage_avatar{width:293px;height:auto;}
-.galleryCover p {text-decoration: none; text-align: center; color: #21A84A; width:100%; margin-bottom: 35px; margin-top:4px;}
+#content a.galleryCover p {text-decoration: none; text-align: center; color: #21A84A; width:100%; margin-bottom: 35px; margin-top:4px;}
+#content a.galleryCover {text-decoration: none;}
 /*-------------------rounded avatar2---------------*/
 .roundedimage_500 {
 height:400px;
@@ -826,3 +830,7 @@ width:641px;
 }
 .roundedimage_500 .roundedimage_avatar{width:641px;height:auto;}
 /*-----------------end of rounded avatar--------------*/
+
+.entry .quote {
+	float: right;
+}

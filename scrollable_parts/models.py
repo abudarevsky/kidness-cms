@@ -47,8 +47,12 @@ class ScrollableContainer(BaseContent):
     
     @property
     def get_number_of_items(self):
-        len(self.get_children())
-        
+        return len(self.get_children())
+    @property
+    def get_items_enum(self):
+        enum = [(n+1, ch) for n, ch in enumerate(self.get_children())]
+        return enum
+    
     def form(self, **kwargs):
         """Returns the add/edit form of the News
         """

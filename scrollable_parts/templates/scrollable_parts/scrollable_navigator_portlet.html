@@ -15,7 +15,7 @@
             <ul class="portlet-body navi ">
                 {% for scrollable in entries %}
                     <li class="portlet-item">
-                        <a class="scrollable_action" href="#jc_{{scrollable.slug}}">
+                        <a id="navit_{{scrollable.slug}}" class="scrollable_action" href="#jc_{{scrollable.slug}}">
                             {{ scrollable.title }}
                         </a>
                     </li>

@@ -42,11 +42,19 @@
 			    	$(partid).addClass("selectedItem");
 			    	$(partid).children('div').addClass("selectedItem");
 			    	
-			    	var top= 453+(num-1)/3*258-258;
+			    	// var prog_offset = 453+(num/3-1)*258-258;
+			    	var prog_offset = 600+(num/3-1)*258-258;
+			    	if (prog_offset<$(window).height()){
 		    	 	$('html, body').animate({
-                    		scrollTop: top
+                    		scrollTop: prog_offset
 	                 },
 	                 1500);
+			    	}else{
+			    		$('html, body').animate({
+                    		scrollTop: 453+2*258
+	                 },
+	                 1500);
+			    	}
 			        return false;
 			    });
 			
@@ -54,7 +62,7 @@
 			        carousel.options.scroll = jQuery.jcarousel.intval(this.options[this.selectedIndex].value);
 			        return false;
 			    });
-			
+				/*
 			    jQuery('#next').bind('click', function() {
 			        carousel.next();
 			        $(".itemScroll").removeClass("selectedItem");
@@ -68,6 +76,7 @@
 			    	$(".itemScroll").children('div').removeClass("selectedItem");
 			        return false;
 			    });
+			    */
 			};
 		    jQuery("#mycarousel").jcarousel({
 		        scroll: 3,
@@ -94,6 +103,12 @@
 	        			else
 	        				$("#prev").show();
 	        		}
+	        		
+	        		$(".scroll-pager").removeClass("pagerSelectedItem");
+	        		for(var j=idx;j<idx+3;j++){
+	        			$("#pi_"+j).addClass("pagerSelectedItem");
+	        			$("#bpi_"+j).addClass("pagerSelectedItem");
+	        		}
 	        	}
 		    });
 		    
@@ -110,14 +125,26 @@
 		    	$(".itemScroll").children('div').removeClass("selectedItem");
 		    	$(this).addClass("selectedItem");
 		    	$(this).children('div').addClass("selectedItem");
+		    	
+		    	$(".scrollable_action").removeClass("navigatorSelectedItem");
+		    	partid = $(this).attr('id');
+		    	partid = partid.substring("jc_".length);
+		    	$("#navit_"+partid).addClass("navigatorSelectedItem");
+		    	
 			});
 			$(".itemScroll").bind("mouseout", function(){
 				$(".itemScroll").removeClass("selectedItem");
 		    	$(".itemScroll").children('div').removeClass("selectedItem");
+		    	$(".scrollable_action").removeClass("navigatorSelectedItem");
 			});
 			
 			$(".scrollable_action").bind("click", function(){
 				hideDescriptionText();
+				classes =$(this).attr('class');
+				if (!/scroll-pager/.test(classes)){
+					$(".scrollable_action").removeClass("navigatorSelectedItem");
+					$(this).addClass("navigatorSelectedItem");
+				}
 				return false;
 			});
 			
