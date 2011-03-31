@@ -82,6 +82,9 @@ class ScrollablePart(BaseContent):
         searchable_text = super(ScrollablePart, self).get_searchable_text()
         return searchable_text + " " + self.text
 
+    def get_program_group_url(self):
+        url = self.get_absolute_url();
+        return url[:url.rfind('/')]
     def get_tags_as_list(self):
         return Tag.objects.get_for_object(self).all()
 
