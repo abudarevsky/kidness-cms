@@ -140,7 +140,9 @@
 			});
 			
 			$(".scrollable_action").bind("click", function(){
-				$('html,body').animate({ scrollTop: $("#mycarousel").offset().top }, { duration: 'slow', easing: 'swing'});
+				if($("#toggle_action").text()=='...'){
+					$('html,body').animate({ scrollTop: $("#mycarousel").offset().top }, { duration: 'slow', easing: 'swing'});
+				}
 				hideDescriptionText();
 				
 				classes =$(this).attr('class');
