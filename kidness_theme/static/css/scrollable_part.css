@@ -147,7 +147,9 @@
 }
 #content .jcarousel-control a {
 	color: #21A84A; 
+	padding:5px;
 }
+#content .jcarousel-control .portlet-item a{padding-left:0;}
 .scroll-pager{
 	text-decoration: none;
 }
