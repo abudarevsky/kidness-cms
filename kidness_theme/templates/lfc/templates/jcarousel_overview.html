@@ -45,7 +45,6 @@
 			    	// var prog_offset = 453+(num/3-1)*258-258;
 			    	var prog_offset = 600+(num/3-1)*258-258;
 			    	
-			    	$('html,body').animate({ scrollTop: $("#mycarousel").offset().top }, { duration: 'slow', easing: 'swing'});
 			    	/*
 			    	if (prog_offset<$(window).height()){
 		    	 	$('html, body').animate({
@@ -142,6 +141,7 @@
 			
 			$(".scrollable_action").bind("click", function(){
 				hideDescriptionText();
+				$('html,body').animate({ scrollTop: $("#mycarousel").offset().top }, { duration: 'slow', easing: 'swing'});
 				classes =$(this).attr('class');
 				if (!/scroll-pager/.test(classes)){
 					$(".scrollable_action").removeClass("navigatorSelectedItem");
