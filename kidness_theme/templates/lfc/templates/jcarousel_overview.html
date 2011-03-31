@@ -140,8 +140,9 @@
 			});
 			
 			$(".scrollable_action").bind("click", function(){
-				hideDescriptionText();
 				$('html,body').animate({ scrollTop: $("#mycarousel").offset().top }, { duration: 'slow', easing: 'swing'});
+				hideDescriptionText();
+				
 				classes =$(this).attr('class');
 				if (!/scroll-pager/.test(classes)){
 					$(".scrollable_action").removeClass("navigatorSelectedItem");
