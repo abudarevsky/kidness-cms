@@ -141,7 +141,8 @@
 			
 			$(".scrollable_action").bind("click", function(){
 				if($("#toggle_action").text()=='...'){
-					$('html,body').animate({ scrollTop: $("#mycarousel").offset().top }, { duration: 'slow', easing: 'swing'});
+					// $('html,body').animate({ scrollTop: $("#mycarousel").offset().top }, { duration: 'slow', easing: 'swing'});
+					$("html:not(:animated)"+( ! $.browser.opera ? ",body:not(:animated)" : "")).animate({ scrollTop: $("#mycarousel").offset().top }, { duration: 'slow', easing: 'swing'});
 				}
 				hideDescriptionText();
 				
