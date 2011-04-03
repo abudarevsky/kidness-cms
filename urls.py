@@ -20,7 +20,9 @@ urlpatterns = patterns('',
 
     (r'^admin/(.*)', admin.site.root),
     (r'^jsi18n/$', 'django.views.i18n.javascript_catalog', {'packages': ('django.conf') }),
-    (r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': os.path.join(DIRNAME, "media"), 'show_indexes': True }),
+    (r'^index.html','django.views.generic.simple.redirect_to', {'url' : '/'})
+#    (r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': os.path.join(DIRNAME, "media"), 'show_indexes': True }),
+
 )
 
 # Contact Form
