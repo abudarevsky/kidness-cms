@@ -19,7 +19,9 @@
                     {{ sub_object.title }}
                 </a>    
             </h2>
+            <a href="{{ sub_object.get_absolute_url }}">
             {% if sub_object.get_image %}
+            
                 <img class="left"
                      src="{{ sub_object.get_image.image.url_100x100 }}"
                      alt="{{ sub_object.get_image.image.title }}"
@@ -30,6 +32,7 @@
                 <img class="quote" width="54" height="41" src="/media/kidness_theme/img/quoate.gif" />
                 
             </div>
+            </a>
         </div>
         <br clear="all" />
 
