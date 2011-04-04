@@ -22,10 +22,12 @@
     
     {% for sub_obj in sub_objects %}
         <div class="blog-entry">
-        	<a style="text-decoration: none;" href="{{sub_obj.get_absolute_url}}">
+        	
             <h2 class="blog-entry"
+            	<a style="text-decoration: none;" href="{{sub_obj.get_absolute_url}}">
                 {% if not forloop.first %}class="heading-middle"{% endif %}>
                 {{sub_obj.title}}
+                </a>
             </h2>
             <div class="blog-by-line">
             	{% if sub_obj.publication_date %}
@@ -51,11 +53,14 @@
             </div>
 
             <div>
+            	
             	<p align="justify">
+            	<a style="text-decoration: none;" href="{{sub_obj.get_absolute_url}}">
                 	{{sub_obj.description|safe}}
+                </a>	
                 </p>
             </div>
-            </a>
+            
             <br clear="both">
 
         </div>
