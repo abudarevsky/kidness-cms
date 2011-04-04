@@ -15,8 +15,10 @@
                 <a href="{{entry.get_absolute_url}}">{{ entry.title }}</a>
             </h2>
             <div class="blog-by-line">
-                {% trans 'Posted on' %}
-                {{entry.publication_date|date:"d.m.Y"}}
+            	{% if sub_obj.publication_date %}
+	                {% trans 'Posted on' %}
+	                {{entry.publication_date|date:"d.m.Y"}}
+                {% endif %}
                 {% tags_for_object entry as tag_list %}
 
                 {% if tag_list %}

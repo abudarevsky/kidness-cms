@@ -11,18 +11,13 @@
     {% endif %}
 
     <div class="blog-by-line">
-        {% trans 'Posted on' %}
-        {{ lfc_context.publication_date|date:"d.m.Y" }}
-        {% trans 'by' %}
-        {% if lfc_context.creator.last_name %}
-            <span>{{ lfc_context.creator.first_name }} {{ lfc_context.creator.last_name }}</span>
-        {% else %}
-            <span>{{ lfc_context.creator.username }}</span>
-        {% endif %}                
+    	{% if sub_obj.publication_date %}
+	        {% trans 'Posted on' %}
+	        {{ lfc_context.publication_date|date:"d.m.Y" }}
+        {% endif %}     
         {% tags_for_object lfc_context as tag_list %}
 
         {% if tag_list %}
-            {% trans 'within' %}
             {% for tag in tag_list %}
                 <a href="{% url lfc_blog_tag_list lfc_context.parent.slug tag %}">
                     {{ tag }}</a>{% if not forloop.last %}, {% endif %}
