@@ -17,16 +17,9 @@
             <div class="blog-by-line">
                 {% trans 'Posted on' %}
                 {{entry.publication_date|date:"d.m.Y"}}
-                {% trans 'by' %}
-                {% if entry.creator.last_name %}
-                    <span>{{ entry.creator.first_name }} {{ entry.creator.last_name }}</span>
-                {% else %}
-                    <span>{{ entry.creator.username }}</span>
-                {% endif %}
                 {% tags_for_object entry as tag_list %}
 
                 {% if tag_list %}
-                    {% trans 'within' %}
                     {% for tag in tag_list %}
                         <a href="{% url lfc_blog_tag_list slug tag %}">
                             {{ tag }}</a>{% if not forloop.last %}, {% endif %}
