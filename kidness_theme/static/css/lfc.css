@@ -114,13 +114,13 @@ h1.blog-entry {
     font-weight: bold;
     padding-bottom: 0px;
     margin-bottom: 0;
-    border-bottom: 1px solid #24241c;
+    /* border-bottom: 1px solid #24241c; */
 }
 
 h2.blog-entry {
     font-weight: bold;
     padding-bottom: 0px;
-    border-bottom: 1px solid #24241c;
+    /* border-bottom: 1px solid #24241c; */
 }
 
 .blog-by-line {
