@@ -42,21 +42,8 @@
 			    	$(partid).addClass("selectedItem");
 			    	$(partid).children('div').addClass("selectedItem");
 			    	
-			    	// var prog_offset = 453+(num/3-1)*258-258;
 			    	var prog_offset = 600+(num/3-1)*258-258;
 			    	
-			    	/*
-			    	if (prog_offset<$(window).height()){
-		    	 	$('html, body').animate({
-                    		scrollTop: prog_offset
-	                 },
-	                 1500);
-			    	}else{
-			    		$('html, body').animate({
-                    		scrollTop: 453+2*258
-	                 },
-	                 1500);
-			    	}*/
 			        return false;
 			    });
 			
@@ -64,21 +51,6 @@
 			        carousel.options.scroll = jQuery.jcarousel.intval(this.options[this.selectedIndex].value);
 			        return false;
 			    });
-				/*
-			    jQuery('#next').bind('click', function() {
-			        carousel.next();
-			        $(".itemScroll").removeClass("selectedItem");
-			    	$(".itemScroll").children('div').removeClass("selectedItem");
-			        return false;
-			    });
-			
-			    jQuery('#prev').bind('click', function() {
-			        carousel.prev();
-			        $(".itemScroll").removeClass("selectedItem");
-			    	$(".itemScroll").children('div').removeClass("selectedItem");
-			        return false;
-			    });
-			    */
 			};
 		    jQuery("#mycarousel").jcarousel({
 		        scroll: 3,
