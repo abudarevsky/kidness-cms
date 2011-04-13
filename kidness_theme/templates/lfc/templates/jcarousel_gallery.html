@@ -24,6 +24,8 @@
 		 */
 		
 		// Ride the carousel...
+		var SHOW_DELAY=2;
+		
 		jQuery(document).ready(function() {
 			function setImagePreview(alink){
 				var link = alink.attr("href");
@@ -33,8 +35,17 @@
 		            img+='<span class="roundedimage_corners"><img class="roundedimage_cornersitem" alt="" src="/media/kidness_theme/img/gallery_imgborder2.png"/></span></span></a>'
 			    	
 			    	$("#preview").html(img);
-		            $("#preview-image").fancybox();
-		            $(".yashare-auto-init").attr("data-yashareLink","http://kidness.ru"+link);
+		            $("#preview-image").fancybox(
+		            		{
+				    			onComplete: function(){
+				    				jQuery('#mycarousel').jcarousel('stopAuto');
+				    			},
+				    			onClosed: function(){
+				    				jQuery('#mycarousel').jcarousel('startAuto');
+				    			}
+				    		}
+		            );
+		            $(".yashare-auto-init").attr("data-yashareLink","http://www.kidness.ru"+link);
 		            
 		            
 			}
@@ -60,23 +71,56 @@
 			        carousel.prev();
 			        return false;
 			    });
+			    
+			    carousel.clip.hover(function() {
+		            carousel.stopAuto();
+		        }, function() {
+		            carousel.startAuto();
+		        });
 			};
 		    jQuery("#mycarousel").jcarousel({
-		        scroll: 4,
+		        scroll: 1,
+		        auto: SHOW_DELAY,
+		        wrap: "circular",
 		        initCallback: mycarousel_initCallback,
 		        itemFirstInCallback : function(object,li,idx,state){
 		        	setImagePreview($(li).children("a"));
+		        	var $thumb=$(li).children("a");
+		        	$(".slideshow").removeClass("selected");
+		        	$thumb.addClass("selected");
 	        	}
 		    });
 		    
+		    
+		    $('li a').hover(
+		            function () {
+		            	setImagePreview($(this));
+				    	$(".slideshow").removeClass("selected");
+				    	$(this).addClass("selected");
+		            },
+		            function () {
+		            	$(".slideshow").removeClass("selected");     
+		                //on mouse out, reset all the item back to 50% opacity
+		            }
+		        );
+		    /*
 		    $(".slideshow").bind("mouseover", function(){
 		    	setImagePreview($(this));
 		    	$(".slideshow").removeClass("selected");
 		    	$(this).addClass("selected");
+		    	// var carousel = jQuery('#mycarousel').data('jcarousel');
 		    	return false;
 		    });
-		    
-		    $(".slideshow").fancybox();
+		    */
+		    $(".slideshow").fancybox(
+		    		{
+		    			onComplete: function(){
+		    				jQuery('#mycarousel').jcarousel('stopAuto');
+		    			},
+		    			onClosed: function(){
+		    				jQuery('#mycarousel').jcarousel('startAuto');
+		    			}
+		    		});
 		    
 		});
 		    
@@ -110,5 +154,5 @@
 	    </ul>
     </div>
     <script type="text/javascript" src="//yandex.st/share/share.js" charset="utf-8"></script>
-	  	<div style="margin-top:20px;" align="center" class="yashare-auto-init" data-yashareLink="http://kidness.ru/{{ photo.image.url_800x800 }}" data-yashareType="none" data-yashareQuickServices="vkontakte,facebook,twitter,odnoklassniki,lj"></div>
+	<div style="margin-top:20px;" align="center" class="yashare-auto-init" data-yashareLink="http://www.kidness.ru" data-yashareType="none" data-yashareQuickServices="vkontakte,facebook,twitter,odnoklassniki,lj"></div>
 {% endblock %}
