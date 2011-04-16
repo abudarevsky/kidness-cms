@@ -510,13 +510,25 @@ ul.breadcrumbs li {
     padding-bottom: 2px;
     padding-top:2px;
 }
-#content .navigation-portlet li a.current {
-    color: #21A84A;
+
+#content .navigation-portlet li a {
+    color: #2B7DB9;
 }
+
+#content .navigation-portlet li a.current {
+    font-weight: bold;
+}
+#content .navigation-portlet li a:hover {
+    color: #2B7DB9;
+    text-decoration: underline;
+}
+
 .navigation-portlet ul {
     margin:0;
     padding:0;
 }
+
+
 /*
 .navigation-portlet a {
     color: black;
@@ -836,32 +848,12 @@ width:641px;
 
 .entry .quote {
 	float: right;
+	margin-top: 10px;
 }
 
 /*-------------- Slideshow portlet --------------*/
-.jcarousel-skin-slideshow .jcarousel-clip-vertical {
-    width: 266px;
-    height: 243px;
-    margin-top:12px;
-}
- 
-.jcarousel-skin-slideshow .jcarousel-container-vertical {
-	width: 266px;
-    height: 243px;
-    margin-top:12px;
-}
-
-.jcarousel-skin-slideshow .jcarousel-item-vertical {
-    width:266px;
-	height:243px;
-	display:block;
-	float:left;
-	margin-top:12px; 
-}
-
 #content .photosHat .portlet {
     margin: 0;
-    padding: 12px 0 0 12px;
     position: relative;
     text-align: left;
     text-transform: none;
@@ -903,4 +895,12 @@ width:641px;
 */
 .promo-items div {
 	float:left;
+}
+#content .photosHat .slideshowPromo {
+	width:266px;
+	height:243px;
+	display:block;
+	overflow:hidden;
+	padding:0;
+	padding: 12px 0 0 0;
 }
