@@ -95,7 +95,7 @@
 						}
 					});
 					
-					if($menuItem.hasAttr('class')){
+					if($menuItem!=null && $menuItem.hasAttr('class')){
 						var classAttr = $menuItem.attr('class');
 						var mihref = $menuItem.attr('href');
 						var imageClass = classAttr.split(/\s+/)[1];
