@@ -56,6 +56,9 @@
 		<!-- /Yandex.Metrika -->
         
 		<script type="text/javascript">
+			$.fn.hasAttr = function(name) {  
+			   return this.attr(name) !== undefined;
+			};
 			$(function(){
 				$(".fancy_image").each(function(idx, val){
 					$img = $(val);
@@ -91,11 +94,14 @@
 							return false;
 						}
 					});
-					var classAttr = $menuItem.attr('class');
-					var mihref = $menuItem.attr('href');
-					var imageClass = classAttr.split(/\s+/)[1];
-					var span = '<span href="'+mihref+'" class="'+imageClass+'"></span>';
-					$menuItem.parent().html(span);
+					
+					if($menuItem.hasAttr('class')){
+						var classAttr = $menuItem.attr('class');
+						var mihref = $menuItem.attr('href');
+						var imageClass = classAttr.split(/\s+/)[1];
+						var span = '<span href="'+mihref+'" class="'+imageClass+'"></span>';
+						$menuItem.parent().html(span);
+					}
 				};
 				updateMenuTileItem();
 				var a = new String(window.location);
