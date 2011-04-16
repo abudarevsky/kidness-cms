@@ -15,7 +15,7 @@ from portlets.utils import unregister_portlet
 from lfc.models import Page
 
 # lfc_news imports
-from kidness_portlets.models import TextBlockPortlet
+from kidness_portlets.models import TextBlockPortlet, SlideshowPortlet
 
 name = "Kidness portlets"
 description = _(u"Kidness Portlets")
@@ -25,6 +25,8 @@ def install():
     """
     # Register Portlets
     register_portlet(TextBlockPortlet, "TextBlock")
+    register_portlet(SlideshowPortlet, "Slideshow")
 
 def uninstall():
     unregister_portlet(TextBlockPortlet)
+    unregister_portlet(SlideshowPortlet)

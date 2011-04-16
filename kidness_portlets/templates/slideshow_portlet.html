@@ -1,0 +1,31 @@
+<div class="portlet">
+	{% if title %}
+    <h1 class="portlet-header">
+       	{{ title }}
+    </h1>
+    {% endif %}
+    <div class="portlet-body">
+            <div class="portlet-item scrollable-promo">
+            	<div id="#slideshow-portlet" class="promo-items">
+	    		{% for item in items %}
+					<div>
+						<a href="{{ item.get_absolute_url }}">
+	            		<img src="{{ item.get_content_object.get_image.image.url }}"></img>
+	            		</a>
+	                </div>
+				{% endfor %}	
+				</div>
+            </div>
+        <script type="text/javascript">
+        jQuery(document).ready(function() {
+        	{% if rotate %}
+	        	$('.scrollable-promo')
+	        		.scrollable({circular: true, speed: 800})
+	        		.autoscroll({ autoplay: true, interval: {{interval}}*1000 });
+        	{% else %}
+        		$('.scrollable-promo').scrollable()
+        	{% endif %}	
+        });
+        </script>
+    </div>
+</div>

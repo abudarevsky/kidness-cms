@@ -96,6 +96,9 @@ h1.logo img {
 .headerContact .tel {
 	font-size:1.3em;
 }
+.headerContact .addr {
+	font-size:0.9em;
+}
 h2 {
     /* font-size: 123.1%; */
     font-size: 100%;
@@ -833,4 +836,71 @@ width:641px;
 
 .entry .quote {
 	float: right;
+}
+
+/*-------------- Slideshow portlet --------------*/
+.jcarousel-skin-slideshow .jcarousel-clip-vertical {
+    width: 266px;
+    height: 243px;
+    margin-top:12px;
+}
+ 
+.jcarousel-skin-slideshow .jcarousel-container-vertical {
+	width: 266px;
+    height: 243px;
+    margin-top:12px;
+}
+
+.jcarousel-skin-slideshow .jcarousel-item-vertical {
+    width:266px;
+	height:243px;
+	display:block;
+	float:left;
+	margin-top:12px; 
+}
+
+#content .photosHat .portlet {
+    margin: 0;
+    padding: 12px 0 0 12px;
+    position: relative;
+    text-align: left;
+    text-transform: none;
+}
+
+#content .photosHat .portlet .portlet-body {
+    font-size: smaller;
+    font-style: italic;
+    line-height: 1.3em;
+    margin: 0;
+    
+    padding: 0;
+}
+
+.scrollable-promo {
+	/* required settings */
+	position:relative;
+	overflow:hidden;
+	width: 266px;
+	height:243px;
+}
+
+/*
+	root element for scrollable items. Must be absolutely positioned
+	and it should have a extremely large width to accommodate scrollable items.
+	it's enough that you set width and height for the root element and
+	not for this element.
+*/
+.scrollable-promo .promo-items {
+	/* this cannot be too large */
+	width:20000em;
+	position:absolute;
+}
+
+/*
+	a single item. must be floated in horizontal scrolling.
+	typically, this element is the one that *you* will style
+	the most.
+*/
+.promo-items div {
+	float:left;
 }

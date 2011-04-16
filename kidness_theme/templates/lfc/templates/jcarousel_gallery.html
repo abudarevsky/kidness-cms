@@ -2,7 +2,6 @@
 {% load portlets_tags %}
 
 {% block css %}
-<link rel="stylesheet" href="{{ MEDIA_URL }}kidness_theme/fancybox/jquery.fancybox-1.3.4.css" type="text/css" media="screen" />
 <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}kidness_theme/css/jcarousel_kidness/skin.css">
 <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}kidness_theme/css/jcarousel_kidness/gallery_scroller.css">
 
@@ -11,9 +10,6 @@
 
 
 {% block javascript %}
-	<script type="text/javascript" src="{{ MEDIA_URL }}kidness_theme/js/jquery.jcarousel.min.js"></script>
-	<script type="text/javascript" src="{{ MEDIA_URL }}kidness_theme/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
-	
 	<script type="text/javascript">
 		// execute your scripts when DOM is ready. this is a good habit
 		
@@ -92,7 +88,7 @@
 		    });
 		    
 		    
-		    $('li a').hover(
+		    $('.slideshow').hover(
 		            function () {
 		            	setImagePreview($(this));
 				    	$(".slideshow").removeClass("selected");
