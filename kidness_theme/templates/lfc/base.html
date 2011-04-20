@@ -252,9 +252,11 @@
             	<li><a class="menuTile left7PhotoHat" href="/programs/moms"></a></li>
             	<li><a class="menuTile left8PhotoHat" href="/programs/psychologist"></a></li>
             </ul>
-            {% block promo-slot %}
-                {% portlet_slot 'Promo' lfc_context %}
-            {% endblock %}
+            {% if SlotPromo %}
+	            {% block promo-slot %}
+	                {% portlet_slot 'Promo' lfc_context %}
+	            {% endblock %}
+            {% endif %}
             <!--  a class="rightPhotoHat" href="/programs/promo"></a-->
             <span class="tl"></span>
             <span class="tr"></span>
