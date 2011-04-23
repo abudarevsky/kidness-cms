@@ -498,6 +498,11 @@ ul.breadcrumbs li {
 	text-transform: uppercase;
 	font-style: normal;
 }
+
+#content ul.portlet-body li a:hover{
+	text-decoration: underline;
+}	
+
 .portlet .blog-tag-cloud,
 .portlet .blog-archive {
     margin-top: 15px;
