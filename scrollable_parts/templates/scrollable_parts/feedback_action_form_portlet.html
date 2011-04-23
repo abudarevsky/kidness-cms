@@ -3,7 +3,7 @@
 <a href="#feedback" class="fancybox_action timetable"></a>
 <div style="display:none" class="fancybox_inline">
 	<div style="width:660px" id="feedback">
-		<h2>Мы позвоним вам,</h2>
+		<h2 id="form_header">Мы позвоним вам,</h2>
 		<div class="feedbackTxt">
 			
 			<ul>
@@ -14,11 +14,12 @@
 			</ul>
 		
 		</div>
-		<div >	 	
+		<div id="form_panel" >	 	
 		<form id="feedback_form" style="padding-left: 2em;" class="contact-form" action="" method="post">
 		<div id="feedback_form_data">
 		{% include "lfc/lfc_form.html" %}
 		</div>
+		<!-- input id="program_field" type="hidden" name="program" value=""/-->
 		<dl>
 			<dt></dt>
 			<dd>

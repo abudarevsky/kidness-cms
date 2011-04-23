@@ -5,9 +5,9 @@
 	
 	<div style="float:left;display:block;width:478px;min-height: 258px;">
 	<!-- title -->
-    {% if child.display_title %}
-         	<h2>{{ child.title }}</h2>
-	{% endif %}
+    
+         	<h2 {% if not child.display_title %} style="display:none;"{% endif %}>{{ child.title }}</h2>
+	
    
          <!-- content -->
    		
@@ -33,9 +33,7 @@
 	      <div class="scrollableDescr" id="{{child.slug}}__text">
 	      
 	      	<div style="display:block;float:left;width:500px; margin-right:40px;">
-	      	 {% if child.display_title %}
-         	<h2>{{ child.title }}</h2>
-			{% endif %}
+	      	 <h2 {% if not child.display_title %} style="display:none;"{% endif %}>{{ child.title }}</h2>
 		   
 		         <!-- content -->
 			

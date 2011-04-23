@@ -8,7 +8,7 @@ class KidnessContactForm(lfc_forms.ContactForm):
     phone_number = forms.CharField(max_length=12,
                      widget=forms.TextInput(attrs=lfc_forms.attrs_dict),
                      label=_(u'*Номер телефона'), required =True)
-                           
+    program = forms.CharField(max_length=1024, widget=forms.widgets.HiddenInput())
     def __init__ (self, *args, **kwargs):
         super(KidnessContactForm, self).__init__(*args, **kwargs)
         self.fields['name'].label=_(u'*Ваше имя')
@@ -24,11 +24,12 @@ class KidnessContactForm(lfc_forms.ContactForm):
             'phone_number',
             'time',
             'email',
-            'body'
+            'body',
+            'program'
         ]
 
         self.portal = lfc.utils.get_portal()
-        
+    
     def from_email(self):
         return self.portal.from_email
 

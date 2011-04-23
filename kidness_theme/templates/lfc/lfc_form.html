@@ -1,11 +1,13 @@
 {{ form.non_field_errors }}
 
 {% for field in form %}
-    <dl class="field">     
+	
+    <dl class="field">
+    	{% if not field.is_hidden %}     
         <dt class="label {% if field.field.required %} required {% endif %}">
             {{ field.label_tag }}:
         </dt>
-
+		{% endif %}
         {% if field.errors %}
             <dd class="error">
                 {{ field.errors }}
@@ -17,6 +19,7 @@
             </dd>
         {% endif %}
     </dl>
+    
 {% endfor %}
 
 

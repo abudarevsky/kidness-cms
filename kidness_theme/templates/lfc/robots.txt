@@ -1,3 +1,4 @@
 User-Agent: *
 Disallow: /set-language
 Allow: /
+Sitemap: http://kidness.ru/sitemap.xml
