@@ -223,6 +223,7 @@ h2.blog-entry {
 #content a,
 #content a:visited {
     color: #555;
+    text-decoration: none;
 }
 
 #content a,
@@ -232,6 +233,7 @@ h2.blog-entry {
 
 #content a:hover {
     color: #24241c;
+    text-decoration: underline;
 }
 
 #content h1,
@@ -419,7 +421,7 @@ ul.breadcrumbs li {
 	text-transform: none;
 	position: relative;
 	padding:8px;
-	margin: 30px 11px 0 11px;
+	margin: 30px 11px 30px 11px;
 	text-align: left;
 }
 .scrollablenavHeader .portlet-header  {

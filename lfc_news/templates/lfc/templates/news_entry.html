@@ -12,7 +12,6 @@
 
     <div class="blog-by-line">
     	{% if sub_obj.publication_date %}
-	        {% trans 'Posted on' %}
 	        {{ lfc_context.publication_date|date:"d.m.Y" }}
         {% endif %}     
         {% tags_for_object lfc_context as tag_list %}
@@ -24,18 +23,23 @@
             {% endfor %}
         {% endif %}
 
-        {% get_comment_count for lfc_context as comment_count %}
-        |
-        {% ifequal comment_count 1  %}
-            <a href="{{ lfc_context.get_absolute_url }}#comments">{% trans 'One comment' %}</a>
-        {% else %}
-            <a href="{{ lfc_context.get_absolute_url }}#comments">{{comment_count}} {% trans 'comments' %}</a>
-        {% endifequal %}
+        
     </div>
 
     <div class="blog-entry">
         <div>
             {{ lfc_context.text|safe }}
+            
+            {% get_comment_count for lfc_context as comment_count %}
+            {% ifequal comment_count 0  %}
+            	
+            {% else  %}
+		        {% ifequal comment_count 1  %}
+		            <a href="{{ lfc_context.get_absolute_url }}#comments">{% trans 'One comment' %}</a>
+		        {% else %}
+		            <a href="{{ lfc_context.get_absolute_url }}#comments">{{comment_count}} {% trans 'comments' %}</a>
+		        {% endifequal %}
+	        {% endifequal %}
         </div>
     </div>
 

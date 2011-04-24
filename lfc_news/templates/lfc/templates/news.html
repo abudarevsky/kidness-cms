@@ -22,14 +22,13 @@
     
     {% for sub_obj in sub_objects %}
         <div class="blog-entry">
-        	<a style="text-decoration: none" href="{{sub_obj.get_absolute_url}}">
+        	<a href="{{sub_obj.get_absolute_url}}">
             <h2 class="blog-entry"
                 {% if not forloop.first %}class="heading-middle"{% endif %}>
                 {{sub_obj.title}}</a>
             </h2>
             <div class="blog-by-line">
             	{% if sub_obj.publication_date %}
-                {% trans 'Posted on' %}
                 {{ sub_obj.publication_date|date:"d.m.Y" }}
                 {% endif %}
                 {% tags_for_object sub_obj as tag_list %}
@@ -40,22 +39,23 @@
                             {{ tag }}</a>{% if not forloop.last %}, {% endif %}
                     {% endfor %}
                 {% endif %}
-
-                {% get_comment_count for sub_obj as comment_count %}
-                |
-                {% ifequal comment_count 1  %}
-                    <a href="{{ sub_obj.get_absolute_url }}#comments">{% trans 'One comment' %}</a>
-                {% else %}
-                    <a href="{{ sub_obj.get_absolute_url }}#comments">{{comment_count}} {% trans 'comments' %}</a>
-                {% endifequal %}
             </div>
 
             <div>
             	<p align="justify">
-            	<a style="text-decoration: none" href="{{sub_obj.get_absolute_url}}">
+            	<a href="{{sub_obj.get_absolute_url}}">
                 	{{sub_obj.description|safe}}
                 </a>
                 </p>
+                {% get_comment_count for sub_obj as comment_count %}
+                {% ifequal comment_count 0  %}
+                {% else %}
+	                {% ifequal comment_count 1  %}
+	                    <a href="{{ sub_obj.get_absolute_url }}#comments">{% trans 'One comment' %}</a>
+	                {% else %}
+	                    <a href="{{ sub_obj.get_absolute_url }}#comments">{{comment_count}} {% trans 'comments' %}</a>
+	                {% endifequal %}
+                {% endifequal %}
             </div>
             <br clear="both">
 
