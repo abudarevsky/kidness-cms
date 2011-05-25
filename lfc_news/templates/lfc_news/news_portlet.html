@@ -13,8 +13,8 @@
                         <a href="{{ page.get_absolute_url }}">
                         	{% if page.publication_date %}
 						        <span class="newsdate">{{ page.publication_date|date:"d.m.Y" }}</span>
-					        {% endif %}</br>
-                            {{ page.title }}
+					        {% endif %}
+                            <p>{{ page.title }}</p>
                         </a>
                     </li>
                 {% endfor %}

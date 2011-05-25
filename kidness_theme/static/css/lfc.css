@@ -912,3 +912,7 @@ width:641px;
 .promo-items div {
 	float:left;
 }
+
+.newsdate {
+	font-style: italic;
+}
