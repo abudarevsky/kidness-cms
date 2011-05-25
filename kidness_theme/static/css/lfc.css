@@ -236,6 +236,10 @@ h2.blog-entry {
     text-decoration: underline;
 }
 
+#content ul.portlet-body li a:hover p {
+    text-decoration: underline;
+}
+
 #content h1,
 #content h1 a,
 #content h2,
