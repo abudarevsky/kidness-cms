@@ -11,6 +11,9 @@
                 {% for page in entries %}
                     <li class="portlet-item">
                         <a href="{{ page.get_absolute_url }}">
+                        	{% if page.publication_date %}
+						        <span class="newsdate">{{ page.publication_date|date:"d.m.Y" }}</span>
+					        {% endif %}</br>
                             {{ page.title }}
                         </a>
                     </li>
