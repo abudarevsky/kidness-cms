@@ -187,8 +187,8 @@
     
     {% if lfc_context.text %}
    		<div id="overview_teaser">
-   			<div style="display:none" id="toggled_teaser">{{lfc_context.text|safe|truncatewords_html:10}}</div>
-		   	<div id="toggled_text">
+   			<div id="toggled_teaser">{{lfc_context.text|safe|truncatewords_html:10}}</div>
+		   	<div style="display:none" id="toggled_text">
 		   		{% if image %}
 	                <img class="left"
 	                     src="{{ image.image.url_60x60 }}"
@@ -198,7 +198,7 @@
         		{% endif %}
 		   		{{lfc_context.text|safe}}
 		   	</div>
-		   	<a id="toggle_action" class="showOverviewText" href="#">Свернуть</a>
+		   	<a id="toggle_action" class="showOverviewText" href="#">...</a>
 	   	        <span class="tlSH"></span>
                 <span class="trSH"></span>
                 <span class="blSH"></span>
