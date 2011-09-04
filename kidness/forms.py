@@ -5,7 +5,7 @@ from contact_form import forms as lfc_forms
 import lfc.utils
 
 class KidnessContactForm(lfc_forms.ContactForm):
-    phone_number = forms.CharField(max_length=12,
+    phone_number = forms.CharField(max_length=20,
                      widget=forms.TextInput(attrs=lfc_forms.attrs_dict),
                      label=_(u'*Номер телефона'), required =True)
     program = forms.CharField(max_length=1024, widget=forms.widgets.HiddenInput())
