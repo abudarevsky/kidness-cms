@@ -140,41 +140,7 @@
 				return false;
 			});
 			
-			$(".send_feedback").bind('click', function(){
-				$.fancybox.showActivity();
-				$form =  $(this).closest("form");
-				if(selectedPart!=window.location){
-					selectedPart=window.location+' '+selectedPart; 
-				}
-				
-				$form.find("input[name|='program']").val(selectedPart);
-		    	$.ajax({
-		    		 type        : "POST",
-		             cache   : false,
-		             data 	 : $form.serialize(),
-		             url     : "/kidness_feedback",
-		             success : function(){
-		            	//window.location='/contact-thank-you';
-		            	// $("#feedback").html("<h2>Спасибо, ваша заявка принята!</h2>");
-		            	$.fancybox(
-							'<h2 align="center">Спасибо, ваша заявка принята!</h2>',
-							{
-					        	'autoDimensions'	: false,
-								'width'         		: 350,
-								'height'        		: 'auto',
-								'transitionIn'		: 'none',
-								'transitionOut'		: 'none'
-							});
-		             },
-		             error: function(xhr, ajaxOptions, thrownError) {
-		            	$form.find("div").html(xhr.responseText);
-	            	    $.fancybox.hideActivity();
-	                    $.fancybox.resize();
-		                    // return false;
-		             }	    
-		    	 });
-				return false;
-			});
+			
 		});
 	</script>
 {% endblock %}
