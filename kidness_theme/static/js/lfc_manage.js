@@ -25,11 +25,11 @@ tinyMCE.init({
     height : "400",
     tab_focus : ":prev,:next",
     button_tile_map : true,
-    plugins : "advimage, safari, fullscreen, table, media",
+    plugins : "advimage, safari, fullscreen, table",
     convert_urls : false,
     theme_advanced_buttons1 : "bold, italic, underline, |, justifyleft," +
                               "justifycenter, justifyright, justifyfull, |," +
-                              "bullist,numlist, |, outdent, indent, |, image, media, |, undo," +
+                              "bullist,numlist, |, outdent, indent, |, image, |, undo," +
                               "redo, |, code, link, unlink, styleselect, formatselect, |," +
                               "removeformat, fullscreen,|, table, tablecontrols",
     theme_advanced_buttons2: "",
