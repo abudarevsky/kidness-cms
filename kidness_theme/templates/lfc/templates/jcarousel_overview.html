@@ -133,7 +133,7 @@
 				$("#toggled_text").toggle(900);
 				
 				if( $(this).text()=="Свернуть"){
-					$(this).text("...");
+					$(this).text("читать дальше");
 				}else{
 					$(this).text("Свернуть");					
 				}
@@ -153,7 +153,7 @@
     
     {% if lfc_context.text %}
    		<div id="overview_teaser">
-   			<div id="toggled_teaser">{{lfc_context.text|safe|truncatewords_html:10}}</div>
+   			<div id="toggled_teaser">{{lfc_context.text|safe|truncatewords_html:60}}</div>
 		   	<div style="display:none" id="toggled_text">
 		   		{% if image %}
 	                <img class="left"
@@ -164,7 +164,7 @@
         		{% endif %}
 		   		{{lfc_context.text|safe}}
 		   	</div>
-		   	<a id="toggle_action" class="showOverviewText" href="#">...</a>
+		   	<a id="toggle_action" class="showOverviewText" href="#">читать дальше</a>
 	   	        <span class="tlSH"></span>
                 <span class="trSH"></span>
                 <span class="blSH"></span>

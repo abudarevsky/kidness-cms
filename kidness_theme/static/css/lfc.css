@@ -409,9 +409,8 @@ ul.breadcrumbs li {
     font-size: 138.5%;
     font-weight: normal;
     margin: 0 0 2px 0;
-    padding: 0 5px;
+    padding:0 5px 10px 18px;
     text-transform: uppercase;
-    padding-left:18px;
 }
 .portlet {
 	text-transform: none;
@@ -481,7 +480,7 @@ ul.breadcrumbs li {
 	right:0;
 }
 .portlet-body {
-    padding-left: 18px;
+    padding-left: 9px;
     margin-top:0px;
     font-style: italic;
     font-size: smaller;
@@ -861,6 +860,15 @@ width:641px;
 .entry .quote {
 	float: right;
 	margin-top: 10px;
+}
+
+a.entry-description div{
+	
+}
+
+
+a.entry-description:hover div{
+	text-decoration:underline
 }
 
 /*-------------- Slideshow portlet --------------*/
