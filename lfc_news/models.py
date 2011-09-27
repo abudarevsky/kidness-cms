@@ -77,14 +77,17 @@ class NewsEntry(BaseContent):
             except (Exception,), inst:
                 print "exception while publishing to Twitter"
                 print inst
+                f1 = open(settings.LOG_DIR + "/twitter.err", 'w')
+                f1.write(inst)
+                f1.close()
         super(NewsEntry, self).save()
         
     def public_to_twitter(self):
         import twitter
-        api = twitter.Api(consumer_key='cvDQSMQtPcHRvX1maSWNA',
-                              consumer_secret='DD5yLACSpdoSn4YIO7jqDjKUHItLjIrywKvANWwN2k',
-                              access_token_key='249630488-ePQFIjt9K3bcWRP2PXDlrX5NdqrIOzU3gfciibdw',
-                              access_token_secret='5yUqym7zyVxyG7pWbSAIwl0XWmn71yhfawZMjaZGNQ')
+        api = twitter.Api(consumer_key=settings.TWITTER_CREDENTIALS['consumer_key'],
+                          consumer_secret=settings.TWITTER_CREDENTIALS['consumer_secret'],
+                          access_token_key=settings.TWITTER_CREDENTIALS['access_token_key'],
+                          access_token_secret=settings.TWITTER_CREDENTIALS['access_token_secret'])
 #       print api.VerifyCredentials()
         status = api.PostUpdate(self.text_for_twitter)
         self.send_to_twitter = False

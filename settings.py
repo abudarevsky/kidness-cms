@@ -139,6 +139,15 @@ LFC_MANAGE_PERMISSIONS = True
 LFC_MANAGE_APPLICATIONS = True
 LFC_MANAGE_USERS = True
 
+LOG_DIR = "/tmp"
+TWITTER_CREDENTIALS = {
+                       'consumer_key': 'cvDQSMQtPcHRvX1maSWNA',
+                       'consumer_secret': 'DD5yLACSpdoSn4YIO7jqDjKUHItLjIrywKvANWwN2k',
+                       'access_token_key': '249630488-ePQFIjt9K3bcWRP2PXDlrX5NdqrIOzU3gfciibdw',
+                       'access_token_secret': '5yUqym7zyVxyG7pWbSAIwl0XWmn71yhfawZMjaZGNQ'
+                       }
+#       
+
 try:
     from local_settings import *
 except ImportError:
