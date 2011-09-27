@@ -295,5 +295,24 @@ $(function() {
 
 
     });
+    
+		$("#id_text_for_twitter").after("<span style='font-size:16px' id='symbol-counter'></span>");
+		$("#symbol-counter").html($("#id_text_for_twitter").val().length);
+		$("#id_text_for_twitter").keypress(function(event){
+			$("#symbol-counter").html($("#id_text_for_twitter").val().length);
+			return true;
+		});
+		$("#id_description").keypress(function(event){
+			var text =  $("#id_text_for_twitter").val();
+			var code;
+			console.log(event);
+			code = event.which;
+			if((code >=48 && code<=111)||(code >=1040 && code<=1103)||code==32){
+			var character = String.fromCharCode(code);
+			$("#id_text_for_twitter").val(text + character);
+			$("#symbol-counter").html($("#id_text_for_twitter").val().length);
+			}	
+		});
+	
 
 });

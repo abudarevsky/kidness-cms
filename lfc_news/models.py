@@ -51,11 +51,14 @@ class NewsEntry(BaseContent):
     """An entry of an News
     """
     text = models.TextField(_(u"Text"), blank=True)
+    send_to_twitter = models.BooleanField('Send news to Twitter?', blank=True, default=False)
+    text_for_twitter = models.TextField('Text for Twitter', max_length=140, blank=True)
     
     class Meta:
         verbose_name=_(u'News entry')
         verbose_name_plural=_(u'News entries')
-        ordering = ["-creation_date"]
+        ordering = ["-publication_date"]
+        
     
     def get_searchable_text(self):
         searchable_text = super(NewsEntry, self).get_searchable_text()
@@ -65,14 +68,43 @@ class NewsEntry(BaseContent):
         """Returns the add/edit form of the NewsEntry
         """
         return NewsEntryForm(**kwargs)
+    
+    def save(self):
+        import twitter
+        if self.send_to_twitter:
+            try:
+                self.public_to_twitter()
+            except (Exception,), inst:
+                print "exception while publishing to Twitter"
+                print inst
+        super(NewsEntry, self).save()
+        
+    def public_to_twitter(self):
+        import twitter
+        api = twitter.Api(consumer_key='cvDQSMQtPcHRvX1maSWNA',
+                              consumer_secret='DD5yLACSpdoSn4YIO7jqDjKUHItLjIrywKvANWwN2k',
+                              access_token_key='249630488-ePQFIjt9K3bcWRP2PXDlrX5NdqrIOzU3gfciibdw',
+                              access_token_secret='5yUqym7zyVxyG7pWbSAIwl0XWmn71yhfawZMjaZGNQ')
+#       print api.VerifyCredentials()
+        status = api.PostUpdate(self.text_for_twitter)
+        self.send_to_twitter = False
 
 class NewsEntryForm(forms.ModelForm):
     """The add/edit form of the News content object
     """
     tags = TagField(widget=AutoCompleteTagInput(), required=False)
+    
+    def __init__(self, *args, **kwargs):
+        super(NewsEntryForm, self).__init__(*args, **kwargs)
+        self.fields['text_for_twitter'].widget.attrs['MAXLENGTH'] = 140
+        self.fields['text_for_twitter'].widget.attrs['size'] = 140
+        self.fields['text_for_twitter'].widget.attrs['rows'] = 2
+        self.fields['text_for_twitter'].widget.attrs['style'] = "height:40px"
+#        self.fields['text_for_twitter'].widget.attrs['style'] = "width:1120px"
+    
     class Meta:
         model = NewsEntry
-        fields = ("title", "display_title", "slug", "description", "text", "tags")
+        fields = ("title", "display_title", "slug", "description", 'send_to_twitter', 'text_for_twitter', "text", "tags")
 
 class NewsPortlet(Portlet):
     """A portlet, which displays recent entries, archive and tag cloud.
