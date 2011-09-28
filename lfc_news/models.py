@@ -75,8 +75,6 @@ class NewsEntry(BaseContent):
             try:
                 self.public_to_twitter()
             except (Exception,), inst:
-                print "exception while publishing to Twitter"
-                print inst
                 f1 = open(settings.LOG_DIR + "/twitter.err", 'w')
                 f1.write(inst)
                 f1.close()
