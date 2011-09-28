@@ -70,9 +70,9 @@ class NewsEntry(BaseContent):
         return NewsEntryForm(**kwargs)
     
     def save(self):
-        import twitter
         if self.send_to_twitter:
             try:
+                import twitter
                 self.public_to_twitter()
             except (Exception,), inst:
                 f1 = open(settings.LOG_DIR + "/twitter.err", 'w')
