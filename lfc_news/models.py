@@ -75,7 +75,7 @@ class NewsEntry(BaseContent):
                 import twitter
                 self.public_to_twitter()
             except (Exception,), inst:
-                f1 = open(settings.LOG_DIR + "/twitter.err", 'w')
+                f1 = open(settings.LOG_DIR + "/twitter.err", 'a+')
                 f1.write("Exception")
                 f1.write(unicode(inst))
                 f1.close()
