@@ -77,7 +77,7 @@ class NewsEntry(BaseContent):
             except (Exception,), inst:
                 f1 = open(settings.LOG_DIR + "/twitter.err", 'w')
                 f1.write("Exception")
-                f1.write(inst)
+                f1.write(unicode(inst))
                 f1.close()
         super(NewsEntry, self).save()
         
