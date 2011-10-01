@@ -117,9 +117,17 @@
 		    				jQuery('#mycarousel').jcarousel('startAuto');
 		    			}
 		    		});
-		    
+		    var href_ = document.location.href;
+		    var start = href_.indexOf("?id=");
+		    if(start>0){
+		    	var image_id = href_.substring(start+4, href_.length);
+		    	console.log(image_id);
+		   		$(".slideshow").find('a[title=' + image_id + ']');
+		   		$("#preview-image").click();
+		   }
 		});
-		    
+		
+		
 	</script>
 	
 {% endblock %}
