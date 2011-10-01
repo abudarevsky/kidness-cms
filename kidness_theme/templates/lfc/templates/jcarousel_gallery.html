@@ -125,7 +125,7 @@
 		    if(start>0){
 		    	var image_id = href_.substring(start+13, href_.length);
 		   		$(".slideshow[title='" + image_id + "']").click();
-		   		$(".slideshow[title='" + image_id + "']").attr("selected", "selected");
+		   		$(".slideshow[title='" + image_id + "']").addClass("selected");
 		   }
 		   
 		});
