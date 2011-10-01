@@ -23,6 +23,8 @@
 		var SHOW_DELAY=2;
 		
 		jQuery(document).ready(function() {
+		
+
 			function setImagePreview(alink){
 				var link = alink.attr("href");
 				
@@ -43,7 +45,8 @@
 		            );
 		            //$(".yashare-auto-init").attr("data-yashareLink","http://www.kidness.ru"+link);
 		            var href_ = document.location.href + "?image_title=" + alink.attr("title");
-		            $(".yashare-auto-init").attr("data-yashareLink", href_);
+		            //$(".yashare-auto-init").attr("data-yashareLink", href_);
+		            YaShareInstance.updateShareLink(href_);//, "kidness.ru!");
 			}
 			
 			function mycarousel_initCallback(carousel) {
@@ -158,12 +161,36 @@
 	    </ul>
     </div>
     <script type="text/javascript" src="//yandex.st/share/share.js" charset="utf-8"></script>
-	<div style="margin-top:20px;" align="center" class="yashare-auto-init" data-yashareLink="http://www.kidness.ru" data-yashareType="none" data-yashareQuickServices="vkontakte,facebook,twitter,lj"></div>
+    <script type="text/javascript">
+		
+  YaShareInstance = new Ya.share({
+            element: 'ya_share',
+            link:"http://www.kidness.ru",
+            onready: function(instance) {
+                // в обработчик onready приходит тот же экземпляр блока,
+                // что возвращается из конструктора,
+                // т.е. instance === YaShareInstance
+ 
+ 
+                // После инициализации можно поменять ссылку или заголовок, которым требуется поделиться
+                
+            },
+            elementStyle:{
+            	quickServices:["vkontakte", "facebook", "twitter", "lj"],
+            	text: ' ',
+            	border:false,
+            	type:'link'
+            }
+        });
+        // Блок еще не проинициализировался, поэтому ничего не произойдет
+    </script> 
+    <div style="margin-top:20px;" align="center" id="ya_share" ></div> 
+
+	<!--div style="margin-top:20px;" align="center" class="yashare-auto-init" data-yashareLink="http://www.kidness.ru" data-yashareType="none" data-yashareQuickServices="vkontakte,facebook,twitter,lj"></div-->
 	<script type="text/javascript">
 	jQuery(document).ready(function() {
 		   $(".b-share__link").live("click", function(){
 		   		//$("#preview-image").click();
-		   		//console.log($(".slideshow.selected").attr("title"));
 		   		$(".slideshow.selected").click();
 		   		return true;
 		   });
