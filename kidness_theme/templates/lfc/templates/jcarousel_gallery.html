@@ -121,8 +121,9 @@
 		    var start = href_.indexOf("?id=");
 		    if(start>0){
 		    	var image_id = href_.substring(start+4, href_.length);
-		    	//console.log(image_id);
-		   		$(".slideshow").find('a[title="' + image_id + '"]').click();
+		    	console.log(image_id);
+		    	console.log($(".slideshow[title='" + image_id + "']"));
+		   		$(".slideshow[title='" + image_id + "']").click();
 		   		$("#preview-image").click();
 		   }
 		   
