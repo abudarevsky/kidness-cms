@@ -140,13 +140,19 @@ LFC_MANAGE_APPLICATIONS = True
 LFC_MANAGE_USERS = True
 
 LOG_DIR = "/tmp"
+#TWITTER_CREDENTIALS = {
+#                       'consumer_key': 'cvDQSMQtPcHRvX1maSWNA',
+#                       'consumer_secret': 'DD5yLACSpdoSn4YIO7jqDjKUHItLjIrywKvANWwN2k',
+#                       'access_token_key': '249630488-ePQFIjt9K3bcWRP2PXDlrX5NdqrIOzU3gfciibdw',
+#                       'access_token_secret': '5yUqym7zyVxyG7pWbSAIwl0XWmn71yhfawZMjaZGNQ'
+#                       }
 TWITTER_CREDENTIALS = {
-                       'consumer_key': 'cvDQSMQtPcHRvX1maSWNA',
-                       'consumer_secret': 'DD5yLACSpdoSn4YIO7jqDjKUHItLjIrywKvANWwN2k',
-                       'access_token_key': '249630488-ePQFIjt9K3bcWRP2PXDlrX5NdqrIOzU3gfciibdw',
-                       'access_token_secret': '5yUqym7zyVxyG7pWbSAIwl0XWmn71yhfawZMjaZGNQ'
+                       'consumer_key': 'n4aimJyeerLPoyH2TZfQ',
+                       'consumer_secret': 'OmBcZ5sr5vgDWCf8N74hKpI9X0OApfNlse76ofYPCU',
+                       'access_token_key': '159115579-6m2schY8J53qBRhW1kVidc7m1d6Ch5gVV3tRzUr8',
+                       'access_token_secret': 'fkewO1hRtkVhsOSq6noDXVT3s3K9LaJU7czvbf1Ane8'
                        }
-#       
+
 
 try:
     from local_settings import *
