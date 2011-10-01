@@ -41,9 +41,9 @@
 				    			}
 				    		}
 		            );
-		            $(".yashare-auto-init").attr("data-yashareLink","http://www.kidness.ru"+link);
-		            
-		            
+		            //$(".yashare-auto-init").attr("data-yashareLink","http://www.kidness.ru"+link);
+		            var href_ = document.location.href + "?image_title=" + alink.attr("title");
+		            $(".yashare-auto-init").attr("data-yashareLink", href_);
 			}
 			
 			function mycarousel_initCallback(carousel) {
@@ -118,7 +118,7 @@
 		    			}
 		    		});
 		    var href_ = document.location.href;
-		    var start = href_.indexOf("?id=");
+		    var start = href_.indexOf("?image_title=");
 		    if(start>0){
 		    	var image_id = href_.substring(start+4, href_.length);
 		   		$(".slideshow[title='" + image_id + "']").click();
