@@ -1,0 +1,24 @@
+#current-page {
+    color: #FFF;
+    text-decoration: none;
+    background-color: #21A84A;
+    padding: 5px;
+}
+
+#new-paginator a  {
+	text-decoration: underline;
+    color: #21A84A;
+    padding: 5px;
+    
+}
+#new-paginator a:visited {
+	text-decoration: underline;
+    color: #21A84A;
+    padding: 5px;
+}
+#new-paginator a:hover {
+    color: #21A84A;
+    padding: 5px;
+    text-decoration: underline;
+    background-color: #99C68E;
+}

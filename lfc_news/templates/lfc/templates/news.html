@@ -7,31 +7,30 @@
 {% load comments %}
 
 {% block comments %}{% endblock %}
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}kidness_theme/css/news_skin.css?v=5">
+{% endblock %}
+
 {% block content %}
     {% if lfc_context.get_title %}
         <h1 class="first-heading">{{ lfc_context.get_title }}</h1>
     {% endif %}
-
-    {% autopaginate sub_objects %}
-
-    <div class="pagination-top">
-        {% paginate %}
-    </div>
-        
+    {% autopaginate sub_objects 5 %}
     {{ lfc_context.text|safe }}
     
-    {% for sub_obj in sub_objects %}
-        <div class="blog-entry">
-        	<a href="{{sub_obj.get_absolute_url}}">
+    {% for sub_object in sub_objects %}
+    
+        <div class="blog-entry itemScroll">
+        	<a href="{{sub_object.get_absolute_url}}">
             <h2 class="blog-entry"
                 {% if not forloop.first %}class="heading-middle"{% endif %}>
-                {{sub_obj.title}}</a>
+                {{sub_object.title}}</a>
             </h2>
             <div class="blog-by-line">
-            	{% if sub_obj.publication_date %}
-                {{ sub_obj.publication_date|date:"d.m.Y" }}
+            	{% if sub_object.publication_date %}
+                {{ sub_object.publication_date|date:"d.m.Y" }}
                 {% endif %}
-                {% tags_for_object sub_obj as tag_list %}
+                {% tags_for_object sub_object as tag_list %}
 
                 {% if tag_list %}
                     {% for tag in tag_list %}
@@ -43,22 +42,27 @@
 
             <div>
             	<p align="justify">
-            	<a href="{{sub_obj.get_absolute_url}}">
-                	{{sub_obj.description|safe}}
+            	<a href="{{sub_object.get_absolute_url}}">
+                	{{sub_object.description|safe}}
                 </a>
                 </p>
-                {% get_comment_count for sub_obj as comment_count %}
+                {% get_comment_count for sub_object as comment_count %}
                 {% ifequal comment_count 0  %}
                 {% else %}
 	                {% ifequal comment_count 1  %}
-	                    <a href="{{ sub_obj.get_absolute_url }}#comments">{% trans 'One comment' %}</a>
+	                    <a href="{{ sub_object.get_absolute_url }}#comments">{% trans 'One comment' %}</a>
 	                {% else %}
-	                    <a href="{{ sub_obj.get_absolute_url }}#comments">{{comment_count}} {% trans 'comments' %}</a>
+	                    <a href="{{ sub_object.get_absolute_url }}#comments">{{comment_count}} {% trans 'comments' %}</a>
 	                {% endifequal %}
                 {% endifequal %}
             </div>
             <br clear="both">
 
         </div>
+
     {% endfor %}
+    
+    <div align="right">
+		{% include "lfc/templates/news_paginator.html" %}
+	</div>
 {% endblock %}
