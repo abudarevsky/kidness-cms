@@ -1,6 +1,8 @@
+{% load lfc_theme_tags %}
 <div id="new-paginator">
-{% if page_obj.has_previous %}
-	<a class="page-link" href="?page={{ page_obj.previous_page_number }}">&larr;</a>
+{% if paginator.num_pages|gt:1 %}
+	{% if page_obj.has_previous %}
+		<a class="page-link" href="?page={{ page_obj.previous_page_number }}">&larr;</a>
 		{% ifnotequal page_obj.previous_page_number 1 %}
 			{% ifequal page_obj.number paginator.num_pages%}
 						{% ifnotequal page_obj.previous_page_number|add:"-1" 1 %}
@@ -25,7 +27,7 @@
 		{% endifnotequal %}
 	   	<a class="page-link" href="?page={{ page_obj.previous_page_number }}">
 		{{ page_obj.previous_page_number }}</a>
-	{% endif%}
+	{% endif %}
     <span class="page-link" id="current-page">
     {{ page_obj.number }}
     </span>
@@ -56,4 +58,5 @@
 		{% endifnotequal %}
 		<a class="page-link" href="?page={{ page_obj.next_page_number }}">&rarr;</a>
 	{% endif %}
+{% endif %}
 </div>

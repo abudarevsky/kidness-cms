@@ -65,4 +65,10 @@ def do_slots_information(parser, token):
 
     return SlotsInformationNode()
 
+@register.filter
+def gt(a, b):
+    return a > b
+
+#register.tag('gt', gt)
+
 register.tag('slots_information', do_slots_information)

@@ -9,6 +9,7 @@
 {% block css %}
 <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}kidness_theme/css/jcarousel_kidness/skin.css">
 <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}kidness_theme/css/scrollable_part.css">
+<link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}kidness_theme/css/news_skin.css?v=5">
 {% endblock %}
 {% block javascript %}
 	<script type="text/javascript" src="{{ MEDIA_URL }}kidness_theme/js/jquery.jcarousel.min.js"></script>
@@ -23,9 +24,9 @@
 		 */
 		var selectedPart = window.location;
 		function hideDescriptionText(){
-			$("#toggled_text").hide(900);
-			$("#toggled_teaser").show(900);
-			$("#toggle_action").text("...");
+			$("#toggled_text").hide();
+			$("#toggled_teaser").show();
+			$("#toggle_action").text("читать дальше");
 		} 
 		 
 		// Ride the carousel...
@@ -114,7 +115,7 @@
 			});
 			
 			$(".scrollable_action").bind("click", function(){
-				if($("#toggle_action").text()=='...'){
+				if($("#toggle_action").text()=='читать дальше'){
 					// $('html,body').animate({ scrollTop: $("#mycarousel").offset().top }, { duration: 'slow', easing: 'swing'});
 					$("html:not(:animated)"+( ! $.browser.opera ? ",body:not(:animated)" : "")).animate({ scrollTop: $("#mycarousel").offset().top }, { duration: 'slow', easing: 'swing'});
 				}
@@ -129,8 +130,8 @@
 			});
 			
 			$("#toggle_action").bind("click", function(){
-				$("#toggled_teaser").toggle(900);
-				$("#toggled_text").toggle(900);
+				$("#toggled_teaser").toggle();
+				$("#toggled_text").toggle();
 				
 				if( $(this).text()=="Свернуть"){
 					$(this).text("читать дальше");
@@ -178,33 +179,18 @@
            	{% include "scrollable_parts/scrollable_container.html" %}
            </div>
    	{% endifequal %}
-   	
     {% for sub_object in sub_objects %}
-	    {% ifnotequal sub_object.content_type "scrollablepart" %}
-	    	{% ifequal sub_object.content_type "scrollablecontainer" %}
-		   		<div>
-		           	{% include "scrollable_parts/jcarousel_container.html" %}
-		           </div>
-		    {% else %}       
-		        <div class="entry {% if forloop.last %}last{% endif %}">
-		            <h2>
-		                <a href="{{ sub_object.get_absolute_url }}">
-		                    {{ sub_object.title }}
-		                </a>    
-		            </h2>
-		            {% if sub_object.get_image %}
-		                <img class="left"
-		                     src="{{ sub_object.get_image.image.url_100x100 }}"
-		                     alt="{{ sub_object.get_image.image.title }}"
-		                     title="{{ sub_object.get_image.image.title }}" />
-		            {% endif %}
-		            <div>
-		                {{ sub_object.description|safe }}
-		            </div>
-		        </div>
-	        {% endifequal %}
-	        <br clear="all" />
-		{% endifnotequal %}
-    {% endfor %}
     
+    	{% with sub_object.get_children as children%}
+    		{% autopaginate children 3 %}
+	    	{% for child in children %}
+	   			<li>
+	   				{% include "scrollable_parts/scrollable_part.html" %}
+	   			</li>
+	   		{% endfor %}
+	   	{% endwith %}
+	   	<div align="right" >
+			{% include "lfc/templates/news_paginator.html" %}
+		</div>
+    {% endfor %}
 {% endblock %}

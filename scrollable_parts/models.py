@@ -115,22 +115,32 @@ class ScrollableNavigatorPortlet(Portlet):
         
         obj = context.get("lfc_context")
         request = context.get("request")
+        page = int(request.GET.get('page', 1))
+        
+        
         if not isinstance(obj, ScrollableContainer):
             for child in obj.get_children():
                 if isinstance(child, ScrollableContainer):
                     obj=child
                     break 
-            
         # CACHE
         cache_key = "%s-portlet-scrollable-%s" % (settings.CACHE_MIDDLEWARE_KEY_PREFIX, request.user.id)
         result = cache.get(cache_key)
         if result:
             return result
-
+        entries = obj.get_children() 
+        try:
+            items_per_page = obj.items_per_page
+            start_ = items_per_page*(page - 1)
+            end_ = start_ + items_per_page
+            entries = entries[start_:end_]
+        except (Exception,), inst:
+#            print inst
+            pass
         result = render_to_string("scrollable_parts/scrollable_navigator_portlet.html", {
             "page" : obj,
             "title" : self.title,
-            "entries" : obj.get_children(),
+            "entries" : entries,
             "form": KidnessContactForm(request=request)
         })
 
