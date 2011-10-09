@@ -153,4 +153,7 @@
 .scroll-pager{
 	text-decoration: none;
 }
-
+#content ul.portlet-body li a
+{
+text-transform: none;
+}

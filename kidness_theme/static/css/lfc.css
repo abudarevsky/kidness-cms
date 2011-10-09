@@ -268,7 +268,8 @@ h2.blog-entry {
 
 .news-date {
     text-align:right;
-    padding-top: 6px;
+    float:right;
+    padding-top: 0px;
     font-size: 85%;
 }
 
@@ -495,13 +496,19 @@ ul.breadcrumbs li {
 }
 #content ul.portlet-body li {
     list-style-type: none;
-    padding: 0 0 10px 0;
+    padding: 0 0 1px 0;
     margin: 0;
 }
 #content ul.portlet-body li a{
 	color: #2b7db9;	
 	text-transform: uppercase;
 	font-style: normal;
+}
+#content ul.portlet-body li a.portlet-item-all{
+	color: #9FB6CD;	
+	text-transform: none;
+	font-style: normal;
+	text-decoration: underline;
 }
 
 #content ul.portlet-body li a:hover{

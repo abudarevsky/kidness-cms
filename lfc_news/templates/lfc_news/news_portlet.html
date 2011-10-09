@@ -12,14 +12,19 @@
                     <li class="portlet-item">
                         <a href="{{ page.get_absolute_url }}">
                         	{% if page.publication_date %}
-						        <span class="news-date">{{ page.publication_date|date:"d.m.Y" }}</span>
+						        <span class="news-date">{{ page.publication_date|date:"d M" }}</span>
+						        <span class='clear'></span>
 					        {% endif %}
                             <p>{{ page.title }}</p>
                         </a>
                     </li>
                 {% endfor %}
+                <li class="portlet-item">
+                	<a class="portlet-item-all" href="/novosty">все новости</a>
+                </li>
             </ul>
         </div>
+        
 		{% if years %}
         <div class="blog-archive">
             <div class="portlet-header">
