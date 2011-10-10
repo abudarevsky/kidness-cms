@@ -10,58 +10,66 @@
 {% block css %}
 <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}kidness_theme/css/news_skin.css?v=5">
 {% endblock %}
-
+{% block javascript %}
+	<script type="text/javascript">
+	$(function(){
+		var height_old = $("#main_block").height();
+		var height = $(".left-slot").height();
+		if(height_old < height){
+			$("#main_block").height(height);
+		}
+	})
+	</script>
+{% endblock %}
 {% block content %}
     {% if lfc_context.get_title %}
         <h1 class="first-heading">{{ lfc_context.get_title }}</h1>
     {% endif %}
     {% autopaginate sub_objects 5 %}
     {{ lfc_context.text|safe }}
-    
-    {% for sub_object in sub_objects %}
-    
-        <div class="blog-entry itemScroll">
-        	<a href="{{sub_object.get_absolute_url}}">
-            <h2 class="blog-entry"
-                {% if not forloop.first %}class="heading-middle"{% endif %}>
-                {{sub_object.title}}</a>
-            </h2>
-            <div class="blog-by-line">
-            	{% if sub_object.publication_date %}
-                {{ sub_object.publication_date|date:"d.m.Y" }}
-                {% endif %}
-                {% tags_for_object sub_object as tag_list %}
-
-                {% if tag_list %}
-                    {% for tag in tag_list %}
-                        <a href="{% url lfc_blog_tag_list lfc_context.slug tag %}">
-                            {{ tag }}</a>{% if not forloop.last %}, {% endif %}
-                    {% endfor %}
-                {% endif %}
-            </div>
-
-            <div>
-            	<p align="justify">
-            	<a href="{{sub_object.get_absolute_url}}">
-                	{{sub_object.description|safe}}
-                </a>
-                </p>
-                {% get_comment_count for sub_object as comment_count %}
-                {% ifequal comment_count 0  %}
-                {% else %}
-	                {% ifequal comment_count 1  %}
-	                    <a href="{{ sub_object.get_absolute_url }}#comments">{% trans 'One comment' %}</a>
+	<div id="main_block">
+	    {% for sub_object in sub_objects %}
+	    
+	        <div class="blog-entry itemScroll">
+	        	<a href="{{sub_object.get_absolute_url}}">
+	            <h2 class="blog-entry"
+	                {% if not forloop.first %}class="heading-middle"{% endif %}>
+	                {{sub_object.title}}</a>
+	            </h2>
+	            <div class="blog-by-line">
+	            	{% if sub_object.publication_date %}
+	                {{ sub_object.publication_date|date:"d.m.Y" }}
+	                {% endif %}
+	                {% tags_for_object sub_object as tag_list %}
+	
+	                {% if tag_list %}
+	                    {% for tag in tag_list %}
+	                        <a href="{% url lfc_blog_tag_list lfc_context.slug tag %}">
+	                            {{ tag }}</a>{% if not forloop.last %}, {% endif %}
+	                    {% endfor %}
+	                {% endif %}
+	            </div>
+	
+	            <div>
+	            	<p align="justify">
+	            	<a href="{{sub_object.get_absolute_url}}">
+	                	{{sub_object.description|safe}}
+	                </a>
+	                </p>
+	                {% get_comment_count for sub_object as comment_count %}
+	                {% ifequal comment_count 0  %}
 	                {% else %}
-	                    <a href="{{ sub_object.get_absolute_url }}#comments">{{comment_count}} {% trans 'comments' %}</a>
+		                {% ifequal comment_count 1  %}
+		                    <a href="{{ sub_object.get_absolute_url }}#comments">{% trans 'One comment' %}</a>
+		                {% else %}
+		                    <a href="{{ sub_object.get_absolute_url }}#comments">{{comment_count}} {% trans 'comments' %}</a>
+		                {% endifequal %}
 	                {% endifequal %}
-                {% endifequal %}
-            </div>
-            <br clear="both">
-
-        </div>
-
-    {% endfor %}
-    
+	            </div>
+	            <br clear="both">
+	        </div>
+	    {% endfor %}
+	</div>    
     <div align="right">
 		{% include "lfc/templates/news_paginator.html" %}
 	</div>

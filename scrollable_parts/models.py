@@ -129,14 +129,14 @@ class ScrollableNavigatorPortlet(Portlet):
         if result:
             return result
         entries = obj.get_children() 
-        try:
-            items_per_page = obj.items_per_page
-            start_ = items_per_page*(page - 1)
-            end_ = start_ + items_per_page
-            entries = entries[start_:end_]
-        except (Exception,), inst:
-#            print inst
-            pass
+#        try:
+#            items_per_page = obj.items_per_page
+#            start_ = items_per_page*(page - 1)
+#            end_ = start_ + items_per_page
+#            entries = entries[start_:end_]
+#        except (Exception,), inst:
+##            print inst
+#            pass
         result = render_to_string("scrollable_parts/scrollable_navigator_portlet.html", {
             "page" : obj,
             "title" : self.title,

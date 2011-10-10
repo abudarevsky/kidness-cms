@@ -177,28 +177,34 @@
     {% ifequal lfc_context.content_type "scrollablecontainer" %}
    		<div>
            	{% include "scrollable_parts/scrollable_container.html" %}
-           </div>
+        </div>
    	{% endifequal %}
-    {% for sub_object in sub_objects %}
-	
-		
-<div id="mycarousel" class="jcarousel-skin-tango">
-    <ul>
-	   		{% with sub_object.get_children as children%}
-    		{% autopaginate children 3 %}
-	    	{% for child in children %}
-	   			<li>
-	   				{% include "scrollable_parts/scrollable_part.html" %}
-	   			</li>
-	   		{% endfor %}
-	   		{% endwith %}
-	</ul>
-</div>	 
-<div align="right" >
-	{% include "lfc/templates/news_paginator.html" %}
-</div>
+   	{% for sub_object in sub_objects %}
+           {% ifnotequal sub_object.content_type "scrollablepart" %}
+               {% ifequal sub_object.content_type "scrollablecontainer" %}
+                               <div>
+                               {% include "scrollable_parts/jcarousel_container.html" %}
+                          </div>
+                   {% else %}       
+                       <div class="entry {% if forloop.last %}last{% endif %}">
+                           <h2>
+                               <a href="{{ sub_object.get_absolute_url }}">
+                                   {{ sub_object.title }}
+                               </a>    
+                           </h2>
+                           {% if sub_object.get_image %}
+                               <img class="left"
+                                    src="{{ sub_object.get_image.image.url_100x100 }}"
+                                    alt="{{ sub_object.get_image.image.title }}"
+                                    title="{{ sub_object.get_image.image.title }}" />
+                           {% endif %}
+                           <div>
+                               {{ sub_object.description|safe }}
+                           </div>
+                       </div>
+               {% endifequal %}
+               <br clear="all" />
+           {% endifnotequal %}
+{% endfor %}
 
-
-
-    {% endfor %}
 {% endblock %}
