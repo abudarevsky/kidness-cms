@@ -180,17 +180,25 @@
            </div>
    	{% endifequal %}
     {% for sub_object in sub_objects %}
-    
-    	{% with sub_object.get_children as children%}
+	
+		
+<div id="mycarousel" class="jcarousel-skin-tango">
+    <ul>
+	   		{% with sub_object.get_children as children%}
     		{% autopaginate children 3 %}
 	    	{% for child in children %}
 	   			<li>
 	   				{% include "scrollable_parts/scrollable_part.html" %}
 	   			</li>
 	   		{% endfor %}
-	   	{% endwith %}
-	   	<div align="right" >
-			{% include "lfc/templates/news_paginator.html" %}
-		</div>
+	   		{% endwith %}
+	</ul>
+</div>	 
+<div align="right" >
+	{% include "lfc/templates/news_paginator.html" %}
+</div>
+
+
+
     {% endfor %}
 {% endblock %}
