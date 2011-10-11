@@ -73,19 +73,22 @@
 		    	itemFirstInCallback : function(object,li,idx,state){
 	        		if (state!="init"){
 	        			hideDescriptionText();
-	        			if (idx==1)
-	        				$("#prev").hide();
-	        			else
-	        				$("#prev").show();
+	        			//if (idx==1)
+	        			//	$("#prev").hide();
+	        			//else
+	        			//	$("#prev").show();
 	        		}
 	        		
 	        		$(".scroll-pager").removeClass("pagerSelectedItem");
-	        		for(var j=idx;j<idx+3;j++){
-	        			$("#pi_"+j).addClass("pagerSelectedItem");
-	        			$("#bpi_"+j).addClass("pagerSelectedItem");
-	        		}
+	        		$("#pi_"+idx).addClass("pagerSelectedItem");
+	        		$("#bpi_"+idx).addClass("pagerSelectedItem");
+	        		//for(var j=idx;j<idx+3;j++){
+	        		//	$("#pi_"+j).addClass("pagerSelectedItem");
+	        		//	$("#bpi_"+j).addClass("pagerSelectedItem");
+	        		//}
 	        	}
 		    });
+		    
 		    
 		    $("#prev").hide();
 		    
@@ -140,6 +143,7 @@
 				}
 				return false;
 			});
+			
 			
 			
 		});

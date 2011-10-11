@@ -19,6 +19,7 @@ from lfc.models import BaseContent
 import lfc.utils
 from tagging.models import Tag
 from kidness.forms import KidnessContactForm
+import math
 
 class ScrollableContainer(BaseContent):
     """A simple ScrollableContainer for LFC.
@@ -28,6 +29,16 @@ class ScrollableContainer(BaseContent):
     class Meta:
         verbose_name=_(u'Scrollable Container')
         verbose_name_plural=_(u'Scrollable Containers')
+
+    def get_pages(self):
+        rez = int(math.ceil(float(len(self.get_children()))/self.items_per_page))
+        r_ = []
+        j = 1
+        for i in range(1, len(self.get_children()) + 1, 3):
+            r_.append((i, j))
+            j+=1
+        return r_
+
 
     def get_children_pages(self):
         arr = []
@@ -87,7 +98,7 @@ class ScrollablePart(BaseContent):
         return url[:url.rfind('/')]
     def get_tags_as_list(self):
         return Tag.objects.get_for_object(self).all()
-
+    
     def form(self, **kwargs):
         """Returns the add/edit form of the NewsEntry
         """
