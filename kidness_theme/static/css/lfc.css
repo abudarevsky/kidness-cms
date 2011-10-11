@@ -273,6 +273,16 @@ h2.blog-entry {
     font-size: 85%;
 }
 
+.news-date-for-news-portlet {
+    text-align:right;
+    float:right;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    font-size: 85%;
+    font-style:italic;
+    text-transform: lowercase;
+}
+
 /* breadcrumbs */
 ul.breadcrumbs {
     list-style-type: none;

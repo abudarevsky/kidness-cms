@@ -12,7 +12,7 @@
                     <li class="portlet-item">
                         <a href="{{ page.get_absolute_url }}">
                         	{% if page.publication_date %}
-						        <span class="news-date">{{ page.publication_date|date:"d M" }}</span>
+						        <span class="news-date-for-news-portlet">{{ page.publication_date|date:"d M" }}</span>
 						        <span class='clear'></span>
 					        {% endif %}
                             <p>{{ page.title }}</p>
