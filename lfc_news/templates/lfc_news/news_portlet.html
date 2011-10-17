@@ -1,5 +1,6 @@
 {% load i18n %}
 {% load tagging_tags %}
+{% load lfc_theme_tags %}
 
 {% if entries %}
     <div class="portlet blog-portlet">
@@ -12,10 +13,10 @@
                     <li class="portlet-item">
                         <a href="{{ page.get_absolute_url }}">
                         	{% if page.publication_date %}
-						        <span class="news-date-for-news-portlet">{{ page.publication_date|date:"d M" }}</span>
+						        <span class="news-date-for-news-portlet">{{ page.publication_date|date:"d" }}{{" "}}{{ page.publication_date|date:"m"|month_as_text }}</span>
 						        <span class='clear'></span>
 					        {% endif %}
-                            <p>{{ page.title }}</p>
+                            <p class="news-title-for-news-portlet">{{ page.title }}</p>
                         </a>
                     </li>
                 {% endfor %}

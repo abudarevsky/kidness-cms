@@ -1,3 +1,4 @@
+# -*- encoding: utf-8 -*-
 # django imports
 from django.conf import settings
 from django.core.cache import cache
@@ -68,6 +69,24 @@ def do_slots_information(parser, token):
 @register.filter
 def gt(a, b):
     return a > b
+
+@register.filter
+def month_as_text(num):
+    months = {
+              1: u"января",
+              2: u"февраля",
+              3: u"марта",
+              4: u"апреля",
+              5: u"мая",
+              6: u"июня",
+              7: u"июля",
+              8: u"августа",
+              9: u"сентября",
+              10: u"октября",
+              11: u"ноября",
+              12: u"декабря",
+              }
+    return months[int(num)]
 
 #register.tag('gt', gt)
 

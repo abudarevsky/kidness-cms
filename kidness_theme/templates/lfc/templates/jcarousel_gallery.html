@@ -10,6 +10,11 @@
 
 
 {% block javascript %}
+<!-- Put this script tag to the <head> of your page -->
+<script type="text/javascript" src="http://vkontakte.ru/js/api/share.js?11" charset="windows-1251"></script>
+
+<!-- Put this script tag to the place, where the Share button will be -->
+
 	<script type="text/javascript" src="//yandex.st/share/share.js" charset="utf-8"></script>
 	<script type="text/javascript">
 		// execute your scripts when DOM is ready. this is a good habit
@@ -38,7 +43,7 @@
 	            	type:'link'
 	            }
         	});
-
+			//$("#vkontakte").html(VK.Share.button(false,{type: "round", text: "Поделиться"}));
 			function setImagePreview(alink){
 				var link = alink.attr("href");
 				
@@ -174,7 +179,9 @@
 	    </ul>
     </div>
  
-    <div style="margin-top:20px;" align="center" id="ya_share" ></div> 
-
+    <div style="margin-top:20px;" align="center" id="ya_share" >
+    
+    </div> 
+	<span id="vkontakte"> </span>
 	<!--div style="margin-top:20px;" align="center" class="yashare-auto-init" data-yashareLink="http://www.kidness.ru" data-yashareType="none" data-yashareQuickServices="vkontakte,facebook,twitter,lj"></div-->
 {% endblock %}

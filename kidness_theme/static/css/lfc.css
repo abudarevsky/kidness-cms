@@ -271,6 +271,8 @@ h2.blog-entry {
     float:right;
     padding-top: 0px;
     font-size: 85%;
+    font-style:italic;
+    
 }
 
 .news-date-for-news-portlet {
@@ -279,10 +281,15 @@ h2.blog-entry {
     padding-top: 0px;
     padding-bottom: 0px;
     font-size: 85%;
-    font-style:italic;
+    font-style:normal;
     text-transform: lowercase;
+    color: #A2B5CD;
 }
 
+.news-title-for-news-portlet {
+    font-style: italic;
+    text-transform: none;
+}
 /* breadcrumbs */
 ul.breadcrumbs {
     list-style-type: none;
