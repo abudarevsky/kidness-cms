@@ -441,7 +441,7 @@ ul.breadcrumbs li {
 	background: #f7f7f7;
 	text-transform: none;
 	position: relative;
-	padding:8px;
+	padding:0 8px 8px 8px;
 	margin: 30px 11px 30px 11px;
 	text-align: left;
 }
