@@ -24,7 +24,7 @@
 		 */
 		var selectedPart = window.location;
 		function hideDescriptionText(){
-			$("#toggled_text").hide();
+			$("#toggled_text").slideUp(900);
 			$("#toggled_teaser").show();
 			$("#toggle_action").text("читать дальше");
 		} 
@@ -133,12 +133,16 @@
 			});
 			
 			$("#toggle_action").bind("click", function(){
-				$("#toggled_teaser").toggle();
-				$("#toggled_text").toggle();
+				//$("#toggled_teaser").toggle(900);
+				//$("#toggled_text").toggle(900);
 				
 				if( $(this).text()=="Свернуть"){
+					$("#toggled_text").slideUp(900);
+					$("#toggled_teaser").show();
 					$(this).text("читать дальше");
 				}else{
+					$("#toggled_teaser").hide();
+					$("#toggled_text").slideDown(900);
 					$(this).text("Свернуть");					
 				}
 				return false;
