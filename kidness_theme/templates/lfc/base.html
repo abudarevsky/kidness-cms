@@ -57,7 +57,26 @@
 					$(val).replaceWith("<a class='fancy_image' href='"+img_url+"'>"+img_html+"</a>");
 				});
 				
-				$(".fancy_image").fancybox();	
+				$(".fancy_image").fancybox();
+				$(".fancy_video").parent().bind('click', function() {
+					var href_ = $(this).find('embed').attr('src');
+		 	        $.fancybox({
+			            'padding'       : 0,
+			            'autoScale'     : false,
+			            'transitionIn'  : 'none',
+			            'transitionOut' : 'none',
+			            'title'         : this.title,
+			            'width'         : 640,
+			            'height'        : 385,
+			            'href'          : href_,
+			            'type'          : 'swf',
+			            'swf'           : {
+			            'wmode'             : 'transparent',
+			            'allowfullscreen'   : 'true'
+			            }
+			        });
+			        return false;
+			    });	
 				$(".fancybox_action").fancybox(); 
 				
 				function updateMenuTileItem(){
