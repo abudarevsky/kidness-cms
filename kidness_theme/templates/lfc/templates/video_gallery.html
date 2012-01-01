@@ -1,0 +1,75 @@
+{% extends "lfc/base.html" %}
+{% load portlets_tags %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}kidness_theme/css/video_kidness.css">
+{% endblock %}
+
+
+
+{% block javascript %}
+<!-- Put this script tag to the <head> of your page -->
+<script type="text/javascript" src="http://vkontakte.ru/js/api/share.js?11" charset="windows-1251"></script>
+
+<!-- Put this script tag to the place, where the Share button will be -->
+
+	<script type="text/javascript" src="//yandex.st/share/share.js" charset="utf-8"></script>
+	<script type="text/javascript">
+		// execute your scripts when DOM is ready. this is a good habit
+		
+		// JCarousel
+		/**
+		 * We use the initCallback callback
+		 * to assign functionality to the controls
+		 */
+		
+		// Ride the carousel...
+		$("#small_videos_block").find("img").live("click", function(){
+			$("#video_block").html($("#" + $(this).attr("video_id")).clone().show());
+		});
+		jQuery(document).ready(function() {
+			var video$ = $("object");
+			video$.each(function(index){$(this).attr("id", "video_" + index)});
+			var images$ = video$.closest("p").siblings("p").find("img");//.closest("div").find("img");
+			images$.each(function(index)($(this).attr("video_id", "video_" + index)));
+			video$.find("embed").attr("height", "300px")
+			video$.find("embed").attr("width", "490px");
+			var first_video = video$.get(0);
+			$(first_video).before('<span id="video_block"></span>');
+			$("#video_block").html($(first_video).clone());
+			$("#video_block").after("<br/><span id='small_videos_block'></span>");
+			$("#small_videos_block").html(images$.clone());
+			video$.hide();
+			images$.hide()
+			
+			YaShareInstance = new Ya.share({
+	            element: 'ya_share',
+	            link:"http://www.kidness.ru",
+	            onready: function(instance) {
+	                
+	            },
+	            elementStyle:{
+	            	quickServices:["vkontakte", "facebook", "twitter", "lj"],
+	            	text: ' ',
+	            	border:false,
+	            	type:'link'
+	            }
+        	});
+		   
+		});
+	</script>
+	
+{% endblock %}
+
+{% block content %}
+    {% if lfc_context.display_title %}
+        <h1 class="first-heading">{{ lfc_context.title }}</h1>
+    {% endif %}
+    <div>{{ lfc_context.text|safe }}</div>
+    
+    <div style="margin-top:20px;" align="center" id="ya_share" >
+    
+    </div> 
+	<span id="vkontakte"> </span>
+	<!--div style="margin-top:20px;" align="center" class="yashare-auto-init" data-yashareLink="http://www.kidness.ru" data-yashareType="none" data-yashareQuickServices="vkontakte,facebook,twitter,lj"></div-->
+{% endblock %}
