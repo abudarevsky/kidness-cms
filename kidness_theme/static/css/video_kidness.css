@@ -1,3 +1,7 @@
 #small_videos_block img{
 	padding-right:5px;
 }
+#video_block{
+	width:490px;
+	float:left;	
+}
