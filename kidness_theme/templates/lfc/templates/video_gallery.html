@@ -34,11 +34,11 @@
 			images$.each(function(index)($(this).attr("video_id", "video_" + index)));
 			video$.find("embed").attr("height", "300px")
 			video$.find("embed").attr("width", "490px");
-			//images$.attr("width", "150px");
+			images$.attr("width", "150");
 			var first_video = video$.get(0);
 			$(first_video).before('<span id="video_block"></span>');
 			$("#video_block").html($(first_video).clone());
-			$("#video_block").after("<span id='small_videos_block'></span>");
+			$("#video_block").after("<span id='small_videos_block'></span><div class='clear'></div>");
 			$("#small_videos_block").html(images$.clone());
 			video$.hide();
 			images$.hide()

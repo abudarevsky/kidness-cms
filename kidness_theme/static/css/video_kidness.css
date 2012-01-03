@@ -1,7 +1,14 @@
 #small_videos_block img{
-	padding-right:5px;
+	padding-left:10px;
+	padding-bottom:5px;
+}
+#small_videos_block{
+	
 }
 #video_block{
 	width:490px;
 	float:left;	
+}
+.clear{
+	clear:both;	
 }
