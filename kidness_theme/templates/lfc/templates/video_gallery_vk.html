@@ -27,7 +27,8 @@
 		$("#small_videos_block").find("img").live("click", function(){
 			$("#video_block").html($("#" + $(this).attr("video_id")).clone().show());
 			$("#vk_comments").html("");
-			VK.Widgets.Comments("vk_comments", {limit: 10, width: "496", attach: "*"}, location.href + "?id=" + $("#video_block").find("object").attr("page_id"));
+			var id_ = $("#video_block").find("object").attr("page_id");
+			VK.Widgets.Comments("vk_comments", {limit: 10, width: "496", attach: "*"}, id_);
 
 		});
 		jQuery(document).ready(function() {
