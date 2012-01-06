@@ -26,6 +26,9 @@
 		// Ride the carousel...
 		$("#small_videos_block").find("img").live("click", function(){
 			$("#video_block").html($("#" + $(this).attr("video_id")).clone().show());
+			$("#vk_comments").html("");
+			VK.Widgets.Comments("vk_comments", {limit: 10, width: "496", attach: "*"}, location.href + "?id=" + $(this).attr("video_id"));
+
 		});
 		jQuery(document).ready(function() {
 			var video$ = $("object");
@@ -41,7 +44,9 @@
 			$("#video_block").after("<span id='small_videos_block'></span><div class='clear'></div>");
 			$("#small_videos_block").html(images$.clone());
 			video$.hide();
-			images$.hide()
+			images$.hide();
+			
+			VK.Widgets.Comments("vk_comments", {limit: 10, width: "496", attach: "*"});
 			
 			YaShareInstance = new Ya.share({
 	            element: 'ya_share',
@@ -74,9 +79,6 @@
     <div>{{ lfc_context.text|safe }}</div>
     
     <div id="vk_comments"></div>
-	<script type="text/javascript">
-		VK.Widgets.Comments("vk_comments", {limit: 10, width: "496", attach: "*"});
-	</script>
 	<div style="margin-top:20px;" align="center" id="ya_share" >
     
     </div> 
