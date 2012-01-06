@@ -22,18 +22,20 @@
 		 * We use the initCallback callback
 		 * to assign functionality to the controls
 		 */
-		
-		// Ride the carousel...
-		$("#small_videos_block").find("img").live("click", function(){
-			$("#video_block").html($("#" + $(this).attr("video_id")).clone().show());
-			$("#vk_comments").html("");
-			var id_ = $("#video_block").find("object").attr("page_id");
+		function getVideoID(id_){
 			var start_ = id_.lastIndexOf('/');
 			var end_ = id_.lastIndexOf('&');
 			if(end_ == -1){
 				end_ = id_.length();
 			}
 			id_ = id_.substring(start_ + 1, end_);
+			return id_;
+		}
+		// Ride the carousel...
+		$("#small_videos_block").find("img").live("click", function(){
+			$("#video_block").html($("#" + $(this).attr("video_id")).clone().show());
+			$("#vk_comments").html("");
+			var id_ = getVideoID($("#video_block").find("object").attr("page_id"));
 			VK.Widgets.Comments("vk_comments", {limit: 10, width: "496", attach: "*"}, id_);
 
 		});
@@ -54,7 +56,8 @@
 			video$.hide();
 			images$.hide();
 			
-			VK.Widgets.Comments("vk_comments", {limit: 10, width: "496", attach: "*"});
+			var id_ = getVideoID($("#video_block").find("object").attr("page_id"));
+			VK.Widgets.Comments("vk_comments", {limit: 10, width: "496", attach: "*"},id_);
 			
 			YaShareInstance = new Ya.share({
 	            element: 'ya_share',
