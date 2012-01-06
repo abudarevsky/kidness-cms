@@ -27,12 +27,13 @@
 		$("#small_videos_block").find("img").live("click", function(){
 			$("#video_block").html($("#" + $(this).attr("video_id")).clone().show());
 			$("#vk_comments").html("");
-			VK.Widgets.Comments("vk_comments", {limit: 10, width: "496", attach: "*"}, location.href + "?id=" + $(this).attr("video_id"));
+			VK.Widgets.Comments("vk_comments", {limit: 10, width: "496", attach: "*"}, location.href + "?id=" + $("#video_block").find("object").attr("page_id"));
 
 		});
 		jQuery(document).ready(function() {
 			var video$ = $("object");
 			video$.each(function(index){$(this).attr("id", "video_" + index)});
+			video$.each(function(index){$(this).attr("page_id", $(this).find("embed").attr("src"))});
 			var images$ = video$.closest("p").siblings("p").find("img");//.closest("div").find("img");
 			images$.each(function(index)($(this).attr("video_id", "video_" + index)));
 			video$.find("embed").attr("height", "300px")
