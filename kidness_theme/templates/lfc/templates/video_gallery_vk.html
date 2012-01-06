@@ -57,7 +57,6 @@
 			images$.hide();
 			
 			var id_ = getVideoID($("#video_block").find("object").attr("page_id"));
-			console.log(id_);
 			VK.Widgets.Comments("vk_comments", {limit: 10, width: "496", attach: "*"},id_);
 			
 			YaShareInstance = new Ya.share({
