@@ -28,6 +28,12 @@
 			$("#video_block").html($("#" + $(this).attr("video_id")).clone().show());
 			$("#vk_comments").html("");
 			var id_ = $("#video_block").find("object").attr("page_id");
+			var start_ = id_.lastIndexOf('/');
+			var end_ = id_.lastIndexOf('&');
+			if(end_ == -1){
+				end_ = id_.length();
+			}
+			id_ = id_.substring(start_ + 1, end_);
 			VK.Widgets.Comments("vk_comments", {limit: 10, width: "496", attach: "*"}, id_);
 
 		});
