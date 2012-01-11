@@ -31,7 +31,7 @@
 			var video$ = $("object");
 			video$.each(function(index){$(this).attr("id", "video_" + index)});
 			var images$ = video$.closest("p").siblings("p").find("img");//.closest("div").find("img");
-			images$.each(function(index)($(this).attr("video_id", "video_" + index)));
+			images$.each(function(index){$(this).attr("video_id", "video_" + index)});
 			video$.find("embed").attr("height", "300px")
 			video$.find("embed").attr("width", "490px");
 			images$.attr("width", "150");
