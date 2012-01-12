@@ -38,7 +38,8 @@
 			var first_video = video$.get(0);
 			$(first_video).before('<span id="video_block"></span>');
 			var html_ = $(first_video).find("param[name='name']").attr("value");
-			$("#video_block").html(html_ + $(first_video).clone());
+			$("#video_block").before("<p>" + html_ + "</p>");
+			$("#video_block").html($(first_video).clone());
 			$("#video_block").after("<div class='clear'></div><span id='small_videos_block'></span><div class='clear'></div>");
 			$("#small_videos_block").html(images$.clone());
 			video$.hide();
