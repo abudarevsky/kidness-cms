@@ -38,7 +38,7 @@
 			images$.attr("width", "163");
 			var first_video = video$.get(0);
 			$(first_video).before('<span id="video_block"></span>');
-			var first_img$ = $(video$.get(0));
+			var first_img$ = $(images$.get(0));
 			//var html_ = $(first_video).find("param[name='name']").attr("value");
 			var html_ = first_img$.attr("title");
 			$("#video_block").before("<p id='video-name'>" + html_ + "</p>");
