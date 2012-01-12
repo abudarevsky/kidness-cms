@@ -7,7 +7,12 @@
 }
 #video_block{
 	width:692px;
+	float:left;
 }
 .clear{
 	clear:both;	
+}
+.video-name{
+	color: green;
+	text-transform:uppercase;	
 }
