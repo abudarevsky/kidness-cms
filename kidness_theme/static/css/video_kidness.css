@@ -12,7 +12,7 @@
 .clear{
 	clear:both;	
 }
-.video-name{
+#video-name{
 	color: green;
 	text-transform:uppercase;	
 }
