@@ -37,7 +37,7 @@
 			images$.attr("width", "163");
 			var first_video = video$.get(0);
 			$(first_video).before('<span id="video_block"></span>');
-			var html = first_video.find("param[name='name']").attr("value");
+			var html = $(first_video).find("param[name='name']").attr("value");
 			console.log(html);
 			$("#video_block").html($(first_video).clone());
 			$("#video_block").after("<div class='clear'></div><span id='small_videos_block'></span><div class='clear'></div>");
