@@ -2,7 +2,7 @@
 {% load portlets_tags %}
 
 {% block css %}
-<link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}kidness_theme/css/video_kidness.css?v=3">
+<link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}kidness_theme/css/video_kidness.css?v=4">
 {% endblock %}
 
 
@@ -34,7 +34,7 @@
 			images$.each(function(index){$(this).attr("video_id", "video_" + index)});
 			video$.find("embed").attr("height", "423px")
 			video$.find("embed").attr("width", "692px");
-			images$.attr("width", "150");
+			images$.attr("width", "163");
 			var first_video = video$.get(0);
 			$(first_video).before('<span id="video_block"></span>');
 			$("#video_block").html($(first_video).clone());
