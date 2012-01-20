@@ -23,10 +23,11 @@
 	top: 300px; 
 	left: 494px; 
 	display: block;	
+	z-index: 1100;
 
 }
 .one-video-close {
-    background: url("fancy_close.png") repeat scroll -40px 0 transparent;
+    background: url("fancy_close.png") repeat scroll 0 0;
     cursor: pointer;
     display: none;
     height: 30px;
