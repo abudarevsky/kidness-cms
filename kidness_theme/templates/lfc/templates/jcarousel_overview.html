@@ -14,7 +14,7 @@
 {% endblock %}
 {% block javascript %}
 	<script type="text/javascript" src="{{ MEDIA_URL }}kidness_theme/js/jquery.jcarousel.min.js"></script>
-	
+	<script type="text/javascript" src="{{ MEDIA_URL }}kidness_theme/js/page_with_one_video_handler.js"></script>
 	<script type="text/javascript">
 		// execute your scripts when DOM is ready. this is a good habit
 		
@@ -153,26 +153,6 @@
 			
 		});
 	</script>
-	<script type="text/javascript">
-		
-		jQuery(document).ready(function() {
-			$(".one-video-close").click(function(){
-				video$.hide();
-				$(".one-video-close").hide();
-				return false;
-			});
-			var video$ = $("object").first();
-			var image$ = video$.closest("p").siblings("p").find("img").first();//.closest("div").find("img");
-			video$.hide();
-			image$.click(function(){
-				video$.attr("class", "one_video_opened");
-				var left_ = parseInt(video$.css("left")) + parseInt(video$.width()) -15;
-				$(".one-video-close").css("left", left_);
-				$(".one-video-close").show();
-				video$.show();
-			});
-		});
-	</script>
 {% endblock %}
 
 {% block section %}carousel overview{% endblock %}
@@ -180,7 +160,6 @@
     {% if lfc_context.display_title %}
         <h1 class="first-heading">{{ lfc_context.title }}</h1>
     {% endif %}
-    <a href='.' class='one-video-close'></a>
     {% if lfc_context.text %}
    		<div id="overview_teaser">
    			<div id="toggled_teaser">{{lfc_context.text|safe|truncatewords_html:60}}</div>

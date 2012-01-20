@@ -14,8 +14,7 @@
 <!-- Put this script tag to the place, where the Share button will be -->
 
 	<script type="text/javascript" src="//yandex.st/share/share.js" charset="utf-8"></script>
-
-	
+	<script type="text/javascript" src="{{ MEDIA_URL }}kidness_theme/js/page_with_one_video_handler.js"></script>
 {% endblock %}
 
 {% block content %}
@@ -23,27 +22,6 @@
         <h1 class="first-heading">{{ lfc_context.title }}</h1>
     {% endif %}
     <div>{{ lfc_context.text|safe }}</div>
-    <a href='.' class='one-video-close'></a>
-    <script type="text/javascript">
-		
-		jQuery(document).ready(function() {
-			$(".one-video-close").click(function(){
-				video$.hide();
-				$(".one-video-close").hide();
-				return false;
-			});
-			var video$ = $("object").first();
-			var image$ = video$.closest("p").siblings("p").find("img").first();//.closest("div").find("img");
-			video$.hide();
-			image$.click(function(){
-				video$.attr("class", "one_video_opened");
-				var left_ = parseInt(video$.css("left")) + parseInt(video$.css("width")) - 15;
-				$(".one-video-close").css("left", left_);
-				$(".one-video-close").show();
-				video$.show();
-			});
-		});
-	</script>
     <div style="margin-top:20px;" align="center" id="ya_share" >
     
     </div> 
