@@ -1,0 +1,49 @@
+{% extends "lfc/base.html" %}
+{% load portlets_tags %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}kidness_theme/css/video_kidness.css?v=7">
+{% endblock %}
+
+
+
+{% block javascript %}
+<!-- Put this script tag to the <head> of your page -->
+<script type="text/javascript" src="http://vkontakte.ru/js/api/share.js?11" charset="windows-1251"></script>
+
+<!-- Put this script tag to the place, where the Share button will be -->
+
+	<script type="text/javascript" src="//yandex.st/share/share.js" charset="utf-8"></script>
+	<script type="text/javascript">
+		// execute your scripts when DOM is ready. this is a good habit
+		
+		// JCarousel
+		/**
+		 * We use the initCallback callback
+		 * to assign functionality to the controls
+		 */
+		
+		jQuery(document).ready(function() {
+			var video$ = $("object").first();
+			var image$ = video$.closest("p").siblings("p").find("img").first();//.closest("div").find("img");
+			video$.hide();
+			image$.click(function(){
+				video$.attr("class", "one_video_opened");
+				video$.show();
+				image$.hide();
+			});
+		});
+	</script>
+	
+{% endblock %}
+
+{% block content %}
+    {% if lfc_context.display_title %}
+        <h1 class="first-heading">{{ lfc_context.title }}</h1>
+    {% endif %}
+    <div>{{ lfc_context.text|safe }}</div>
+    
+    <div style="margin-top:20px;" align="center" id="ya_share" >
+    
+    </div> 
+{% endblock %}

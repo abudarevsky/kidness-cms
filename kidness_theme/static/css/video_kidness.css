@@ -16,3 +16,12 @@
 	color: green;
 	text-transform:uppercase;	
 }
+.one_video_opened{
+	position: absolute;
+	width: 325px; 
+	height: auto; 
+	top: 744px; 
+	left: 494px; 
+	display: block;	
+
+}
