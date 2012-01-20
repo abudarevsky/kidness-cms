@@ -153,6 +153,26 @@
 			
 		});
 	</script>
+	<script type="text/javascript">
+		
+		jQuery(document).ready(function() {
+			$(".one-video-close").click(function(){
+				video$.hide();
+				$(".one-video-close").hide();
+				return false;
+			});
+			var video$ = $("object").first();
+			var image$ = video$.closest("p").siblings("p").find("img").first();//.closest("div").find("img");
+			video$.hide();
+			image$.click(function(){
+				video$.attr("class", "one_video_opened");
+				var left_ = parseInt(video$.css("left")) + parseInt(video$.css("width")) - 15;
+				$(".one-video-close").css("left", left_);
+				$(".one-video-close").show();
+				video$.show();
+			});
+		});
+	</script>
 {% endblock %}
 
 {% block section %}carousel overview{% endblock %}
