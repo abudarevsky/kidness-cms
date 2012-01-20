@@ -30,7 +30,7 @@
 			image$.click(function(){
 				video$.attr("class", "one_video_opened");
 				//video$.before("<a href='.' class='one-video-close'></a>");
-				$(".one-video-close").attr("display", "inline");
+				$(".one-video-close").show();//attr("display", "inline");
 				video$.show();
 				image$.hide();
 			});
