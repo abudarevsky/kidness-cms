@@ -25,3 +25,14 @@
 	display: block;	
 
 }
+.one-video-close {
+    background: url("fancybox.png") repeat scroll -40px 0 transparent;
+    cursor: pointer;
+    display: none;
+    height: 30px;
+    position: absolute;
+    top: 285px; 
+    left: 479px;
+    width: 30px;
+    z-index: 1103;
+}
