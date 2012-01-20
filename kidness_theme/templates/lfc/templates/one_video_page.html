@@ -14,28 +14,7 @@
 <!-- Put this script tag to the place, where the Share button will be -->
 
 	<script type="text/javascript" src="//yandex.st/share/share.js" charset="utf-8"></script>
-	<script type="text/javascript">
-		// execute your scripts when DOM is ready. this is a good habit
-		
-		jQuery(document).ready(function() {
-			$(".one-video-close").click(function(){
-				video$.hide();
-				$(".one-video-close").hide();
-				//image$.show();
-				return false;
-			});
-			var video$ = $("object").first();
-			var image$ = video$.closest("p").siblings("p").find("img").first();//.closest("div").find("img");
-			video$.hide();
-			image$.click(function(){
-				video$.attr("class", "one_video_opened");
-				//video$.before("<a href='.' class='one-video-close'></a>");
-				$(".one-video-close").show();//attr("display", "inline");
-				video$.show();
-				//image$.hide();
-			});
-		});
-	</script>
+
 	
 {% endblock %}
 
@@ -48,4 +27,25 @@
     <div style="margin-top:20px;" align="center" id="ya_share" >
     
     </div> 
+    	<script type="text/javascript">
+		// execute your scripts when DOM is ready. this is a good habit
+		
+		jQuery(document).ready(function() {
+			$(".one-video-close").click(function(){
+				video$.hide();
+				$(".one-video-close").hide();
+				return false;
+			});
+			var video$ = $("object").first();
+			var image$ = video$.closest("p").siblings("p").find("img").first();//.closest("div").find("img");
+			video$.hide();
+			image$.click(function(){
+				video$.attr("class", "one_video_opened");
+				var left_ = parseInt(video$.css("left")) + parseInt(video$.css("width")) - 15;
+				$(".one-video-close").css("left", left_);
+				$(".one-video-close").show();
+				video$.show();
+			});
+		});
+	</script>
 {% endblock %}
