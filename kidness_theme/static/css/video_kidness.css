@@ -17,7 +17,7 @@
 	text-transform:uppercase;	
 }
 .one_video_opened{
-	position: absolute;
+	position: fixed;
 	width: 325px; 
 	height: auto; 
 	top: 300px; 
@@ -31,7 +31,7 @@
     cursor: pointer;
     display: none;
     height: 30px;
-    position: absolute;
+    position: fixed;
     top: 285px; 
     left: 479px;
     width: 30px;
