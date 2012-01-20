@@ -28,7 +28,7 @@
 .one-video-close {
     background: url("fancybox.png") repeat scroll -40px 0 transparent;
     cursor: pointer;
-    display: none;
+    display: inline;
     height: 30px;
     position: absolute;
     top: 285px; 
