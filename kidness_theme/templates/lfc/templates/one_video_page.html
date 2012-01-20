@@ -29,6 +29,7 @@
 			$(".one-video-close").click(function(){
 				video$.hide();
 				image$.show();
+				return false;
 			});
 			var video$ = $("object").first();
 			var image$ = video$.closest("p").siblings("p").find("img").first();//.closest("div").find("img");
