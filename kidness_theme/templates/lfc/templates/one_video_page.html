@@ -2,7 +2,7 @@
 {% load portlets_tags %}
 
 {% block css %}
-<link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}kidness_theme/css/video_kidness.css?v=1">
+<link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}kidness_theme/css/video_kidness.css?v=11">
 {% endblock %}
 
 
@@ -16,12 +16,6 @@
 	<script type="text/javascript" src="//yandex.st/share/share.js" charset="utf-8"></script>
 	<script type="text/javascript">
 		// execute your scripts when DOM is ready. this is a good habit
-		
-		// JCarousel
-		/**
-		 * We use the initCallback callback
-		 * to assign functionality to the controls
-		 */
 		
 		jQuery(document).ready(function() {
 			$(".one-video-close").click(function(){
@@ -50,7 +44,7 @@
         <h1 class="first-heading">{{ lfc_context.title }}</h1>
     {% endif %}
     <div>{{ lfc_context.text|safe }}</div>
-    <a href='.' class='one-video-close'>X</a>
+    <a href='.' class='one-video-close'></a>
     <div style="margin-top:20px;" align="center" id="ya_share" >
     
     </div> 
