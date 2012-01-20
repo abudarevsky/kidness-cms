@@ -166,7 +166,7 @@
 			video$.hide();
 			image$.click(function(){
 				video$.attr("class", "one_video_opened");
-				var left_ = parseInt(video$.css("left")) + parseInt(video$.css("width")) - 15;
+				var left_ = parseInt(video$.css("left")) + parseInt(video$.width()) - 15;
 				$(".one-video-close").css("left", left_);
 				$(".one-video-close").show();
 				video$.show();
