@@ -2,7 +2,7 @@
 {% load portlets_tags %}
 
 {% block css %}
-<link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}kidness_theme/css/video_kidness.css?v=4">
+<link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}kidness_theme/css/video_kidness.css?v=3">
 {% endblock %}
 
 
@@ -29,7 +29,8 @@
 			video$.hide();
 			image$.click(function(){
 				video$.attr("class", "one_video_opened");
-				video$.before("<a href='.' class='one-video-close'></a>");
+				//video$.before("<a href='.' class='one-video-close'></a>");
+				$(".one-video-close").attr("display", "inline");
 				video$.show();
 				image$.hide();
 			});
@@ -43,7 +44,7 @@
         <h1 class="first-heading">{{ lfc_context.title }}</h1>
     {% endif %}
     <div>{{ lfc_context.text|safe }}</div>
-    
+    <a href='.' class='one-video-close'></a>
     <div style="margin-top:20px;" align="center" id="ya_share" >
     
     </div> 
