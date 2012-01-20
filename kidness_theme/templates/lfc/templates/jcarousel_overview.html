@@ -10,7 +10,7 @@
 <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}kidness_theme/css/jcarousel_kidness/skin.css">
 <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}kidness_theme/css/scrollable_part.css">
 <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}kidness_theme/css/news_skin.css?v=5">
-<link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}kidness_theme/css/video_kidness.css?v=13">
+<link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}kidness_theme/css/video_kidness.css?v=12">
 {% endblock %}
 {% block javascript %}
 	<script type="text/javascript" src="{{ MEDIA_URL }}kidness_theme/js/jquery.jcarousel.min.js"></script>
@@ -166,10 +166,7 @@
 			video$.hide();
 			image$.click(function(){
 				video$.attr("class", "one_video_opened");
-				var left_ = parseInt(video$.css("left")) + parseInt(video$.width());
-				console.log(video$.css("left"));
-				console.log(video$.width());
-				console.log(left_);
+				var left_ = parseInt(video$.css("left")) + parseInt(video$.width()) -15;
 				$(".one-video-close").css("left", left_);
 				$(".one-video-close").show();
 				video$.show();
