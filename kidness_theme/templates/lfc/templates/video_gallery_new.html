@@ -1,0 +1,80 @@
+{% extends "lfc/base.html" %}
+{% load portlets_tags %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}kidness_theme/css/video_kidness.css?v=7">
+{% endblock %}
+
+
+
+{% block javascript %}
+<!-- Put this script tag to the <head> of your page -->
+<script type="text/javascript" src="http://vkontakte.ru/js/api/share.js?11" charset="windows-1251"></script>
+
+<!-- Put this script tag to the place, where the Share button will be -->
+
+	<script type="text/javascript" src="//yandex.st/share/share.js" charset="utf-8"></script>
+	<script type="text/javascript">
+		jQuery(document).ready(function() {
+			var video$ = $("object");
+			video$.hide();
+			var images$ = video$.closest("p").prev().find("img");
+			images$.each(function(index){
+				var title_ = this.title;
+				if(title_ == ""){
+					title_ = "<br/>";
+				}
+				$(this).before("<div class='image-title'>" + title_ + "</div>");
+				$(this).closest("p").css("float", "left");
+				$(this).attr("class", "image-video-preview");
+				var videoForImg$ = video$.eq(index);
+				$(this).attr("href", videoForImg$.find("embed").attr("src"));
+			});
+			images$.last().closest("p").after("<div class='clear'></div>");
+			images$.fancybox({
+				            'padding'       : 0,
+				            'autoScale'     : false,
+				            'transitionIn'  : 'none',
+				            'transitionOut' : 'none',
+				            'title'         : this.title,
+				            'width'         : 640,
+				            'height'        : 385,
+				            'href'          : this.href,//.replace(new RegExp("watch\\?v=", "i"), 'v/'),
+				            'type'          : 'swf',
+				            'swf'           : {
+					            'wmode'             : 'transparent',
+					            'allowfullscreen'   : 'true'
+				            }
+			});			
+			
+			YaShareInstance = new Ya.share({
+	            element: 'ya_share',
+	            link:"http://www.kidness.ru",
+	            onready: function(instance) {
+	                
+	            },
+	            elementStyle:{
+	            	quickServices:["vkontakte", "facebook", "twitter", "lj"],
+	            	text: ' ',
+	            	border:false,
+	            	type:'link'
+	            }
+        	});
+		   
+		});
+	</script>
+	
+{% endblock %}
+
+{% block content %}
+    {% if lfc_context.display_title %}
+        <h1 class="first-heading">{{ lfc_context.title }}</h1>
+    {% endif %}
+    <div>{{ lfc_context.text|safe }}</div>
+    
+    <div style="margin-top:20px;" align="center" id="ya_share" >
+    
+    </div> 
+	<span id="vkontakte"> </span>
+	<!--div style="margin-top:20px;" align="center" class="yashare-auto-init" data-yashareLink="http://www.kidness.ru" data-yashareType="none" data-yashareQuickServices="vkontakte,facebook,twitter,lj"></div-->
+{% endblock %}

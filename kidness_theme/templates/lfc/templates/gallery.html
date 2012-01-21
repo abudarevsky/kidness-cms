@@ -8,7 +8,7 @@
     <div>{{ lfc_context.text|safe }}</div>
 
 	<div style="margin-left: 30px; width: 660px;">
-
+	
 	 {% for sub_object in sub_objects %}
 	 		<div style="width:310px;float:left;margin:5px;display:block;">
             <a class="galleryCover" href="{{ sub_object.get_absolute_url }}">
@@ -20,19 +20,14 @@
                      width="293"
                      heigh="202"
                      title="{{ sub_object.get_image.image.title }}" />
-                     
 	            <span class="roundedimage_corners">
 	            <img class="roundedimage_cornersitem" alt="" src="{{ MEDIA_URL }}kidness_theme/img/gallery_imgborder.png"/>
 	            </span>
 	            </span>  
-	                      	
-
-        
             	{% endif %}
             	<p>{{ sub_object.title }}</p>	
             </a>
             </div>   
     {% endfor %}
     </div>
-    
 {% endblock %}
