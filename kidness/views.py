@@ -7,7 +7,7 @@ from django.template.loader import get_template
 
 def post_feedback(request):
     if request.method=="POST":
-        print 'post request', request.POST
+      #  print 'post request', request.POST
         form = KidnessContactForm(data=request.POST, files=request.FILES, request=request)
         
         if form.is_valid():
