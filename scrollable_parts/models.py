@@ -44,12 +44,12 @@ class ScrollableContainer(BaseContent):
         arr = []
         subarr = None
         for child in self.get_children():
-            print child, len(arr), self.items_per_page
+#            print child, len(arr), self.items_per_page
             if not subarr or len(subarr)>= self.items_per_page:
                 subarr = []
                 arr.append(subarr)
             subarr.append(child)
-            print subarr
+#            print subarr
         return arr
              
     @property
