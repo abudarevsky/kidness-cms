@@ -11,7 +11,7 @@ def post_feedback(request):
         form = KidnessContactForm(data=request.POST, files=request.FILES, request=request)
         
         if form.is_valid():
-            form.save(fail_silently=True)
+            form.save()#fail_silently=True)
             return HttpResponse()
         else:
             t = get_template('lfc/lfc_form.html')
