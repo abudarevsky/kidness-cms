@@ -95,6 +95,7 @@ h1.logo img {
 }
 .headerContact .tel {
 	font-size:1.3em;
+	font-weight:bold;
 }
 .headerContact .addr {
 	font-size:0.9em;
