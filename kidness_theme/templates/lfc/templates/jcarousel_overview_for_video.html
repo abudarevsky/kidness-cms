@@ -163,6 +163,9 @@
     {% if lfc_context.text %}
    		<div id="overview_teaser">
    			<div id="toggled_teaser">{{lfc_context.text|safe|truncatewords_html:60}}</div>
+		   	<div style="display:none" id="toggled_text">
+		   		{{lfc_context.text|safe}}
+		   	</div>
 		   	<a id="toggle_action" class="showOverviewText" href="#">читать дальше</a>
 	   	        <span class="tlSH"></span>
                 <span class="trSH"></span>
