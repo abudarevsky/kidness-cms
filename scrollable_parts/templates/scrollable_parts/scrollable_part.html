@@ -34,7 +34,10 @@
 	      
 	      	<div style="display:block;float:left;width:500px; margin-right:40px;">
 	      	 <h2 {% if not child.display_title %} style="display:none;"{% endif %}>{{ child.title }}</h2>
-		   
+		   	{% if  child.text %}		
+	      	<script type="text/javascript" src="//yandex.st/share/share.js" charset="utf-8"></script>
+	  		<div class="yashare-auto-init" data-yashareLink="http://www.kidness.ru{{child.get_program_group_url}}" data-yashareType="none" data-yashareQuickServices="vkontakte,facebook,twitter,lj"></div>
+            {% endif %}
 		         <!-- content -->
 			
 	      	{{child.text|safe}}
@@ -46,12 +49,9 @@
 	         	<h2 style="margin-bottom:0px;padding-bottom: 0px">{{ child.title }}</h2>
 				{% endif %}
 	      	{% endif %}
-	      	
-	      		{% kidness_contactform %}
-	      	{% if  child.text %}		
-	      	<script type="text/javascript" src="//yandex.st/share/share.js" charset="utf-8"></script>
-	  		<div class="yashare-auto-init" data-yashareLink="http://www.kidness.ru{{child.get_program_group_url}}" data-yashareType="none" data-yashareQuickServices="vkontakte,facebook,twitter,lj"></div>
-            {% endif %}
+	      	<div class="contact-form-header">Заполните форму</div>
+	      	{% kidness_contactform %}
+	      	* Наш менеджер свяжется с Вами, после заполнения
             <!--  /div-->
 	      	
 	      </div>

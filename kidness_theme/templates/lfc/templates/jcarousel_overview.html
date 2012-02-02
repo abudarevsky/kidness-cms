@@ -138,8 +138,7 @@
 				//$("#toggled_text").toggle(900);
 				
 				if( $(this).text()=="Свернуть"){
-					$("#toggled_text").slideUp(900);
-					$("#toggled_teaser").show();
+					$("#toggled_text").slideUp(900, function(){$("#toggled_teaser").show();});
 					$(this).text("читать дальше");
 				}else{
 					$("#toggled_teaser").hide();
