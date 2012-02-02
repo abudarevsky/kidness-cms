@@ -1,13 +1,15 @@
 jQuery(document).ready(function() {
-	var video$ = $("object").first();
-	var image$ = video$.closest("p").siblings("p").find("img").first();
-	video$.hide();
-	image$.fancybox({
-        'titleShow'     : false,
-        'transitionIn'  : 'elastic',
-        'transitionOut' : 'elastic',
-        'href' : video$.find("embed").attr("src"),
-        'type'      : 'swf',
-        'swf'       : {'wmode':'transparent','allowfullscreen':'true'}
-    });
+	var videos$ = $("object");
+	videos$.each(function(){
+		var image$ = $(this).closest("p").prev().find("img").first();
+		$(this).hide();
+		image$.fancybox({
+	        'titleShow'     : false,
+	        'transitionIn'  : 'elastic',
+	        'transitionOut' : 'elastic',
+	        'href' : $(this).find("embed").attr("src"),
+	        'type'      : 'swf',
+	        'swf'       : {'wmode':'transparent','allowfullscreen':'true'}
+	    });
+	});
 });
