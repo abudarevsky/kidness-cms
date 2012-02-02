@@ -1,0 +1,208 @@
+{% extends "lfc/base.html" %}
+{% load i18n %}
+{% load lfc_tags %}
+{% load portlets_tags %}
+{% load tagging_tags %}
+{% load pagination_tags %}
+{% load comments %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}kidness_theme/css/jcarousel_kidness/skin.css">
+<link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}kidness_theme/css/scrollable_part.css">
+<link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}kidness_theme/css/news_skin.css?v=5">
+<link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}kidness_theme/css/video_kidness.css?v=12">
+{% endblock %}
+{% block javascript %}
+	<script type="text/javascript" src="{{ MEDIA_URL }}kidness_theme/js/jquery.jcarousel.min.js"></script>
+	<script type="text/javascript" src="{{ MEDIA_URL }}kidness_theme/js/page_with_one_video_handler.js"></script>
+	<script type="text/javascript">
+		// execute your scripts when DOM is ready. this is a good habit
+		
+		// JCarousel
+		/**
+		 * We use the initCallback callback
+		 * to assign functionality to the controls
+		 */
+		var selectedPart = window.location;
+		function hideDescriptionText(){
+			$("#toggled_text").slideUp(900);
+			$("#toggled_teaser").show();
+			$("#toggle_action").text("читать дальше");
+		} 
+		 
+		// Ride the carousel...
+		jQuery(document).ready(function() {
+			function mycarousel_initCallback(carousel) {
+			    jQuery('.jcarousel-control a').bind('click', function() {
+			    	var eid = $(this).attr('href').split('-')[1];
+			    	var num = jQuery.jcarousel.intval(eid);
+			    	carousel.scroll(num);
+			    	
+			    	var partid = $(this).attr('href');
+			    	$(".itemScroll").removeClass("selectedItem");
+			    	$(".itemScroll").children('div').removeClass("selectedItem");
+			    	$(partid).addClass("selectedItem");
+			    	$(partid).children('div').addClass("selectedItem");
+			    	
+			    	var prog_offset = 600+(num/3-1)*258-258;
+			    	
+			        return false;
+			    });
+			
+			    jQuery('.jcarousel-scroll select').bind('change', function() {
+			        carousel.options.scroll = jQuery.jcarousel.intval(this.options[this.selectedIndex].value);
+			        return false;
+			    });
+			};
+		    jQuery("#mycarousel").jcarousel({
+		        scroll: 3,
+		        vertical: true,
+		        initCallback: mycarousel_initCallback,
+		        // This tells jCarousel NOT to autobuild prev/next buttons
+		        buttonNextHTML: null,
+		        buttonPrevHTML: null,
+		        itemLastInCallback : function(object,li,idx,state){
+		        	var carousel = jQuery('#mycarousel').data('jcarousel');
+		        	if (state!="init"){
+		        		hideDescriptionText();
+		        		if (idx==carousel.size())
+		        			$("#next").hide();
+		        		else
+		        			$("#next").show();
+		        	}
+		        },
+		    	itemFirstInCallback : function(object,li,idx,state){
+	        		if (state!="init"){
+	        			hideDescriptionText();
+	        			//if (idx==1)
+	        			//	$("#prev").hide();
+	        			//else
+	        			//	$("#prev").show();
+	        		}
+	        		
+	        		$(".scroll-pager").removeClass("pagerSelectedItem");
+	        		$("#pi_"+idx).addClass("pagerSelectedItem");
+	        		$("#bpi_"+idx).addClass("pagerSelectedItem");
+	        		//for(var j=idx;j<idx+3;j++){
+	        		//	$("#pi_"+j).addClass("pagerSelectedItem");
+	        		//	$("#bpi_"+j).addClass("pagerSelectedItem");
+	        		//}
+	        	}
+		    });
+		    
+		    
+		    $("#prev").hide();
+		    
+			$(".child_text").hide();
+			$(".fancybox_inline").hide();
+			
+			$(".text_toggle_action").fancybox();
+			
+			$(".itemScroll").bind("mouseover", function(){
+				$(".itemScroll").removeClass("selectedItem");
+		    	$(".itemScroll").children('div').removeClass("selectedItem");
+		    	$(this).addClass("selectedItem");
+		    	$(this).children('div').addClass("selectedItem");
+		    	
+		    	selectedPart = $(this).find("H2:first").text();
+		    	
+		    	$(".scrollable_action").removeClass("navigatorSelectedItem");
+		    	partid = $(this).attr('id');
+		    	partid = partid.substring("jc_".length);
+		    	$("#navit_"+partid).addClass("navigatorSelectedItem");
+		    	
+			});
+			$(".itemScroll").bind("mouseout", function(){
+				$(".itemScroll").removeClass("selectedItem");
+		    	$(".itemScroll").children('div').removeClass("selectedItem");
+		    	$(".scrollable_action").removeClass("navigatorSelectedItem");
+			});
+			
+			$(".scrollable_action").bind("click", function(){
+				if($("#toggle_action").text()=='читать дальше'){
+					// $('html,body').animate({ scrollTop: $("#mycarousel").offset().top }, { duration: 'slow', easing: 'swing'});
+					$("html:not(:animated)"+( ! $.browser.opera ? ",body:not(:animated)" : "")).animate({ scrollTop: $("#mycarousel").offset().top }, { duration: 'slow', easing: 'swing'});
+				}
+				hideDescriptionText();
+				
+				classes =$(this).attr('class');
+				if (!/scroll-pager/.test(classes)){
+					$(".scrollable_action").removeClass("navigatorSelectedItem");
+					$(this).addClass("navigatorSelectedItem");
+				}
+				return false;
+			});
+			
+			$("#toggle_action").bind("click", function(){
+				//$("#toggled_teaser").toggle(900);
+				//$("#toggled_text").toggle(900);
+				
+				if( $(this).text()=="Свернуть"){
+					$("#toggled_text").slideUp(900);
+					$("#toggled_teaser").show();
+					$(this).text("читать дальше");
+				}else{
+					$("#toggled_teaser").hide();
+					$("#toggled_text").slideDown(900);
+					$(this).text("Свернуть");					
+				}
+				return false;
+			});
+			
+			
+			
+		});
+	</script>
+{% endblock %}
+
+{% block section %}carousel overview{% endblock %}
+{% block content %}
+    {% if lfc_context.display_title %}
+        <h1 class="first-heading">{{ lfc_context.title }}</h1>
+    {% endif %}
+    {% if lfc_context.text %}
+   		<div id="overview_teaser">
+   			<div id="toggled_teaser">{{lfc_context.text|safe|truncatewords_html:60}}</div>
+		   	<a id="toggle_action" class="showOverviewText" href="#">читать дальше</a>
+	   	        <span class="tlSH"></span>
+                <span class="trSH"></span>
+                <span class="blSH"></span>
+                <span class="brSH"></span>
+	   	<div class="clear"></div>
+	   	</div>
+   	{% endif %}
+    
+    {% ifequal lfc_context.content_type "scrollablecontainer" %}
+   		<div>
+           	{% include "scrollable_parts/scrollable_container.html" %}
+        </div>
+   	{% endifequal %}
+   	{% for sub_object in sub_objects %}
+           {% ifnotequal sub_object.content_type "scrollablepart" %}
+               {% ifequal sub_object.content_type "scrollablecontainer" %}
+                               <div>
+                               {% include "scrollable_parts/jcarousel_container.html" %}
+                          </div>
+                   {% else %}       
+                       <div class="entry {% if forloop.last %}last{% endif %}">
+                           <h2>
+                               <a href="{{ sub_object.get_absolute_url }}">
+                                   {{ sub_object.title }}
+                               </a>    
+                           </h2>
+                           {% if sub_object.get_image %}
+                               <img class="left"
+                                    src="{{ sub_object.get_image.image.url_100x100 }}"
+                                    alt="{{ sub_object.get_image.image.title }}"
+                                    title="{{ sub_object.get_image.image.title }}" />
+                           {% endif %}
+                           <div>
+                               {{ sub_object.description|safe }}
+                           </div>
+                       </div>
+               {% endifequal %}
+               <br clear="all" />
+           {% endifnotequal %}
+{% endfor %}
+
+{% endblock %}
