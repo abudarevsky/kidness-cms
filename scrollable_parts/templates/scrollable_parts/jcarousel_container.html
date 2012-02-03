@@ -27,6 +27,7 @@
 <!-- root element for scrollable -->
 
  <div id="mycarousel" class="jcarousel-skin-tango">
+ 	<h1>{{ sub_object.title }}</h1>
     <ul>
 		{% ifequal lfc_context.content_type "scrollablecontainer" %}
 	   		{% for child in lfc_context.get_children %}
