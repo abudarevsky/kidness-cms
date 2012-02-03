@@ -1,12 +1,4 @@
  {% load i18n %}
-<script type="text/javascript">
-jQuery(document).ready(function() {
-	$("#send_feedback_link").click(function(){
-		$("#send_feedback_input").click();
-		return false;
-	});
-});
-</script> 
   <form class="contact-form"
         action="/contact"
         method="post">
@@ -16,7 +8,6 @@ jQuery(document).ready(function() {
 	 <!--  input id="program_field" type="hidden" name="program" value=""/-->
 	 <input id="send_feedback_input" class="send_feedback" type="button"
              value="Записаться на занятия" />
-      <a  style="display:none" id="send_feedback_link" href="" ><img src="{{ MEDIA_URL }}kidness_theme/img/forma.png"/></a>
              	<span class="tlSH"></span>
                 <span class="trSH"></span>
                 <span class="blSH"></span>
