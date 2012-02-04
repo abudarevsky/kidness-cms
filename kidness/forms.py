@@ -7,16 +7,16 @@ import lfc.utils
 class KidnessContactForm(lfc_forms.ContactForm):
     phone_number = forms.CharField(max_length=20,
                      widget=forms.TextInput(attrs=lfc_forms.attrs_dict),
-                     label=_(u'*Номер телефона'), required =True)
+                     label=_(u'*Телефон'), required =True)
     program = forms.CharField(max_length=1024, widget=forms.widgets.HiddenInput())
     def __init__ (self, *args, **kwargs):
         super(KidnessContactForm, self).__init__(*args, **kwargs)
-        self.fields['name'].label=_(u'*Ваше имя')
+        self.fields['name'].label=_(u'*ФИО')
         self.fields['email'].label=_(u'Адрес электронной почты')
         self.fields['email'].required=False
         self.fields['time'] = forms.CharField(max_length=15,
                      widget=forms.TextInput(),
-                     label=_(u'Предпочитаемое время звонка'), required=False)
+                     label=_(u'Удобное время для звонка'), required=False)
         self.fields['body']=forms.CharField(widget=forms.Textarea(attrs={'cols':20,'rows':5}),
                               label=_(u'Комментарии'), required=False)
         self.fields.keyOrder = [

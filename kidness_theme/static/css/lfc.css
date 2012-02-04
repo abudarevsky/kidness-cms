@@ -839,6 +839,9 @@ span.rightPhotoHat {
 .contact-form input {
     width: 200px;
 }
+.contact-form textarea {
+    width: 200px;
+}
 /*-------------------rounded avatar---------------*/
 .roundedimage_50 {
 height:202px;
