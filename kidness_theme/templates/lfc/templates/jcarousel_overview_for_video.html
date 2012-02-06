@@ -15,7 +15,36 @@
 {% block javascript %}
 	<script type="text/javascript" src="{{ MEDIA_URL }}kidness_theme/js/jquery.jcarousel.min.js"></script>
 	<script type="text/javascript" src="{{ MEDIA_URL }}kidness_theme/js/page_with_one_video_handler.js"></script>
-	<script type="text/javascript">
+	
+{% endblock %}
+
+{% block section %}carousel overview{% endblock %}
+{% block content %}
+    {% if lfc_context.display_title %}
+        <h1 class="first-heading">{{ lfc_context.title }}</h1>
+    {% endif %}
+    {% if lfc_context.text %}
+   		<div id="overview_teaser">
+   			<div id="toggled_teaser">{{lfc_context.text|safe|truncatewords_html:60}}</div>
+		   	<div style="display:none" id="toggled_text">
+		   		{{lfc_context.text|safe}}
+		   	</div>
+		   	<a id="toggle_action" class="showOverviewText" href="#">читать дальше</a>
+	   	        <span class="tlSH"></span>
+                <span class="trSH"></span>
+                <span class="blSH"></span>
+                <span class="brSH"></span>
+	   	<div class="clear"></div>
+	   	</div>
+   	{% endif %}
+    
+    {% ifequal lfc_context.content_type "scrollablecontainer" %}
+   		<div>
+           	{% include "scrollable_parts/scrollable_container.html" %}
+        </div>
+   	{% endifequal %}
+   	{% for sub_object in sub_objects %}
+   		<script type="text/javascript">
 		// execute your scripts when DOM is ready. this is a good habit
 		
 		// JCarousel
@@ -44,7 +73,7 @@
 			    	$(partid).addClass("selectedItem");
 			    	$(partid).children('div').addClass("selectedItem");
 			    	
-			    	var prog_offset = 600+(num/3-1)*258-258;
+			    	var prog_offset = 600+(num/2-1)*258-258;
 			    	
 			        return false;
 			    });
@@ -55,8 +84,9 @@
 			    });
 			};
 		    jQuery("#mycarousel").jcarousel({
-		        scroll: 3,
+		        scroll: {{sub_object.get_items_per_page}},
 		        vertical: true,
+		        visible: {{sub_object.get_items_per_page}},
 		        initCallback: mycarousel_initCallback,
 		        // This tells jCarousel NOT to autobuild prev/next buttons
 		        buttonNextHTML: null,
@@ -152,34 +182,6 @@
 			
 		});
 	</script>
-{% endblock %}
-
-{% block section %}carousel overview{% endblock %}
-{% block content %}
-    {% if lfc_context.display_title %}
-        <h1 class="first-heading">{{ lfc_context.title }}</h1>
-    {% endif %}
-    {% if lfc_context.text %}
-   		<div id="overview_teaser">
-   			<div id="toggled_teaser">{{lfc_context.text|safe|truncatewords_html:60}}</div>
-		   	<div style="display:none" id="toggled_text">
-		   		{{lfc_context.text|safe}}
-		   	</div>
-		   	<a id="toggle_action" class="showOverviewText" href="#">читать дальше</a>
-	   	        <span class="tlSH"></span>
-                <span class="trSH"></span>
-                <span class="blSH"></span>
-                <span class="brSH"></span>
-	   	<div class="clear"></div>
-	   	</div>
-   	{% endif %}
-    
-    {% ifequal lfc_context.content_type "scrollablecontainer" %}
-   		<div>
-           	{% include "scrollable_parts/scrollable_container.html" %}
-        </div>
-   	{% endifequal %}
-   	{% for sub_object in sub_objects %}
            {% ifnotequal sub_object.content_type "scrollablepart" %}
                {% ifequal sub_object.content_type "scrollablecontainer" %}
                                <div>

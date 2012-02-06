@@ -29,12 +29,14 @@ class ScrollableContainer(BaseContent):
     class Meta:
         verbose_name=_(u'Scrollable Container')
         verbose_name_plural=_(u'Scrollable Containers')
-
+    
+    def get_items_per_page(self):
+        return self.items_per_page
     def get_pages(self):
         rez = int(math.ceil(float(len(self.get_children()))/self.items_per_page))
         r_ = []
         j = 1
-        for i in range(1, len(self.get_children()) + 1, 3):
+        for i in range(1, len(self.get_children()) + 1, self.items_per_page):
             r_.append((i, j))
             j+=1
         return r_

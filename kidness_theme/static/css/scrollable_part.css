@@ -157,3 +157,9 @@
 {
 text-transform: none;
 }
+#content .jcarousel-control .portlet-item {
+	padding-bottom: 7px;
+}
+#content .jcarousel-control .portlet-item a{
+	line-height: 1em;
+}
