@@ -1,43 +1,6 @@
  {% load i18n %}
 	      			<script type="text/javascript">
-	jQuery(document).ready(function() {
-		var selectedPart = window.location;
-		$(".send_feedback").bind('click', function(){
-				$.fancybox.showActivity();
-				$form =  $(this).closest("form");
-				if(selectedPart!=window.location){
-					selectedPart=window.location+' '+selectedPart; 
-				}
-				
-				$form.find("input[name|='program']").val(selectedPart);
-		    	$.ajax({
-		    		 type        : "POST",
-		             cache   : false,
-		             data 	 : $form.serialize(),
-		             url     : "/kidness_feedback",
-		             success : function(){
-		            	//window.location='/contact-thank-you';
-		            	// $("#feedback").html("<h2>Спасибо, ваша заявка принята!</h2>");
-		            	$.fancybox(
-							'<h2 align="center">Спасибо, ваша заявка принята!</h2>',
-							{
-					        	'autoDimensions'	: false,
-								'width'         		: 350,
-								'height'        		: 'auto',
-								'transitionIn'		: 'none',
-								'transitionOut'		: 'none'
-							});
-		             },
-		             error: function(xhr, ajaxOptions, thrownError) {
-		            	$form.find("div").html(xhr.responseText);
-	            	    $.fancybox.hideActivity();
-	                    $.fancybox.resize();
-		                    // return false;
-		             }	    
-		    	 });
-				return false;
-			});
-		});
+var selectedPart = window.location;
 	</script>	 	
   <form class="contact-form"
         action="/contact"
@@ -48,7 +11,7 @@
 	 <!--  input id="program_field" type="hidden" name="program" value=""/-->
 	 <input style="display:none" class="send_feedback" type="button"
              value="Записаться на занятия" />
-      <a   class="send_feedback" href="" ><img src="{{ MEDIA_URL }}kidness_theme/img/forma.gif"/></a>
+      <a   class="send_feedback" href="#" ><img src="{{ MEDIA_URL }}kidness_theme/img/forma.gif"/></a>
       <p>Мы свяжемся с вами в удобное для вас время</p>
              	<span class="tlSH"></span>
                 <span class="trSH"></span>
