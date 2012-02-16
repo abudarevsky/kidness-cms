@@ -34,16 +34,13 @@
         <script type="text/javascript" src="{{ MEDIA_URL }}kidness_theme/fancybox/jquery.mousewheel-3.0.4.pack.js"></script>
         <script type="text/javascript" src="{{ MEDIA_URL }}kidness_theme/js/jquery.jcarousel.min.js"></script>
         <meta name='yandex-verification' content='7407bc472beee90a' />
-        {% include "lfc/js_counters.html" %}
         
 		<script type="text/javascript">
 			$.fn.hasAttr = function(name) {  
 			   return this.attr(name) !== undefined;
 			};
 			$(function(){
-		
-		
-		$(".send_feedback").click(function(){
+			$(".send_feedback").click(function(){
 				$.fancybox.showActivity();
 				$form =  $(this).closest("form");
 				if(selectedPart!=window.location){
@@ -153,6 +150,7 @@
 			
 		</script>
         {% block javascript %}{% endblock %}
+        {% include "lfc/js_counters.html" %}
     </head>
     <body class="{{ lfc_context.slug }} {% block section %}{% endblock %}">
         {% if user.is_authenticated %}
