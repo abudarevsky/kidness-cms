@@ -26,7 +26,7 @@
    		<div id="overview_teaser">
    			<div id="toggled_teaser">{{lfc_context.text|safe|truncatewords_html:60}}</div>
 		   	<div style="display:none" id="toggled_text">
-		   		{% if image %}
+		   		{% if False and image %}
 	                <img class="left"
 	                     src="{{ image.image.url_60x60 }}"
 	                     alt="{{ image.image.title }}"
@@ -190,7 +190,7 @@
 	</script>
            {% ifnotequal sub_object.content_type "scrollablepart" %}
                {% ifequal sub_object.content_type "scrollablecontainer" %}
-                               <div>
+                          <div>
                                {% include "scrollable_parts/jcarousel_container.html" %}
                           </div>
                    {% else %}       
