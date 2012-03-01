@@ -98,8 +98,12 @@ class ScrollablePart(BaseContent):
     def get_program_group_url(self):
         url = self.get_absolute_url();
         return url[:url.rfind('/')]
+    
     def get_tags_as_list(self):
         return Tag.objects.get_for_object(self).all()
+    
+    def get_tags_as_string_list_(self):
+        return self.tags.split(",")
     
     def form(self, **kwargs):
         """Returns the add/edit form of the NewsEntry
