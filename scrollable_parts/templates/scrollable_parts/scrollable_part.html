@@ -48,7 +48,7 @@
 	<a style="text-decoration: none;width:213px" id="{{child.slug}}__action" class="text_toggle_action" href="#{{child.slug}}__text">
    		<table class="brackets">
 	   		<tr><td style="width:213px">
-	   			{% for tag in child.get_tags_as_string_list_ %}
+	   			{% for tag in child.get_tags_as_list %}
 		   			{{tag}}<br />
 		   		{% endfor %}	
 	   		</td></tr>	
