@@ -1,0 +1,18 @@
+ {% load i18n %}
+	      			<script type="text/javascript">
+var selectedPart = window.location;
+	</script>	 	
+  <form  class="callme_form_class"
+        action="."
+        method="post">
+        <div class="callme-form-wrapper">
+      {% include "lfc/lfc_form_new.html" %}
+      </div>
+	  <input style="display:none" class="send_feedback" type="submit"
+             value="Записаться на занятия" />
+      <div class="clear"></div>
+      <div style="margin-left:50px">
+      	<a class="send_feedback" href="#" ><img src="{{ MEDIA_URL }}kidness_theme/img/forma.gif"/></a>
+      </div>
+  </form>	
+  
