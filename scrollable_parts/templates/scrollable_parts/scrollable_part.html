@@ -1,14 +1,36 @@
 {% load i18n %}
 {% load scrollable_parts_tags %}
-
+	
+	
 <div id="jc_{{child.slug}}" class="itemScroll" name="{{child.slug}}">
+
+	<div style="display:none"  class="callme_form_container" id="{{child.slug}}__form">
+		<a class="callme-form-close" style="display: inline;"></a>
+	    <div class="overflow"></div>
+	    <div class="content">
+	    	<div class="content-left" style="float:left">
+	    		{% if  child.text %}		
+			      	<script type="text/javascript" src="//yandex.st/share/share.js" charset="utf-8"></script>
+			  		<div class="yashare-auto-init" data-yashareLink="http://www.kidness.ru{{child.get_program_group_url}}" data-yashareType="none" data-yashareQuickServices="vkontakte,facebook,twitter,lj"></div>
+	            {% endif %}
+	            <br/>
+	    		{{child.text|safe}}
+	    	</div>
+	    	<div class="content-right" style="float:left">
+			    <div class="contact-form-header">ШАГ 3<br/>ЗАПОЛНИТЕ ФОРМУ</div>
+			    <br/>
+				<div>Мы перезвоним Вам, чтобы рассказать подробнее о данной программе. Или позвоните нам по тел.&nbsp;(812)&nbsp;6450155</div>
+			    {% kidness_contactform_new %}
+		    </div>
+	    </div>
+	</div>
 	
 	<div style="float:left;display:block;width:478px;min-height: 258px;">
 	<!-- title -->
     
          	<h2 {% if not child.display_title %} style="display:none;"{% endif %}>{{ child.title }}</h2>
          <!-- content -->
-		<a style="text-decoration: none" id="{{child.slug}}__action" class="text_toggle_action" href="#{{child.slug}}__text">
+		<a style="text-decoration: none" id="{{child.slug}}__action" class="callme_form_container_action" data-formid="#{{child.slug}}__form" href="#{{child.slug}}__text">
 			{% if child.short_text %}		
 		      {{ child.short_text|safe|truncatewords_html:60 }}
 		    {% else %}
@@ -17,9 +39,16 @@
 	    </a>  
       <script type="text/javascript" src="//yandex.st/share/share.js" charset="utf-8"></script>
 	  <div style="float:left;width:306px"><div class="yashare-auto-init" data-yashareLink="http://www.kidness.ru{{child.get_program_group_url}}" data-yashareType="none" data-yashareQuickServices="vkontakte,facebook,twitter,lj"></div></div> 
-	  <div style="float:left;padding-top:5px;"><a class="text_toggle_action" href="#{{child.slug}}__text"><img src="{{ MEDIA_URL }}kidness_theme/img/knowmore.gif"/></a></div>
+	  <div style="float:left;padding-top:5px;"><a class="callme_form_container_action" data-program="{{child.slug}}" data-formid="#{{child.slug}}__form" href="#{{child.slug}}__text"><img src="{{ MEDIA_URL }}kidness_theme/img/knowmore.gif"/></a></div>
+      
+      
+      
+      
+      
       <div style="display:none" class="child_text">
+      
       		{% if  child.text %}
+      	
 	      <div class="scrollableDescr" id="{{child.slug}}__text">
 	      	<div style="display:block;float:left;width:500px; margin-right:40px;">
 	      	 <h2 {% if not child.display_title %} style="display:none;"{% endif %}>{{ child.title }}</h2>
@@ -31,7 +60,8 @@
 	      	{{child.text|safe}}
 	      	</div>
 	      	{% else %}
-	      		<div style="width:260px;" class="scrollableDescr" id="{{child.slug}}__text">
+	      	<div style="width:260px;" class="scrollableDescr" id="{{child.slug}}__text">
+	      		
 	      		 {% if child.display_title %}
 	         	<h2 style="margin-bottom:0px;padding-bottom: 0px">{{ child.title }}</h2>
 				{% endif %}
@@ -41,11 +71,12 @@
 				<div>Мы перезвоним Вам, чтобы рассказать подробнее о данной программе. Или позвоните нам по тел.&nbsp;(812)&nbsp;6450155</div>
 	      	{% kidness_contactform %}
             <!--  /div-->
-	      </div>
+             </div>
       </div>
    </div>
+   
    <div style="float:left;display:block;width:213px">
-	<a style="text-decoration: none;width:213px" id="{{child.slug}}__action" class="text_toggle_action" href="#{{child.slug}}__text">
+	<a style="text-decoration: none;width:213px" id="{{child.slug}}__action" class="callme_form_container_action" data-formid="#{{child.slug}}__form" href="#{{child.slug}}__text" >
    		<table class="brackets">
 	   		<tr><td style="width:213px">
 	   			{% for tag in child.get_tags_as_list %}

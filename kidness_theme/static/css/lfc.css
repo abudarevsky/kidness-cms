@@ -826,6 +826,7 @@ span.rightPhotoHat {
 	color: #21A84A;
 	font-weight: bold;
 	text-align: left;
+	z-index:100000;
 }
 .contact-form {
 	background: #F7F7F7;
@@ -963,4 +964,85 @@ a.entry-description:hover div{
 
 .newsdate {
 	font-style: italic;
+}
+.callme-form-close{
+	background: url("/media/kidness_theme/fancybox/fancybox.png") repeat scroll -40px 0 transparent;
+	cursor: pointer;
+    height: 30px;
+    position: absolute;
+    right: -15px;
+    top: -15px;
+    width: 30px;
+    z-index: 1103;
+}
+.callme_form_container{
+	padding: 20px;
+	position:absolute;
+	top:+15px;
+	left:0;
+	z-index:1103;
+	
+}
+.overflow{
+	border-radius: 8px;
+	width: 100%;
+	background:none repeat scroll 0 0 #C0C0C0;
+	opacity: 0.9;
+	position:absolute;
+	top:0;
+	bottom:0;
+	left:0;
+}
+.callme_form_container .content{
+	position:relative;
+}
+.callme_form_container .content-right{
+	width: 340px;
+}
+.callme_form_container .content-left{
+	max-width: 500px;
+	padding-right:20px;
+}
+.callme_form_class{
+	width: 300px;
+	padding: 20px;
+	vertical-align: top;
+	position:relative;
+}
+.callme_form_class input{
+	border-radius: 8px;
+	opacity: 1;
+	height: 20px;
+	padding: 5px;
+	width: 260px;
+	margin-bottom: 15px;
+	border: 0 solid #C0C0C0;
+}
+.callme_form_class input[type=submit]{
+	background-color: #fff;
+	height: 40px;
+	font-size: 1.5em;
+	width: 270px;
+	margin-bottom: 0;
+}
+.callme_form_class textarea{
+	border-radius: 8px;
+	height: 80px;
+	padding: 5px;
+	width: 260px;
+	margin-bottom: 15px;
+	border: 0 solid #C0C0C0;
+}
+.callme_form_class .base-content{
+	float:left;
+}
+.callme_form_class .required, .callme_form_class .unrequired {
+	float:left;
+	color: #fff;
+	height: 30px;
+	padding-top: 10px;
+	padding-right: 5px;
+}
+.clear {
+	clear: both;
 }

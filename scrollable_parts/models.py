@@ -97,7 +97,10 @@ class ScrollablePart(BaseContent):
 
     def get_program_group_url(self):
         url = self.get_absolute_url();
-        return url[:url.rfind('/')]
+        url = url[:url.rfind('/')]
+        if url.endswith("/"):
+            url = url[:-1]
+        return url
     
     def get_tags_as_list(self):
         return Tag.objects.get_for_object(self).all()

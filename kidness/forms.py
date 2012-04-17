@@ -19,6 +19,8 @@ class KidnessContactForm(lfc_forms.ContactForm):
                      label=_(u'Удобное время для звонка'), required=False)
         self.fields['body']=forms.CharField(widget=forms.Textarea(attrs={'cols':20,'rows':5}),
                               label=_(u'Комментарии'), required=False)
+        self.fields['phone_number'].error_messages={'required': u'Введите номер телефона для связи'}
+        self.fields['name'].error_messages={'required': u'Введите свое имя'}
         self.fields.keyOrder = [
             'name',
             'phone_number',

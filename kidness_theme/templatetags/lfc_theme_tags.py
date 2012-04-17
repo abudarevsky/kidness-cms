@@ -8,6 +8,8 @@ from django.utils.translation import ugettext as _
 # portlets imports
 import portlets.utils
 from portlets.models import Slot
+from django.template.loader import render_to_string
+from kidness.forms import KidnessContactForm
 
 register = Library()
 
@@ -91,3 +93,16 @@ def month_as_text(num):
 #register.tag('gt', gt)
 
 register.tag('slots_information', do_slots_information)
+
+class KidnessContactFormNode(Node):
+   
+    def render(self, context):
+        request = context.get('request')
+        
+        formstr = render_to_string("scrollable_parts/scrollable_contactform_new.html",
+                                   {"form" : KidnessContactForm(request=request)}, context)
+        return formstr
+def get_kidness_contactform_new(parser, token):
+    return KidnessContactFormNode()
+        
+register.tag('kidness_contactform_new', get_kidness_contactform_new)  

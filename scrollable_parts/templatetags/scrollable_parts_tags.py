@@ -18,3 +18,16 @@ def get_kidness_contactform(parser, token):
     return KidnessContactFormNode()
         
 register.tag('kidness_contactform', get_kidness_contactform)        
+
+class KidnessContactFormNodeNew(Node):
+   
+    def render(self, context):
+        request = context.get('request')
+        
+        formstr = render_to_string("scrollable_parts/scrollable_contactform_new.html",
+                                   {"form" : KidnessContactForm(request=request)}, context)
+        return formstr
+def get_kidness_contactform_new(parser, token):
+    return KidnessContactFormNodeNew()
+        
+register.tag('kidness_contactform_new', get_kidness_contactform_new)  
