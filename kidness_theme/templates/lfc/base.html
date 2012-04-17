@@ -55,7 +55,7 @@
 			   return this.attr(name) !== undefined;
 			};
 			$(function(){
-			$(".send_feedback").click(function(){
+			$(".send_feedback").live("click", function(){
 				$.fancybox.showActivity();
 				$form =  $(this).closest("form");
 				if(selectedPart!=window.location){
