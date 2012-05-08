@@ -71,6 +71,12 @@
 			    jQuery('.jcarousel-control a').bind('click', function() {
 			    	var eid = $(this).attr('href').split('-')[1];
 			    	var num = jQuery.jcarousel.intval(eid);
+			    	var this_link = $(this).attr('href');
+			    	jQuery('.jcarousel-control .portlet-item a').each( function(index){
+			    		if ($(this).attr('href') == this_link) {
+			    			num=index+1;
+			    		}
+			    	});
 			    	carousel.scroll(num);
 			    	
 			    	var partid = $(this).attr('href');
